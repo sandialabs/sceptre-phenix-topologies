@@ -1,0 +1,21 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: soar
+  annotations:
+    topology: soar
+spec:
+  apps:
+  - name: vrouter
+    fromScenario: base
+  - name: wireguard
+    fromScenario: base
+  - name: mirror
+    fromScenario: nids
+  - name: protonuke
+    fromScenario: base
+  - name: windy
+    metadata:
+      soar:
+        tap: MGMT,172.16.60.51/16
+        disconnect: kali-ot,ot

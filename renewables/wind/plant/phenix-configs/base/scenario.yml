@@ -1,0 +1,436 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: base
+  annotations:
+    topology: base,hids,nids,soar
+spec:
+  apps:
+  - name: protonuke
+    hosts:
+    - hostname: wtg-01
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -serve
+    - hostname: wtg-02
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -serve
+    - hostname: wtg-03
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -serve
+    - hostname: wtg-04
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -serve
+    - hostname: wtg-05
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -serve
+    - hostname: ws-ot
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http 192.168.100.1,192.168.100.2,192.168.100.3,192.168.100.4,192.168.100.5
+    - hostname: ws-owop
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http 192.168.100.1,192.168.100.2,192.168.100.3,192.168.100.4,192.168.100.5
+    - hostname: ws-grid
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http 192.168.100.1,192.168.100.2,192.168.100.3,192.168.100.4,192.168.100.5
+    - hostname: ws-oem
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http 192.168.100.1,192.168.100.2,192.168.100.3,192.168.100.4,192.168.100.5
+    - hostname: nuke-pns
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -https -smtp -serve
+    - hostname: nuke-pnc1
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -https -smtp 75.75.0.100
+    - hostname: nuke-pnc2
+      metadata:
+        args: -logfile /var/log/protonuke.log -level info -http -https -smtp 75.75.0.100
+  - name: vrouter
+    hosts:
+    - hostname: rtr-owop
+      metadata:
+        ipsec:
+        - local: 10.0.10.2
+          peer: 10.0.40.2
+          tunnels:
+          - local: 192.168.10.0/24
+            remote: 192.168.100.0/24
+        acl:
+          ingress:
+            IF0: owop-in
+          egress:
+            IF0: owop-out
+          rulesets:
+          - default: drop
+            description: IPSEC Incoming
+            name: owop-in
+            rules:
+            - action: accept
+              description: site in
+              destination:
+                address: 192.168.10.10
+              id: 100
+              protocol: all
+              source:
+                address: 192.168.100.0/24
+          - default: drop
+            description: IPSEC Outgoing
+            name: owop-out
+            rules:
+            - action: accept
+              description: owop out
+              destination:
+                address: 192.168.100.0/24
+              id: 110
+              protocol: all
+              source:
+                address: 192.168.10.10
+    - hostname: rtr-grid
+      metadata:
+        ipsec:
+        - local: 10.0.20.2
+          peer: 10.0.40.2
+          tunnels:
+          - local: 192.168.20.0/24
+            remote: 192.168.100.0/24
+        acl:
+          ingress:
+            IF0: grid-in
+          egress:
+            IF0: grid-out
+          rulesets:
+          - default: drop
+            description: IPSEC Incoming
+            name: grid-in
+            rules:
+            - action: accept
+              description: site in
+              destination:
+                address: 192.168.20.10
+              id: 100
+              protocol: all
+              source:
+                address: 192.168.100.0/24
+          - default: drop
+            description: IPSEC Outgoing
+            name: grid-out
+            rules:
+            - action: accept
+              description: grid out
+              destination:
+                address: 192.168.100.0/24
+              id: 110
+              protocol: all
+              source:
+                address: 192.168.20.10
+    - hostname: rtr-oem
+      metadata:
+        ipsec:
+        - local: 10.0.30.2
+          peer: 10.0.40.2
+          tunnels:
+          - local: 192.168.30.0/24
+            remote: 192.168.100.0/24
+        acl:
+          ingress:
+            IF0: oem-in
+          egress:
+            IF0: oem-out
+          rulesets:
+          - default: drop
+            description: IPSEC Incoming
+            name: oem-in
+            rules:
+            - action: accept
+              description: site in
+              destination:
+                address: 192.168.30.10
+              id: 100
+              protocol: all
+              source:
+                address: 192.168.100.0/24
+          - default: drop
+            description: IPSEC Outgoing
+            name: oem-out
+            rules:
+            - action: accept
+              description: oem out
+              destination:
+                address: 192.168.100.0/24
+              id: 110
+              protocol: all
+              source:
+                address: 192.168.30.10
+    - hostname: rtr-site
+      metadata:
+        ipsec:
+        - local: 10.0.40.2
+          peer: 10.0.10.2
+          tunnels:
+          - local: 192.168.100.0/24
+            remote: 192.168.10.0/24
+        - local: 10.0.40.2
+          peer: 10.0.20.2
+          tunnels:
+          - local: 192.168.100.0/24
+            remote: 192.168.20.0/24
+        - local: 10.0.40.2
+          peer: 10.0.30.2
+          tunnels:
+          - local: 192.168.100.0/24
+            remote: 192.168.30.0/24
+        acl:
+          ingress:
+            IF0: pn1-in
+            IF1: pn2-in
+            IF2: jh-in
+            IF3: site-in
+          egress:
+            IF0: pn1-out
+            IF1: pn2-out
+            IF2: jh-out
+            IF3: site-out
+          rulesets:
+          - default: drop
+            description: IPSEC Incoming
+            name: site-in
+            rules:
+            - action: accept
+              description: Jump host in
+              source:
+                address: 192.168.60.100
+              destination:
+                address: 192.168.100.100
+              id: 100
+              protocol: all
+            - action: accept
+              description: VPN in
+              source:
+                address: 10.222.222.0/24
+              destination:
+                address: 192.168.100.100
+              id: 105
+              protocol: all
+            - action: accept
+              description: owop in
+              destination:
+                address: 192.168.100.0/24
+              id: 110
+              protocol: all
+              source:
+                address: 192.168.10.10
+            - action: accept
+              description: grid in
+              destination:
+                address: 192.168.100.0/24
+              id: 120
+              protocol: all
+              source:
+                address: 192.168.20.10
+            - action: accept
+              description: oem in
+              destination:
+                address: 192.168.100.0/24
+              id: 130
+              protocol: all
+              source:
+                address: 192.168.30.10
+          - default: drop
+            description: IPSEC Outgoing
+            name: site-out
+            rules:
+            - action: accept
+              description: Jump host out
+              id: 140
+              protocol: all
+              source:
+                address: 192.168.100.100
+              destination:
+                address: 192.168.60.100
+            - action: accept
+              description: VPN out
+              id: 145
+              protocol: all
+              source:
+                address: 192.168.100.100
+              destination:
+                address: 10.222.222.0/24
+            - action: accept
+              description: site to owop
+              destination:
+                address: 192.168.10.10
+              id: 150
+              protocol: all
+              source:
+                address: 192.168.100.0/24
+            - action: accept
+              description: site to grid
+              destination:
+                address: 192.168.20.10
+              id: 160
+              protocol: all
+              source:
+                address: 192.168.100.0/24
+            - action: accept
+              description: site to oem
+              destination:
+                address: 192.168.30.10
+              id: 170
+              protocol: all
+              source:
+                address: 192.168.100.0/24
+          - default: drop
+            description: JH Incoming
+            name: jh-in
+            rules:
+            - action: accept
+              description: ot in
+              destination:
+                address: 192.168.60.100
+              id: 200
+              protocol: all
+              source:
+                address: 192.168.100.100
+            - action: accept
+              description: VPN in
+              destination:
+                address: 10.222.222.0/24
+              id: 205
+              protocol: all
+              source:
+                address: 192.168.100.100
+            - action: accept
+              description: guard in
+              destination:
+                address: 192.168.60.100
+                port: 51820
+              id: 210
+              protocol: udp
+          - default: drop
+            description: JH Ouotgoing
+            name: jh-out
+            rules:
+            - action: accept
+              description: jh out
+              destination:
+                address: 192.168.100.100
+              id: 220
+              protocol: all
+              source:
+                address: 192.168.60.100
+            - action: accept
+              description: VPN out
+              destination:
+                address: 192.168.100.100
+              id: 225
+              protocol: all
+              source:
+                address: 10.222.222.0/24
+            - action: accept
+              description: guard out
+              id: 230
+              protocol: udp
+              source:
+                address: 192.168.60.100
+          - default: drop
+            description: PNS Incoming
+            name: pn1-in
+            rules:
+            - action: accept
+              description: pns in
+              destination:
+                address: 192.168.40.100
+              id: 300
+              protocol: all
+              source:
+                address: 75.75.0.100
+            - action: accept
+              description: rtr in
+              destination:
+                address: 192.168.40.100
+              id: 310
+              protocol: all
+              source:
+                address: 192.168.40.254
+          - default: drop
+            description: PNS Outgoing
+            name: pn1-out
+            rules:
+            - action: accept
+              description: pns out
+              destination:
+                address: 75.75.0.100
+              id: 320
+              protocol: all
+              source:
+                address: 192.168.40.100
+            - action: accept
+              description: rtr out
+              destination:
+                address: 192.168.40.254
+              id: 330
+              protocol: all
+              source:
+                address: 192.168.40.100
+          - default: drop
+            description: PNS Incoming
+            name: pn2-in
+            rules:
+            - action: accept
+              description: pns in
+              destination:
+                address: 192.168.50.100
+              id: 400
+              protocol: all
+              source:
+                address: 75.75.0.100
+            - action: accept
+              description: rtr in
+              destination:
+                address: 192.168.50.100
+              id: 410
+              protocol: all
+              source:
+                address: 192.168.50.254
+          - default: drop
+            description: PNS Outgoing
+            name: pn2-out
+            rules:
+            - action: accept
+              description: pns out
+              destination:
+                address: 75.75.0.100
+              id: 420
+              protocol: all
+              source:
+                address: 192.168.50.100
+            - action: accept
+              description: rtr out
+              destination:
+                address: 192.168.50.254
+              id: 430
+              protocol: all
+              source:
+                address: 192.168.50.100
+  - name: wireguard
+    hosts:
+    - hostname: guard-jh
+      metadata:
+        boot: true
+        interface:
+          private_key: UJtXcIoNKQaXtOpxK7e9Kmgadxg1DhGQNAR0/SdSvGc=
+          address: 10.222.222.1/24
+          listen_port: 51820
+        peers:
+        - public_key: aUT/gilnN33HrhKNZ0xfPmTwwQ5/jlVj1mS6yq+YFD4=
+          allowed_ips: 10.222.222.45/32
+          keepalive: 21
+    - hostname: guard-cli
+      metadata:
+        interface:
+          private_key: sEPxCZZoPfFBP3n2ctG9hOjchSqJtx2/NNI8BJH+pFg=
+          address: 10.222.222.45/32
+        peers:
+        - public_key: xsDGqVEWYUOAK/XLvN5/zgtPcD1dVQjbPgQAMxbw0XU=
+          server_endpoint: 192.168.60.100:51820
+          allowed_ips: 10.222.222.0/24, 192.168.100.0/24
+          keepalive: 21
