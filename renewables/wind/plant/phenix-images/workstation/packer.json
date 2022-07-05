@@ -1,0 +1,112 @@
+{
+  "_comment": "Build with `packer build packer.json`",
+  "variables": {
+    "cpus": "2",
+    "memory": "4096",
+    "disk_size": "20480",
+    "iso_url": "http://care.dlservice.microsoft.com/dl/download/evalx/win7/x64/EN/7600.16385.090713-1255_x64fre_enterprise_en-us_EVAL_Eval_Enterprise-GRMCENXEVAL_EN_DVD.iso",
+    "iso_checksum": "1d0d239a252cb53e466d39e752b17c28",
+    "iso_checksum_type": "md5",
+    "vm_name": "windows-7",
+    "headless": "true"
+  },
+  "builders": [
+    {
+      "boot_wait": "2s",
+      "communicator": "winrm",
+      "disk_size": "{{ user `disk_size` }}",
+      "floppy_files": [
+        "drivers/virtio-win-0.1.171/NetKVM/w7/amd64/*",
+        "drivers/virtio-win-0.1.171/vioserial/w7/amd64/*",
+        "drivers/virtio-win-0.1.171/viostor/w7/amd64/*",
+        "answers/Autounattend.xml"
+      ],
+      "headless": "{{ user `headless` }}",
+      "iso_checksum": "{{ user `iso_checksum_type` }}:{{ user `iso_checksum` }}",
+      "iso_urls": [
+        "{{ user `iso_url` }}"
+      ],
+      "output_directory": "artifacts",
+      "qemuargs": [
+        [
+          "-m",
+          "{{ user `memory` }}"
+        ],
+        [
+          "-smp",
+          "cpus={{ user `cpus`}}"
+        ],
+        [
+          "-cpu",
+          "Broadwell"
+        ]
+      ],
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1",
+      "shutdown_timeout": "30m",
+      "type": "qemu",
+      "vm_name": "{{ user `vm_name` }}",
+      "winrm_username": "admin",
+      "winrm_password": "password",
+      "winrm_timeout": "10000s"
+    }
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/Disable-WindowsUpdates.ps1"
+      ],
+      "type": "powershell"
+    },
+    {
+      "scripts": [
+        "scripts/Disable-UAC.bat",
+        "scripts/Enable-RDP.bat",
+        "scripts/Firewall-Open-Ping.bat",
+        "scripts/Firewall-Open-RDP.bat",
+        "scripts/Firewall-Open-SMB.bat"
+      ],
+      "type": "windows-shell"
+    },
+    {
+      "type": "file",
+      "source": "scripts/phenix-startup.ps1",
+      "destination": "/phenix/phenix-startup.ps1"
+    },
+    {
+      "type": "windows-shell",
+      "inline": "schtasks.exe /create /sc onstart /ru SYSTEM /tn phenix-startup /tr \"powershell.exe -ep bypass C:\\phenix\\phenix-startup.ps1 > C:\\phenix\\phenix-startup.log\" /f"
+    },
+    {
+      "type": "file",
+      "source": "apps/miniccc.exe",
+      "destination": "/minimega/miniccc.exe"
+    },
+    {
+      "type": "windows-shell",
+      "inline": "C:\\minimega\\miniccc.exe -install auto-start -logfile C:\\minimega\\miniccc.log -level info"
+    },
+    {
+      "type": "windows-shell",
+      "inline": "net start miniccc",
+      "valid_exit_codes": [0, 2],
+      "pause_before": "5s"
+    },
+    {
+      "type": "windows-shell",
+      "inline": "E:\\wazuh-agent-4.2.5-1.msi /q"
+    },
+    {
+      "type": "windows-restart",
+      "restart_command": "powershell \"& {(Get-WmiObject win32_operatingsystem).LastBootUpTime > C:\\ProgramData\\lastboot.txt; Restart-Computer -force}\"",
+      "restart_check_command": "powershell -command \"& {if ((get-content C:\\ProgramData\\lastboot.txt) -eq (Get-WmiObject win32_operatingsystem).LastBootUpTime) {Write-Output 'Sleeping for 600 seconds to wait for reboot'; start-sleep 600} else {Write-Output 'Reboot complete'}}\"",
+      "restart_timeout": "30m"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "shell-local",
+      "inline": ["mv artifacts/{{user `vm_name`}} artifacts/{{user `vm_name`}}.qc2"]
+    }
+  ]
+}
+

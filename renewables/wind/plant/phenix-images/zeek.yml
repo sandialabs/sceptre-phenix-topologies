@@ -1,0 +1,351 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Image
+metadata:
+    name: zeek
+spec:
+    compress: true
+    deb_append: ' --components=main,restricted,universe,multiverse'
+    format: qcow2
+    include_miniccc: false
+    include_protonuke: false
+    mirror: http://us.archive.ubuntu.com/ubuntu/
+    overlays: []
+    packages:
+        - initramfs-tools
+        - net-tools
+        - isc-dhcp-client
+        - openssh-server
+        - init
+        - iputils-ping
+        - vim
+        - less
+        - netbase
+        - curl
+        - ifupdown
+        - dbus
+        - linux-image-generic
+        - linux-headers-generic
+        - openvswitch-switch
+        - tcpdump
+    ramdisk: false
+    release: focal
+    script_order:
+        - POSTBUILD_NO_ROOT_PASSWD
+        - INSTALL_ZEEK
+        - INSTALL_FILEBEAT
+        - INSTALL_CONFIGS
+        - POSTBUILD_PHENIX_HOSTNAME
+        - POSTBUILD_PHENIX_BASE
+        - POSTBUILD_APT_CLEANUP
+    scripts:
+        INSTALL_CONFIGS: |4
+
+            cat > /etc/filebeat/modules.d/zeek.yml <<EOF
+            # All base logs for Zeek are enabled below to include Modbus and
+            # DNP3
+
+            # Module: zeek
+            # Docs: https://www.elastic.co/guide/en/beats/filebeat/8.1/filebeat-module-zeek.html
+            - module: zeek
+              capture_loss:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/capture_loss.log"]
+              connection:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/conn.log"]
+              dce_rpc:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/dce_rpc.log"]
+              dhcp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/dhcp.log"]
+              dnp3:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/dnp3.log"]
+              dns:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/dns.log"]
+              dpd:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/dpd.log"]
+              files:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/files.log"]
+              ftp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/ftp.log"]
+              http:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/http.log"]
+              intel:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/intel.log"]
+              irc:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/irc.log"]
+              kerberos:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/kerberos.log"]
+              modbus:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/modbus.log"]
+              mysql:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/mysql.log"]
+              notice:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/notice.log"]
+              ntlm:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/ntlm.log"]
+              ntp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/ntp.log"]
+              ocsp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/oscp.log"]
+              pe:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/pe.log"]
+              radius:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/radius.log"]
+              rdp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/rdp.log"]
+              rfb:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/rfb.log"]
+              signature:
+                enabled: false
+                var.paths: ["/opt/zeek/logs/current/signature.log"]
+              sip:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/sip.log"]
+              smb_cmd:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/smb_cmd.log"]
+              smb_files:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/smb_files.log"]
+              smb_mapping:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/smb_mapping.log"]
+              smtp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/smtp.log"]
+              snmp:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/snmp.log"]
+              socks:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/socks.log"]
+              ssh:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/ssh.log"]
+              ssl:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/ssl.log"]
+              stats:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/stats.log"]
+              syslog:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/syslog.log"]
+              traceroute:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/traceroute.log"]
+              tunnel:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/tunnel.log"]
+              weird:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/weird.log"]
+              x509:
+                enabled: true
+                var.paths: ["/opt/zeek/logs/current/x509.log"]
+                # Set custom paths for the log files. If left empty,
+                # Filebeat will choose the paths depending on your OS.
+                #var.paths:
+            EOF
+
+            cat > /opt/zeek/etc/node.cfg <<EOF
+            # ZeekControl node configuration.
+            #
+            # This is a complete standalone configuration.
+
+            [zeek]
+            type=standalone
+            host=localhost
+            interface=gre_sys
+            EOF
+
+            cat > /opt/zeek/share/zeek/site/local.zeek <<EOF
+            ##! Local site policy.
+
+            # Installation-wide salt value that is used in some digest hashes, e.g., for
+            # the creation of file IDs. Please change this to a hard to guess value.
+            redef digest_salt = "Please change this value.";
+
+            @load misc/loaded-scripts
+            @load tuning/defaults
+            @load misc/capture-loss
+            @load misc/stats
+            @load frameworks/software/vulnerable
+            @load frameworks/software/version-changes
+            @load-sigs frameworks/signatures/detect-windows-shells
+            @load protocols/ftp/software
+            @load protocols/smtp/software
+            @load protocols/ssh/software
+            @load protocols/http/software
+            @load protocols/dns/detect-external-names
+            @load protocols/ftp/detect
+            @load protocols/conn/known-hosts
+            @load protocols/conn/known-services
+            @load protocols/ssl/known-certs
+            @load protocols/ssl/validate-certs
+            @load protocols/ssl/log-hostcerts-only
+            @load protocols/ssh/geo-data
+            @load protocols/ssh/detect-bruteforcing
+            @load protocols/ssh/interesting-hostnames
+            @load protocols/http/detect-sqli
+
+            #### Network File Handling ####
+
+            @load frameworks/files/hash-all-files
+            @load frameworks/files/detect-MHR
+            @load policy/frameworks/notice/extend-email/hostnames
+
+            # Configure JSON logging output
+            @load policy/tuning/json-logs.zeek
+            EOF
+
+            echo "export PATH=$PATH:/usr/share/filebeat/bin/:/opt/zeek/bin" >> /root/.bashrc
+        INSTALL_FILEBEAT: |4
+
+            curl -k -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.1.2-amd64.deb
+            apt install ./filebeat-8.1.2-amd64.deb
+            rm ./filebeat-8.1.2-amd64.deb
+            cat > /lib/systemd/system/filebeat.service <<EOF
+            [Unit]
+            Description=Filebeat analyzes log files and sends the data to Elasticsearch.
+            Documentation=https://www.elastic.co/products/beats/filebeat
+
+            [Service]
+            ExecStart=/usr/share/filebeat/bin/filebeat \
+                --environment=systemd \
+                --c=/etc/filebeat/filebeat.yml \
+                --path.home=/usr/share/filebeat \
+                --path.config=/etc/filebeat \
+                --path.data=/var/lib/filebeat \
+                --path.logs=/var/log/filebeat
+            Restart=always
+            RestartSec=15
+
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+
+            ln -s /lib/systemd/system/filebeat.service /etc/systemd/system/multi-user.target.wants/filebeat.service
+            /usr/share/filebeat/bin/filebeat modules enable zeek
+        INSTALL_ZEEK: |4
+
+            apt update
+            DEBIAN_FRONTEND=noninteractive apt -y install ca-certificates \
+                apt-utils
+            DEBIAN_FRONTEND=noninteractive apt -y install libpcap-dev \
+                libssl-dev python3 python3-dev zlib1g-dev gnupg openssl
+            echo 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_20.04/ /' | tee /etc/apt/sources.list.d/security:zeek.list
+            curl -fsSL https://download.opensuse.org/repositories/security:zeek/xUbuntu_20.04/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/security_zeek.gpg > /dev/null
+            apt update
+            DEBIAN_FRONTEND=noninteractive apt -y install zeek-lts
+            cat > /lib/systemd/system/zeek.service <<EOF
+            [Unit]
+            Description=Zeek Network Security Monitoring
+            Wants=network.target
+            After=syslog.target network-online.target
+
+            [Service]
+            Type=forking
+            ExecStart=/opt/zeek/bin/zeekctl deploy
+            Restart=always
+            RestartSec=15
+
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+
+            ln -s /lib/systemd/system/zeek.service /etc/systemd/system/multi-user.target.wants/zeek.service
+        POSTBUILD_APT_CLEANUP: |4
+
+            apt clean || apt-get clean || echo "unable to clean apt cache"
+        POSTBUILD_NO_ROOT_PASSWD: |4
+
+            sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
+            sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+            sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            sed -i 's/PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+            passwd -d root
+        POSTBUILD_PHENIX_BASE: |4
+
+            cat > /etc/systemd/system/miniccc.service <<EOF
+            [Unit]
+            Description=miniccc
+
+            [Service]
+            ExecStart=/opt/minimega/bin/miniccc -v=false -serial /dev/virtio-ports/cc -logfile /var/log/miniccc.log
+
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+
+            cat > /etc/systemd/system/phenix.service <<EOF
+            [Unit]
+            Description=phenix startup service
+            After=network.target systemd-hostnamed.service
+
+            [Service]
+            Environment=LD_LIBRARY_PATH=/usr/local/lib
+            ExecStart=/usr/local/bin/phenix-start.sh
+            RemainAfterExit=true
+            StandardOutput=journal
+            Type=oneshot
+
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+
+            mkdir -p /etc/systemd/system/multi-user.target.wants
+            ln -s /etc/systemd/system/miniccc.service /etc/systemd/system/multi-user.target.wants/miniccc.service
+            ln -s /etc/systemd/system/phenix.service /etc/systemd/system/multi-user.target.wants/phenix.service
+            mkdir -p /usr/local/bin
+
+            cat > /usr/local/bin/phenix-start.sh <<EOF
+            #!/bin/bash
+            for file in /etc/phenix/startup/*; do
+            	echo \$file
+            	bash \$file
+            done
+            EOF
+
+            chmod +x /usr/local/bin/phenix-start.sh
+            mkdir -p /etc/phenix/startup
+        POSTBUILD_PHENIX_HOSTNAME: |4
+
+            echo "phenix" > /etc/hostname
+            sed -i 's/127.0.1.1 .*/127.0.1.1 phenix/' /etc/hosts
+            cat > /etc/motd <<EOF
+
+            ██████╗ ██╗  ██╗███████╗███╗  ██╗██╗██╗  ██╗
+            ██╔══██╗██║  ██║██╔════╝████╗ ██║██║╚██╗██╔╝
+            ██████╔╝███████║█████╗  ██╔██╗██║██║ ╚███╔╝
+            ██╔═══╝ ██╔══██║██╔══╝  ██║╚████║██║ ██╔██╗
+            ██║     ██║  ██║███████╗██║ ╚███║██║██╔╝╚██╗
+            ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚══╝╚═╝╚═╝  ╚═╝
+
+            EOF
+            echo "\nBuilt with phenix image on $(date)\n\n" >> /etc/motd
+    size: 20G
+    variant: minbase
+

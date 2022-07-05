@@ -1,0 +1,27 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: nids
+  annotations:
+    topology: nids,soar
+spec:
+  apps:
+  - name: vrouter
+    fromScenario: base
+  - name: wireguard
+    fromScenario: base
+  - name: protonuke
+    fromScenario: base
+  - name: mirror
+    metadata:
+      version: v1
+      mirrorNet: 172.30.0.0/16
+      mirrorBridge: phenix
+      mirrorVLAN: mirror
+    hosts:
+      - hostname: ids
+        metadata:
+          setupOVS: true
+          interface: IFM
+          vlans:
+            - ot

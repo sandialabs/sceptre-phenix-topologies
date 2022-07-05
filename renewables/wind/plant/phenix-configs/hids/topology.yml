@@ -1,0 +1,690 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Topology
+metadata:
+  name: hids
+spec:
+  nodes:
+  - general:
+      hostname: ws-owop
+    hardware:
+      drives:
+      - image: windows-7.qc2
+      memory: 8192
+      os_type: windows
+      vcpus: 4
+    network:
+      interfaces:
+      - address: 192.168.10.10
+        gateway: 192.168.10.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: owop
+    type: VirtualMachine
+  - general:
+      hostname: ws-grid
+    hardware:
+      drives:
+      - image: windows-7.qc2
+      memory: 8192
+      os_type: windows
+      vcpus: 4
+    network:
+      interfaces:
+      - address: 192.168.20.10
+        gateway: 192.168.20.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: grid
+    type: VirtualMachine
+  - general:
+      hostname: ws-oem
+    hardware:
+      drives:
+      - image: windows-7.qc2
+      memory: 8192
+      os_type: windows
+      vcpus: 4
+    network:
+      interfaces:
+      - address: 192.168.30.10
+        gateway: 192.168.30.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: oem
+    type: VirtualMachine
+  - general:
+      hostname: nuke-pns
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 75.75.0.100
+        gateway: 75.75.40.1
+        mask: 16
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.0.100
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: kali-inet
+    hardware:
+      drives:
+      - image: kali.qc2
+      memory: 4096
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 75.75.0.250
+        gateway: 75.75.40.1
+        mask: 16
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.0.250
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: guard-cli
+    hardware:
+      drives:
+      - image: wireguard.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 75.75.0.200
+        gateway: 75.75.40.1
+        mask: 16
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.0.200
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: nuke-pnc1
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.40.100
+        gateway: 192.168.40.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: site1
+      - address: 172.16.40.100
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: nuke-pnc2
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.50.100
+        gateway: 192.168.50.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: site2
+      - address: 172.16.50.100
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: guard-jh
+    hardware:
+      drives:
+      - image: wireguard.qc2
+      os_type: linux
+    injections:
+    - src: /phenix/injects/hids/ossec.conf
+      dst: /var/ossec/etc/ossec.conf
+    network:
+      interfaces:
+      - address: 192.168.60.100
+        gateway: 192.168.60.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: site3
+      - address: 172.16.60.100
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: wazuh-manager
+    hardware:
+      drives:
+      - image: wazuh-manager.qc2
+      memory: 8192
+      os_type: linux
+      vcpus: 4
+    network:
+      interfaces:
+      - address: 192.168.60.55
+        gateway: 192.168.60.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: site3
+      - address: 172.16.60.55
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: ws-ot
+    hardware:
+      drives:
+      - image: windows-7.qc2
+      memory: 8192
+      os_type: windows
+      vcpus: 4
+    injections:
+    - src: /phenix/injects/hids/ossec.conf
+      dst: /Program Files (x86)/ossec-agent/ossec.conf
+    network:
+      interfaces:
+      - address: 192.168.100.100
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+    type: VirtualMachine
+  - general:
+      hostname: kali-ot
+    hardware:
+      drives:
+      - image: kali.qc2
+      memory: 4096
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 192.168.100.250
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.100.250
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: wtg-01
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.100.1
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.100.1
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: wtg-02
+    hardware:
+      drives:
+      - image: miniccc.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.100.2
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.100.2
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: wtg-03
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.100.3
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.100.3
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: wtg-04
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.100.4
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.100.4
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: wtg-05
+    hardware:
+      drives:
+      - image: protonuke.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.100.5
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.100.5
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: rtr-owop
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.10.2
+        mask: 30
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp1
+      - address: 192.168.10.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: owop
+      - address: 172.16.10.254
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.10.2
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.10.0/30
+    type: Router
+  - general:
+      hostname: rtr-isp1
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.10.1
+        mask: 30
+        name: IF0
+        proto: ospf
+        type: ethernet
+        vlan: isp1
+      - address: 75.75.10.1
+        mask: 16
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.10.1
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.10.1
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.10.0/30
+          - network: 75.75.0.0/16
+    type: Router
+  - general:
+      hostname: rtr-grid
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.20.2
+        mask: 30
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp2
+      - address: 192.168.20.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: grid
+      - address: 172.16.20.254
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.20.2
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.20.0/30
+    type: Router
+  - general:
+      hostname: rtr-isp2
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.20.1
+        mask: 30
+        name: IF0
+        proto: ospf
+        type: ethernet
+        vlan: isp2
+      - address: 75.75.20.1
+        mask: 16
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.20.1
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.20.1
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.20.0/30
+          - network: 75.75.0.0/16
+    type: Router
+  - general:
+      hostname: rtr-oem
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.30.2
+        mask: 30
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp3
+      - address: 192.168.30.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: oem
+      - address: 172.16.30.254
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.30.2
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.30.0/30
+    type: Router
+  - general:
+      hostname: rtr-isp3
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.30.1
+        mask: 30
+        name: IF0
+        proto: ospf
+        type: ethernet
+        vlan: isp3
+      - address: 75.75.30.1
+        mask: 16
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.30.1
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.30.1
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.30.0/30
+          - network: 75.75.0.0/16
+    type: Router
+  - general:
+      hostname: rtr-site
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.40.2
+        mask: 30
+        name: IF4
+        proto: ospf
+        type: ethernet
+        vlan: isp4
+      - address: 192.168.40.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: site1
+      - address: 192.168.50.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: site2
+      - address: 192.168.60.254
+        mask: 24
+        name: IF2
+        proto: static
+        type: ethernet
+        vlan: site3
+      - address: 192.168.100.254
+        mask: 24
+        name: IF3
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 172.16.40.254
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      routes:
+      - destination: 10.222.222.0/24
+        next: 192.168.60.100
+        cost: 1
+      ospf:
+        router_id: 10.0.40.2
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.40.0/30
+    type: Router
+  - general:
+      hostname: rtr-isp4
+    hardware:
+      drives:
+      - image: vyos.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 10.0.40.1
+        mask: 30
+        name: IF0
+        proto: ospf
+        type: ethernet
+        vlan: isp4
+      - address: 75.75.40.1
+        mask: 16
+        name: IF1
+        proto: ospf
+        type: ethernet
+        vlan: isp0
+      - address: 172.16.40.1
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      ospf:
+        router_id: 10.0.40.1
+        dead_interval: 60
+        hello_interval: 10
+        retrans_interval: 5
+        areas:
+        - area_id: 0
+          area_networks:
+          - network: 10.0.40.0/30
+          - network: 75.75.0.0/16
+    type: Router

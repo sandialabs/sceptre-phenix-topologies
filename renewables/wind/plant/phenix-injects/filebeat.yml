@@ -1,0 +1,54 @@
+#  Filebeat Configuration
+
+# ============================== Filebeat inputs ===============================
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /opt/zeek/logs/current/*.log
+
+# ============================== Filebeat modules ==============================
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+# ================================== General ===================================
+
+# ================================= Dashboards =================================
+
+# =================================== Kibana ===================================
+
+setup.kibana:
+
+# =============================== Elastic Cloud ================================
+
+# ================================== Outputs ===================================
+
+# ---------------------------- Elasticsearch Output ----------------------------
+output.elasticsearch:
+  hosts: ["{{FIX_ME}}:9200"]
+
+# ------------------------------ Logstash Output -------------------------------
+
+# ================================= Processors =================================
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
+
+# ================================== Logging ===================================
+
+# ============================= X-Pack Monitoring ==============================
+
+# ============================== Instrumentation ===============================
+
+# ================================= Migration ==================================
