@@ -33,11 +33,16 @@ Notes:
   realized).
 
 ![Figure 1: Baseline Environment](.images/wind-1.jpg)
+<p align = "center">
+Figure 1: Baseline Environment.
+</p>
 
 Figure 2 illustrates the `soar` topology.
 
 ![Figure 2: NIDS, HIDS, and SOAR Environment](.images/wind-5.jpg)
-
+<p align = "center">
+Figure 2: NIDS, HIDS, and SOAR Environment.
+</p>
 ## Deploying in phēnix
 
 The experiments described above have been designed to be deployed using
