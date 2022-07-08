@@ -1,13 +1,21 @@
 # Wind Architecture
 
+## Background
+These phēnix networks were created as part of the DOE WETO-funded "Hardening Wind Energy Systems from Cyber Threats" project. Some information on the project is located [here](https://www.energy.gov/sites/default/files/2021-10/fy21peerreview-gridintegration-snl-johnson2.pdf).
+
 ## Wind Turbine Plant Network
 
-Two primary architectures are included in the four topologies found in `phenix-configs`:
+There are four topologies found in `phenix-configs`: 
+* `base` - baseline, unsecured wind site topology.
+* `nids` - wind site with Network-based Intrusion Detection System (NIDS); Wazuh.
+* `nids` - wind site with Network-based Intrusion Detection System (NIDS); Zeek.
+* `soar` - wind site with NIDS, HIDS, and Security Orchestration, Automation, and Response (Tool); there is a VM for SOAR
+but it is not running a SOAR solution. There are several commercial solutions that can be deployed here. 
 
-`base` is as it sounds, the base topology which is common across the remaining
+`base` is the base topology which is common across the remaining
 three topologies. The four primary networks include the Wind Site
-owner/operator, the Grid operator, OEM, and wind plant site. Each of the
-networks illustrated on the top of Figure 1 have independent IPSEC VPN
+Owner or Operator, the Grid Operator, Original Equipment Manufacturer (OEM), and wind plant site. Each of the
+networks illustrated on the top of Figure 1 have independent IPSec VPN
 connections to the wind plant network. There are three Protonuke VMs used for
 generating http, https, and smtp traffic to represent internet based noise in
 the simulation. Figure 1 includes 30 VMs representing wind turbine generators
@@ -24,18 +32,11 @@ Notes:
   temporary until our plans for generating representative OT traffic are
   realized).
 
-![Figure 1](.images/wind-1.jpg)
+![Figure 1: Baseline Environment](.images/wind-1.jpg)
 
-`hids` is `base` plus host-based IDS &mdash; Wazuh.
+Figure 2 illustrates the `soar` topology.
 
-`nids` is `base` plus network IDS &mdash; Zeek.
-
-`soar` is `base` plus `hids` plus `nids` &mdash; we have included a VM for SOAR
-but it is not running a SOAR solution.
-
-Figure 2 illustrates these three networks in a single image.
-
-![Figure 2](.images/wind-5.jpg)
+![Figure 2: NIDS, HIDS, and SOAR Environment](.images/wind-5.jpg)
 
 ## Deploying in phēnix
 
