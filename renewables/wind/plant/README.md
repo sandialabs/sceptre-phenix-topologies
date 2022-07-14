@@ -7,7 +7,7 @@ These phēnix networks were created as part of the DOE WETO-funded "Hardening Wi
 
 There are four topologies found in `phenix-configs`: 
 * `base` - baseline, unsecured wind site topology.
-* `nids` - wind site with Network-based Intrusion Detection System (NIDS); Wazuh.
+* `hids` - wind site with Host-based Intrusion Detection System (HIDS); Wazuh.
 * `nids` - wind site with Network-based Intrusion Detection System (NIDS); Zeek.
 * `soar` - wind site with NIDS, HIDS, and Security Orchestration, Automation, and Response (Tool); there is a VM for SOAR
 but it is not running a SOAR solution. There are several commercial solutions that can be deployed here. 
