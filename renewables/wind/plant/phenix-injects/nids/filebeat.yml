@@ -33,7 +33,7 @@ setup.kibana:
 
 # ---------------------------- Elasticsearch Output ----------------------------
 output.elasticsearch:
-  hosts: ["{{FIX_ME}}:9200"]
+  hosts: ["192.168.60.55:9200"]
 
 # ------------------------------ Logstash Output -------------------------------
 

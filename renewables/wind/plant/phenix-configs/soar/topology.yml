@@ -204,7 +204,7 @@ spec:
       - image: wireguard.qc2
       os_type: linux
     injections:
-    - src: /phenix/injects/hids/ossec.conf
+    - src: /phenix/injects/wind-plant/hids/ossec.conf
       dst: /var/ossec/etc/ossec.conf
     network:
       interfaces:
@@ -216,40 +216,6 @@ spec:
         type: ethernet
         vlan: site3
       - address: 172.16.60.100
-        mask: 16
-        name: mgmt
-        proto: static
-        type: ethernet
-        vlan: MGMT
-    type: VirtualMachine
-  - general:
-      hostname: ids
-    hardware:
-      drives:
-      - image: zeek.qc2
-      memory: 2048
-      os_type: linux
-      vcpus: 2
-    injections:
-    - src: /phenix/injects/hids/filebeat.yml
-      dst: /etc/filebeat/filebeat.yml
-    - src: /phenix/injects/hids/networks.cfg
-      dst: /opt/zeek/etc/networks.cfg
-    - src: /phenix/injects/hids/4_filebeat-zeek-start.sh
-      dst: /etc/phenix/startup/4_filebeat-start.sh
-    network:
-      interfaces:
-      - address: 192.168.60.125
-        mask: 24
-        name: IF0
-        proto: static
-        type: ethernet
-        vlan: site3
-      - name: IFM
-        proto: dhcp
-        type: ethernet
-        vlan: mirror
-      - address: 172.16.60.125
         mask: 16
         name: mgmt
         proto: static
@@ -274,6 +240,40 @@ spec:
         type: ethernet
         vlan: site3
       - address: 172.16.60.55
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: ids
+    hardware:
+      drives:
+      - image: zeek.qc2
+      memory: 2048
+      os_type: linux
+      vcpus: 2
+    injections:
+    - src: /phenix/injects/wind-plant/nids/filebeat.yml
+      dst: /etc/filebeat/filebeat.yml
+    - src: /phenix/injects/wind-plant/nids/networks.cfg
+      dst: /opt/zeek/etc/networks.cfg
+    - src: /phenix/injects/wind-plant/nids/filebeat-zeek-start.sh
+      dst: /etc/phenix/startup/99-filebeat-start.sh
+    network:
+      interfaces:
+      - address: 192.168.60.125
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: site3
+      - name: IFM
+        proto: dhcp
+        type: ethernet
+        vlan: mirror
+      - address: 172.16.60.125
         mask: 16
         name: mgmt
         proto: static
@@ -313,7 +313,7 @@ spec:
       os_type: windows
       vcpus: 4
     injections:
-    - src: /phenix/injects/hids/ossec.conf
+    - src: /phenix/injects/wind-plant/hids/ossec.conf
       dst: /Program Files (x86)/ossec-agent/ossec.conf
     network:
       interfaces:

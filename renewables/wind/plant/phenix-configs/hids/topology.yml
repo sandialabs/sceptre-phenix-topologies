@@ -204,7 +204,7 @@ spec:
       - image: wireguard.qc2
       os_type: linux
     injections:
-    - src: /phenix/injects/hids/ossec.conf
+    - src: /phenix/injects/wind-plant/hids/ossec.conf
       dst: /var/ossec/etc/ossec.conf
     network:
       interfaces:
@@ -255,7 +255,7 @@ spec:
       os_type: windows
       vcpus: 4
     injections:
-    - src: /phenix/injects/hids/ossec.conf
+    - src: /phenix/injects/wind-plant/hids/ossec.conf
       dst: /Program Files (x86)/ossec-agent/ossec.conf
     network:
       interfaces:
