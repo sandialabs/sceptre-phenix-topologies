@@ -5,6 +5,33 @@ metadata:
 spec:
   nodes:
   - general:
+      description: PWDS Server
+      hostname: pwds
+    hardware:
+      drives:
+      - image: powerworld.qc2
+        inject_partition: 2
+      memory: 32768
+      os_type: windows
+      vcpus: 8
+    injections:
+    - description: PWDS binary file for ACTIVSg2000
+      src: /phenix/injects/wind-plant/ACTIVSg2000_FAL1_30t_wDynamics.pwb
+      dst: sceptre/case.pwb
+    - description: PWDS data file for ACTIVSg2000
+      src: /phenix/injects/wind-plant/ACTIVSg2000_FAL1_1TS_Dynamic.pwd
+      dst: sceptre/case.pwd
+    network:
+      interfaces:
+      - address: 172.16.255.2
+        gateway: 172.16.255.254
+        mask: 16
+        name: mgmt
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
       hostname: ws-owop
     hardware:
       drives:

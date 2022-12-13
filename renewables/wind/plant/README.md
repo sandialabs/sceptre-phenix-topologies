@@ -1,6 +1,7 @@
 # Wind Architecture
 
 ## Background
+
 These phēnix networks were created as part of the DOE WETO-funded "Hardening
 Wind Energy Systems from Cyber Threats" project. Some information on the project
 is located
@@ -37,6 +38,10 @@ Notes:
   the workstations generating HTTP traffic to simulate OT traffic (this is only
   temporary until our plans for generating representative OT traffic are
   realized).
+- The PowerWorld save case was developed based on the [2000-bus synthetic grid
+  model](https://electricgrids.engr.tamu.edu/electric-grid-test-cases/activsg2000/)
+  developed by Texas A&M University, modified to include 30 wind turbine
+  generator models connected to bus 2100 in the model.
 
 ![Figure 1: Baseline Environment](.images/wind-1.jpg)
 <p align = "center">
@@ -65,29 +70,31 @@ update the `docker-compose.yml` file to use this custom image instead of the
 default.
 
 The phēnix topology configs in this repository include file injection references
-to `/phenix/injects`. To ensure these injections work correctly, users need to
-copy the contents of `phenix-injects` to `/phenix/injects` on the server where
-phēnix is running (the "head node").
+to `/phenix/injects/wind-plant`. To ensure these injections work correctly,
+users need to copy the contents of `phenix-injects` to
+`/phenix/injects/wind-plant` on the server where phēnix is running (the "head
+node").
 
 ```
-mkdir -p /phenix/injects && cp -a phenix-injects/* /phenix/injects
+mkdir -p /phenix/injects/wind-plant
+cp -a phenix-injects/* /phenix/injects/wind-plant
 ```
 
 The phēnix topology configs in this repository include VM disk references to
-`wireguard.qc2`, `windows-7.qc2`, and `zeek.qc2`, as well as more common images
-like `vyos.qc2`, `miniccc.qc2`, `protonuke.qc2`, and `kali.qc2`. phēnix image configs for
-`wireguard` and `zeek` are included in this repository in the `phenix-images`
-directory and can be built with the `phenix image build` command. A Packer
-configuration is also included in the `phenix-images` directory and can be be
-built with ... wait for it ... Packer. phēnix comes with image configs for
-`miniccc`, `protonuke`, and `kali` by default and thus they can also be built
-with the `phenix image build` command. To build a VyOS image, clone the phēnix
-repo and build from these
+`powerworld.qc2`, `wireguard.qc2`, `windows-7.qc2`, and `zeek.qc2`, as well as
+more common images like `vyos.qc2`, `miniccc.qc2`, `protonuke.qc2`, and
+`kali.qc2`. phēnix image configs for `wireguard` and `zeek` are included in this
+repository in the `phenix-images` directory and can be built with the `phenix
+image build` command. A Packer configuration is also included in the
+`phenix-images` directory and can be be built with ... wait for it ... Packer.
+phēnix comes with image configs for `miniccc`, `protonuke`, and `kali` by
+default and thus they can also be built with the `phenix image build` command.
+To build a VyOS image, clone the phēnix repo and build from these
 [instructions](https://github.com/sandia-minimega/phenix/tree/main/hack/vyos).
 
-> **NOTE:** the `hids` and `soar` experiments described above include VM disk
-> references to `wazuh-manager.qc2`, but we currently do not include a phēnix
-> image config for `wazuh-manager`. One will be added in a future commit.
+> **NOTE:** the `hids`, `nids`, and `soar` experiments described above include
+> VM disk references to `wazuh-manager.qc2`, but we currently do not include a
+> phēnix image config for `wazuh-manager`. One will be added in a future commit.
 
 To create an experiment, add a topology and scenario file from `phenix-configs`
 to the phēnix store either via the command line or the UI. Next, create an
