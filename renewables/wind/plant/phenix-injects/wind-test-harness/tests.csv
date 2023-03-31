@@ -1,0 +1,22 @@
+# comment lines with hash
+# 
+otkali;ot;nmap.01;push;nmap scan on subnets
+otkali;ot;hydra-rdp.01;push;brute force remote desktop password on site controller
+otkali;ot;dos.01;push;dos attack on targets
+otkali;ot;hydra-telnet.01;push;brute force telnet password on WTGs
+otkali;ot;modbus.01;push;Modbus power change on WTGs
+#
+local;inet;eb_cleanup.01;nopush; cleanup in case we had a bad stop last time
+local;inet;eb_startup.01;nopush; establish vpn and start msfrpcd
+local;inet;nmap.01;push; nmap windows site controller
+local;inet;eb.01;push; do eb attack and create session in msfrpc
+local;inet;eb.01;push; do eb attack and create session in msfrpc
+local;inet;eb_session_migrate.02;push;
+local;inet;eb_hashdump.02a;push;
+local;inet;eb_add_user.03;push;
+local;inet;eb_schedule_task.04;push;
+local;inet;eb_modbus_attack.05;push;
+# NOTE it's better not to cleanup here but before starting
+#local;inet;eb_cleanup.01; stop vpn stop msfrpcd, if we comment this we can troubleshoot
+
+

@@ -1,0 +1,25 @@
+Warning all old txt files are deleted! Do not store txt in this dir
+limiting tests to scope ot
+Mon Nov 21 19:58:34 UTC 2022
+otkali ot nmap.01 nmap scan on subnets
+Mon Nov 21 19:58:37 UTC 2022
+TEST PASS
+Mon Nov 21 19:58:37 UTC 2022
+otkali ot hydra-rdp.01 brute force remote desktop password on site controller
+Mon Nov 21 19:58:41 UTC 2022
+TEST PASS
+Mon Nov 21 19:58:41 UTC 2022
+otkali ot dos.01 dos attack on targets
+Mon Nov 21 19:58:47 UTC 2022
+TEST PASS
+Mon Nov 21 19:58:47 UTC 2022
+otkali ot hydra-telnet.01 brute force telnet password on WTGs
+Mon Nov 21 19:58:52 UTC 2022
+TEST PASS
+Mon Nov 21 19:58:52 UTC 2022
+otkali ot modbus.01 Modbus power change on WTGs
+Mon Nov 21 19:59:23 UTC 2022
+30
+TEST PASS
+------------------------
+Done in 49 seconds

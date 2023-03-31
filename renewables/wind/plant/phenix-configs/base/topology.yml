@@ -115,6 +115,10 @@ spec:
       memory: 4096
       os_type: linux
       vcpus: 2
+    injections:
+    - description: ATTAR Test Harness
+      src: /phenix/injects/wind-plant/wind-test-harness
+      dst: /root/
     network:
       interfaces:
       - address: 75.75.0.250
@@ -245,6 +249,10 @@ spec:
       memory: 4096
       os_type: linux
       vcpus: 2
+    injections:
+    - description: ATTAR Test Harness
+      src: /phenix/injects/wind-plant/wind-test-harness
+      dst: /root/
     network:
       interfaces:
       - address: 192.168.100.250
