@@ -1,0 +1,84 @@
+{
+  "took" : 1027,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 5,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Xt0tnIQBwytzc61DJYN1",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T21:51:54+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "8N0tnIQBwytzc61DLYR7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T21:51:57+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "n90tnIQBwytzc61DQonH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T21:52:02+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "wt0tnIQBwytzc61DVowq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T21:52:07+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Zd0unIQBwytzc61DLri2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T21:53:02+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      }
+    ]
+  }
+}

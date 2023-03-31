@@ -1,0 +1,1385 @@
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 3,
+    "successful" : 3,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 14,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "0X3XC4QBHLYzZ6v0gG0n",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035, 448, 01d8e81f63c92b20, C:\\\\Windows\\\\System32\\\\spoolsv.exe, C:\\\\Windows\\\\SYSTEM32\\\\ntdll.dll, eb2ae9a0-5412-11ed-922a-444f5e2a2f8e"
+              },
+              "system" : {
+                "eventRecordID" : "446",
+                "eventID" : "1000",
+                "computer" : "ws-ot",
+                "task" : "100",
+                "keywords" : "0x80000000000000",
+                "level" : "2",
+                "severityValue" : "ERROR",
+                "channel" : "Application",
+                "message" : "\"Faulting application name: spoolsv.exe, version: 6.1.7600.16385, time stamp: 0x4a5bd3d1\r\nFaulting module name: ntdll.dll, version: 6.1.7600.16385, time stamp: 0x4a5be02b\r\nException code: 0xc000071c\r\nFault offset: 0x000000000006f035\r\nFaulting process id: 0x448\r\nFaulting application start time: 0x01d8e81f63c92b20\r\nFaulting application path: C:\\Windows\\System32\\spoolsv.exe\r\nFaulting module path: C:\\Windows\\SYSTEM32\\ntdll.dll\r\nReport Id: eb2ae9a0-5412-11ed-922a-444f5e2a2f8e\"",
+                "systemTime" : "2022-10-25T03:12:55.000000000Z",
+                "providerName" : "Application Error"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 1,
+            "mail" : false,
+            "level" : 9,
+            "description" : "Windows Application error event",
+            "groups" : [
+              "windows",
+              "windows_application",
+              "system_error"
+            ],
+            "id" : "60602",
+            "gpg13" : [
+              "4.3"
+            ],
+            "gdpr" : [
+              "IV_35.7.d"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:55.955Z",
+          "location" : "EventChannel",
+          "id" : "1666645975.1366493",
+          "timestamp" : "2022-10-24T21:12:55.955+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "033XC4QBHLYzZ6v0gG0n",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x3e7",
+                "subjectDomainName" : "WORKGROUP",
+                "authenticationPackageName" : "Negotiate",
+                "targetLogonId" : "0x3e7",
+                "logonProcessName" : "Advapi",
+                "logonGuid" : "{00000000-0000-0000-0000-000000000000}",
+                "targetUserName" : "SYSTEM",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-5-18",
+                "processId" : "0x1c0",
+                "processName" : "C:\\\\Windows\\\\System32\\\\services.exe",
+                "targetDomainName" : "NT AUTHORITY",
+                "targetUserSid" : "S-1-5-18",
+                "logonType" : "5",
+                "subjectUserName" : "WS-OT$"
+              },
+              "system" : {
+                "eventID" : "4624",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tWS-OT$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Type:\t\t\t5\r\n\r\nNew Logon:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tSYSTEM\r\n\tAccount Domain:\t\tNT AUTHORITY\r\n\tLogon ID:\t\t0x3e7\r\n\tLogon GUID:\t\t{00000000-0000-0000-0000-000000000000}\r\n\r\nProcess Information:\r\n\tProcess ID:\t\t0x1c0\r\n\tProcess Name:\t\tC:\\Windows\\System32\\services.exe\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\t\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tAdvapi  \r\n\tAuthentication Package:\tNegotiate\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon session is created. It is generated on the computer that was accessed.\r\n\r\nThe subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.\r\n\r\nThe network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:12:55.948800000Z",
+                "eventRecordID" : "1929",
+                "threadID" : "1524",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows Logon Success",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "authentication_success"
+            ],
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ],
+            "firedtimes" : 4,
+            "mitre" : {
+              "technique" : [
+                "Valid Accounts"
+              ],
+              "id" : [
+                "T1078"
+              ],
+              "tactic" : [
+                "Defense Evasion",
+                "Initial Access",
+                "Persistence",
+                "Privilege Escalation"
+              ]
+            },
+            "id" : "60106",
+            "gpg13" : [
+              "7.1",
+              "7.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:57.883Z",
+          "location" : "EventChannel",
+          "id" : "1666645977.1371458",
+          "timestamp" : "2022-10-24T21:12:57.883+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "1X3XC4QBHLYzZ6v0gG0n",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, APPCRASH, Not available, 0, spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_0ba1fc58, 0, eb2ae9a0-5412-11ed-922a-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "448",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: spoolsv.exe\r\nP2: 6.1.7600.16385\r\nP3: 4a5bd3d1\r\nP4: ntdll.dll\r\nP5: 6.1.7600.16385\r\nP6: 4a5be02b\r\nP7: c000071c\r\nP8: 000000000006f035\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_0ba1fc58\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: eb2ae9a0-5412-11ed-922a-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:12:58.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 2,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:58.755Z",
+          "location" : "EventChannel",
+          "id" : "1666645978.1379558",
+          "timestamp" : "2022-10-24T21:12:58.755+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "Fn3XC4QBHLYzZ6v0m3SE",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0xcd21",
+                "targetUserName" : "None",
+                "memberSid" : "S-1-5-21-4007524664-390538599-4252332654-1006",
+                "subjectUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "subjectDomainName" : "WS-OT",
+                "targetDomainName" : "WS-OT",
+                "targetSid" : "S-1-5-21-4007524664-390538599-4252332654-513",
+                "subjectUserName" : "admin"
+              },
+              "system" : {
+                "eventID" : "4728",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"A member was added to a security-enabled global group.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xcd21\r\n\r\nMember:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1006\r\n\tAccount Name:\t\t-\r\n\r\nGroup:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-513\r\n\tGroup Name:\t\tNone\r\n\tGroup Domain:\t\tWS-OT\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:05.496000000Z",
+                "eventRecordID" : "1931",
+                "threadID" : "516",
+                "computer" : "ws-ot",
+                "task" : "13826",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "8.1.2",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.a.2.I",
+              "164.312.a.2.II",
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Security Enabled Global Group Member Added S-1-5-21-4007524664-390538599-4252332654-1006",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "group_changed",
+              "win_group_changed"
+            ],
+            "nist_800_53" : [
+              "AC.2",
+              "IA.4",
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ],
+            "firedtimes" : 2,
+            "mitre" : {
+              "technique" : [
+                "Group Policy Modification"
+              ],
+              "id" : [
+                "T1484"
+              ],
+              "tactic" : [
+                "Defense Evasion"
+              ]
+            },
+            "id" : "60141",
+            "gpg13" : [
+              "7.10"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:05.880Z",
+          "location" : "EventChannel",
+          "id" : "1666645985.1382194",
+          "timestamp" : "2022-10-24T21:13:05.880+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "GH3XC4QBHLYzZ6v0m3SE",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0xcd21",
+                "targetUserName" : "BACKDOOR",
+                "subjectUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "subjectDomainName" : "WS-OT",
+                "targetDomainName" : "WS-OT",
+                "targetSid" : "S-1-5-21-4007524664-390538599-4252332654-1006",
+                "subjectUserName" : "admin"
+              },
+              "system" : {
+                "eventID" : "4722",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"A user account was enabled.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xcd21\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1006\r\n\tAccount Name:\t\tBACKDOOR\r\n\tAccount Domain:\t\tWS-OT\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:05.511600000Z",
+                "eventRecordID" : "1933",
+                "threadID" : "516",
+                "computer" : "ws-ot",
+                "task" : "13824",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 8,
+            "pci_dss" : [
+              "8.1.2",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.a.2.I",
+              "164.312.a.2.II",
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "User account enabled or created",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "adduser",
+              "account_changed"
+            ],
+            "nist_800_53" : [
+              "AC.2",
+              "IA.4",
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ],
+            "firedtimes" : 4,
+            "mitre" : {
+              "technique" : [
+                "Account Manipulation"
+              ],
+              "id" : [
+                "T1098"
+              ],
+              "tactic" : [
+                "Credential Access",
+                "Persistence"
+              ]
+            },
+            "id" : "60109",
+            "gpg13" : [
+              "7.10"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:05.892Z",
+          "location" : "EventChannel",
+          "id" : "1666645985.1390301",
+          "timestamp" : "2022-10-24T21:13:05.892+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "G33XC4QBHLYzZ6v0m3SE",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0xcd21",
+                "targetUserName" : "Administrators",
+                "memberSid" : "S-1-5-21-4007524664-390538599-4252332654-1006",
+                "subjectUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "subjectDomainName" : "WS-OT",
+                "targetDomainName" : "Builtin",
+                "targetSid" : "S-1-5-32-544",
+                "subjectUserName" : "admin"
+              },
+              "system" : {
+                "eventID" : "4732",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"A member was added to a security-enabled local group.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xcd21\r\n\r\nMember:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1006\r\n\tAccount Name:\t\t-\r\n\r\nGroup:\r\n\tSecurity ID:\t\tS-1-5-32-544\r\n\tGroup Name:\t\tAdministrators\r\n\tGroup Domain:\t\tBuiltin\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:05.792400000Z",
+                "eventRecordID" : "1937",
+                "threadID" : "1524",
+                "computer" : "ws-ot",
+                "task" : "13826",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "8.1.2",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.a.2.I",
+              "164.312.a.2.II",
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Security Enabled Local Group Member Added S-1-5-21-4007524664-390538599-4252332654-1006",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "group_changed",
+              "win_group_changed"
+            ],
+            "nist_800_53" : [
+              "AC.2",
+              "IA.4",
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ],
+            "firedtimes" : 4,
+            "mitre" : {
+              "technique" : [
+                "Group Policy Modification"
+              ],
+              "id" : [
+                "T1484"
+              ],
+              "tactic" : [
+                "Defense Evasion"
+              ]
+            },
+            "id" : "60144",
+            "gpg13" : [
+              "7.10"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:05.955Z",
+          "location" : "EventChannel",
+          "id" : "1666645985.1400806",
+          "timestamp" : "2022-10-24T21:13:05.955+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "0H3XC4QBHLYzZ6v0gG0n",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x3e7",
+                "subjectDomainName" : "WORKGROUP",
+                "authenticationPackageName" : "Negotiate",
+                "targetLogonId" : "0x3e7",
+                "logonProcessName" : "Advapi",
+                "logonGuid" : "{00000000-0000-0000-0000-000000000000}",
+                "targetUserName" : "SYSTEM",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-5-18",
+                "processId" : "0x1c0",
+                "processName" : "C:\\\\Windows\\\\System32\\\\services.exe",
+                "targetDomainName" : "NT AUTHORITY",
+                "targetUserSid" : "S-1-5-18",
+                "logonType" : "5",
+                "subjectUserName" : "WS-OT$"
+              },
+              "system" : {
+                "eventID" : "4624",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tWS-OT$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Type:\t\t\t5\r\n\r\nNew Logon:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tSYSTEM\r\n\tAccount Domain:\t\tNT AUTHORITY\r\n\tLogon ID:\t\t0x3e7\r\n\tLogon GUID:\t\t{00000000-0000-0000-0000-000000000000}\r\n\r\nProcess Information:\r\n\tProcess ID:\t\t0x1c0\r\n\tProcess Name:\t\tC:\\Windows\\System32\\services.exe\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\t\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tAdvapi  \r\n\tAuthentication Package:\tNegotiate\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon session is created. It is generated on the computer that was accessed.\r\n\r\nThe subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.\r\n\r\nThe network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:12:54.108000000Z",
+                "eventRecordID" : "1927",
+                "threadID" : "1524",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows Logon Success",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "authentication_success"
+            ],
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ],
+            "firedtimes" : 3,
+            "mitre" : {
+              "technique" : [
+                "Valid Accounts"
+              ],
+              "id" : [
+                "T1078"
+              ],
+              "tactic" : [
+                "Defense Evasion",
+                "Initial Access",
+                "Persistence",
+                "Privilege Escalation"
+              ]
+            },
+            "id" : "60106",
+            "gpg13" : [
+              "7.1",
+              "7.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:55.885Z",
+          "location" : "EventChannel",
+          "id" : "1666645975.1360177",
+          "timestamp" : "2022-10-24T21:12:55.885+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "GX3XC4QBHLYzZ6v0m3SE",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0xcd21",
+                "scriptPath" : "%%1793",
+                "passwordLastSet" : "10/24/2022 9:13:05 PM",
+                "homeDirectory" : "%%1793",
+                "subjectDomainName" : "WS-OT",
+                "displayName" : "%%1793",
+                "accountExpires" : "%%1794",
+                "homePath" : "%%1793",
+                "samAccountName" : "BACKDOOR",
+                "targetUserName" : "BACKDOOR",
+                "subjectUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "primaryGroupId" : "513",
+                "logonHours" : "%%1797",
+                "targetDomainName" : "WS-OT",
+                "profilePath" : "%%1793",
+                "userWorkstations" : "%%1793",
+                "oldUacValue" : "0x15",
+                "newUacValue" : "0x10",
+                "targetSid" : "S-1-5-21-4007524664-390538599-4252332654-1006",
+                "userAccountControl" : "    %%2048    %%2050",
+                "subjectUserName" : "admin"
+              },
+              "system" : {
+                "eventID" : "4738",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xcd21\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1006\r\n\tAccount Name:\t\tBACKDOOR\r\n\tAccount Domain:\t\tWS-OT\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\tBACKDOOR\r\n\tDisplay Name:\t\t<value not set>\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t\t<value not set>\r\n\tHome Drive:\t\t<value not set>\r\n\tScript Path:\t\t<value not set>\r\n\tProfile Path:\t\t<value not set>\r\n\tUser Workstations:\t<value not set>\r\n\tPassword Last Set:\t10/24/2022 9:13:05 PM\r\n\tAccount Expires:\t\t<never>\r\n\tPrimary Group ID:\t513\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t\t0x15\r\n\tNew UAC Value:\t\t0x10\r\n\tUser Account Control:\t\r\n\t\tAccount Enabled\r\n\t\t'Password Not Required' - Disabled\r\n\tUser Parameters:\t-\r\n\tSID History:\t\t-\r\n\tLogon Hours:\t\tAll\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:05.511600000Z",
+                "eventRecordID" : "1934",
+                "threadID" : "516",
+                "computer" : "ws-ot",
+                "task" : "13824",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 8,
+            "pci_dss" : [
+              "8.1.2",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.a.2.I",
+              "164.312.a.2.II",
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "User account changed",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "account_changed"
+            ],
+            "nist_800_53" : [
+              "AC.2",
+              "IA.4",
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ],
+            "firedtimes" : 2,
+            "mitre" : {
+              "technique" : [
+                "Account Manipulation"
+              ],
+              "id" : [
+                "T1098"
+              ],
+              "tactic" : [
+                "Credential Access",
+                "Persistence"
+              ]
+            },
+            "id" : "60110",
+            "gpg13" : [
+              "7.10"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:05.908Z",
+          "location" : "EventChannel",
+          "id" : "1666645985.1392932",
+          "timestamp" : "2022-10-24T21:13:05.908+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "Gn3XC4QBHLYzZ6v0m3SE",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0xcd21",
+                "targetUserName" : "Users",
+                "memberSid" : "S-1-5-21-4007524664-390538599-4252332654-1006",
+                "subjectUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "subjectDomainName" : "WS-OT",
+                "targetDomainName" : "Builtin",
+                "targetSid" : "S-1-5-32-545",
+                "subjectUserName" : "admin"
+              },
+              "system" : {
+                "eventID" : "4732",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"A member was added to a security-enabled local group.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xcd21\r\n\r\nMember:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1006\r\n\tAccount Name:\t\t-\r\n\r\nGroup:\r\n\tSecurity ID:\t\tS-1-5-32-545\r\n\tGroup Name:\t\tUsers\r\n\tGroup Domain:\t\tBuiltin\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:05.527200000Z",
+                "eventRecordID" : "1936",
+                "threadID" : "516",
+                "computer" : "ws-ot",
+                "task" : "13826",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "8.1.2",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.a.2.I",
+              "164.312.a.2.II",
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Security Enabled Local Group Member Added S-1-5-21-4007524664-390538599-4252332654-1006",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "group_changed",
+              "win_group_changed"
+            ],
+            "nist_800_53" : [
+              "AC.2",
+              "IA.4",
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ],
+            "firedtimes" : 3,
+            "mitre" : {
+              "technique" : [
+                "Group Policy Modification"
+              ],
+              "id" : [
+                "T1484"
+              ],
+              "tactic" : [
+                "Defense Evasion"
+              ]
+            },
+            "id" : "60144",
+            "gpg13" : [
+              "7.10"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:05.939Z",
+          "location" : "EventChannel",
+          "id" : "1666645985.1397795",
+          "timestamp" : "2022-10-24T21:13:05.939+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "-X3XC4QBHLYzZ6v0Hlp8",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "ipAddress" : "10.222.222.45",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "Lp40MMVRhDjGLkxn",
+                "subStatus" : "0xc0000064",
+                "logonProcessName" : "NtLmSsp",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "ipPort" : "32921",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc0000064\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tLp40MMVRhDjGLkxn\r\n\tSource Network Address:\t10.222.222.45\r\n\tSource Port:\t\t32921\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:12:27.993600000Z",
+                "eventRecordID" : "1926",
+                "threadID" : "1524",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 2,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:28.851Z",
+          "location" : "EventChannel",
+          "id" : "1666645948.1354136",
+          "timestamp" : "2022-10-24T21:12:28.851+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "0n3XC4QBHLYzZ6v0gG0n",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, APPCRASH, Not available, 0, spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_0ba1fc58, 0, eb2ae9a0-5412-11ed-922a-444f5e2a2f8e, 4"
+              },
+              "system" : {
+                "eventRecordID" : "447",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: spoolsv.exe\r\nP2: 6.1.7600.16385\r\nP3: 4a5bd3d1\r\nP4: ntdll.dll\r\nP5: 6.1.7600.16385\r\nP6: 4a5be02b\r\nP7: c000071c\r\nP8: 000000000006f035\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_0ba1fc58\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: eb2ae9a0-5412-11ed-922a-444f5e2a2f8e\r\nReport Status: 4\"",
+                "systemTime" : "2022-10-25T03:12:56.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 1,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:56.040Z",
+          "location" : "EventChannel",
+          "id" : "1666645976.1368822",
+          "timestamp" : "2022-10-24T21:12:56.040+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "1H3XC4QBHLYzZ6v0gG0n",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "param5" : "Restart the service",
+                "param3" : "60000",
+                "param4" : "1",
+                "param1" : "Print Spooler",
+                "param2" : "1"
+              },
+              "system" : {
+                "eventID" : "7031",
+                "eventSourceName" : "Service Control Manager",
+                "keywords" : "0x8080000000000000",
+                "providerGuid" : "{555908d1-a6d7-4695-8e1e-26931d2012f4}",
+                "level" : "2",
+                "channel" : "System",
+                "opcode" : "0",
+                "message" : "\"The Print Spooler service terminated unexpectedly.  It has done this 1 time(s).  The following corrective action will be taken in 60000 milliseconds: Restart the service.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:12:56.104800000Z",
+                "eventRecordID" : "1354",
+                "threadID" : "2748",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "processID" : "448",
+                "severityValue" : "ERROR",
+                "providerName" : "Service Control Manager"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 1,
+            "mail" : false,
+            "level" : 5,
+            "description" : "Print Spooler terminated unexpectedly",
+            "groups" : [
+              "windows",
+              "windows_system"
+            ],
+            "id" : "61107"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:12:57.905Z",
+          "location" : "EventChannel",
+          "id" : "1666645977.1377774",
+          "timestamp" : "2022-10-24T21:12:57.905+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "F33XC4QBHLYzZ6v0m3SE",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0xcd21",
+                "scriptPath" : "%%1793",
+                "passwordLastSet" : "%%1794",
+                "homeDirectory" : "%%1793",
+                "userParameters" : "%%1793",
+                "subjectDomainName" : "WS-OT",
+                "displayName" : "%%1793",
+                "accountExpires" : "%%1794",
+                "homePath" : "%%1793",
+                "samAccountName" : "BACKDOOR",
+                "targetUserName" : "BACKDOOR",
+                "subjectUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "primaryGroupId" : "513",
+                "logonHours" : "%%1797",
+                "targetDomainName" : "WS-OT",
+                "profilePath" : "%%1793",
+                "userWorkstations" : "%%1793",
+                "oldUacValue" : "0x0",
+                "newUacValue" : "0x15",
+                "targetSid" : "S-1-5-21-4007524664-390538599-4252332654-1006",
+                "userAccountControl" : "    %%2080    %%2082    %%2084",
+                "subjectUserName" : "admin"
+              },
+              "system" : {
+                "eventID" : "4720",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"A user account was created.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xcd21\r\n\r\nNew Account:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1006\r\n\tAccount Name:\t\tBACKDOOR\r\n\tAccount Domain:\t\tWS-OT\r\n\r\nAttributes:\r\n\tSAM Account Name:\tBACKDOOR\r\n\tDisplay Name:\t\t<value not set>\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t\t<value not set>\r\n\tHome Drive:\t\t<value not set>\r\n\tScript Path:\t\t<value not set>\r\n\tProfile Path:\t\t<value not set>\r\n\tUser Workstations:\t<value not set>\r\n\tPassword Last Set:\t<never>\r\n\tAccount Expires:\t\t<never>\r\n\tPrimary Group ID:\t513\r\n\tAllowed To Delegate To:\t-\r\n\tOld UAC Value:\t\t0x0\r\n\tNew UAC Value:\t\t0x15\r\n\tUser Account Control:\t\r\n\t\tAccount Disabled\r\n\t\t'Password Not Required' - Enabled\r\n\t\t'Normal Account' - Enabled\r\n\tUser Parameters:\t<value not set>\r\n\tSID History:\t\t-\r\n\tLogon Hours:\t\tAll\r\n\r\nAdditional Information:\r\n\tPrivileges\t\t-\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:05.496000000Z",
+                "eventRecordID" : "1932",
+                "threadID" : "516",
+                "computer" : "ws-ot",
+                "task" : "13824",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 8,
+            "pci_dss" : [
+              "8.1.2",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.a.2.I",
+              "164.312.a.2.II",
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "User account enabled or created",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "adduser",
+              "account_changed"
+            ],
+            "nist_800_53" : [
+              "AC.2",
+              "IA.4",
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ],
+            "firedtimes" : 3,
+            "mitre" : {
+              "technique" : [
+                "Account Manipulation"
+              ],
+              "id" : [
+                "T1098"
+              ],
+              "tactic" : [
+                "Credential Access",
+                "Persistence"
+              ]
+            },
+            "id" : "60109",
+            "gpg13" : [
+              "7.10"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:05.885Z",
+          "location" : "EventChannel",
+          "id" : "1666645985.1385324",
+          "timestamp" : "2022-10-24T21:13:05.885+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "X33YC4QBHLYzZ6v0cp5e",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x3e7",
+                "subjectDomainName" : "WORKGROUP",
+                "authenticationPackageName" : "Negotiate",
+                "targetLogonId" : "0x3e7",
+                "logonProcessName" : "Advapi",
+                "logonGuid" : "{00000000-0000-0000-0000-000000000000}",
+                "targetUserName" : "SYSTEM",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-5-18",
+                "processId" : "0x1c0",
+                "processName" : "C:\\\\Windows\\\\System32\\\\services.exe",
+                "targetDomainName" : "NT AUTHORITY",
+                "targetUserSid" : "S-1-5-18",
+                "logonType" : "5",
+                "subjectUserName" : "WS-OT$"
+              },
+              "system" : {
+                "eventID" : "4624",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tWS-OT$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Type:\t\t\t5\r\n\r\nNew Logon:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tSYSTEM\r\n\tAccount Domain:\t\tNT AUTHORITY\r\n\tLogon ID:\t\t0x3e7\r\n\tLogon GUID:\t\t{00000000-0000-0000-0000-000000000000}\r\n\r\nProcess Information:\r\n\tProcess ID:\t\t0x1c0\r\n\tProcess Name:\t\tC:\\Windows\\System32\\services.exe\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\t\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tAdvapi  \r\n\tAuthentication Package:\tNegotiate\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon session is created. It is generated on the computer that was accessed.\r\n\r\nThe subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.\r\n\r\nThe network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:13:56.118000000Z",
+                "eventRecordID" : "1939",
+                "threadID" : "1524",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows Logon Success",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "authentication_success"
+            ],
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ],
+            "firedtimes" : 5,
+            "mitre" : {
+              "technique" : [
+                "Valid Accounts"
+              ],
+              "id" : [
+                "T1078"
+              ],
+              "tactic" : [
+                "Defense Evasion",
+                "Initial Access",
+                "Persistence",
+                "Privilege Escalation"
+              ]
+            },
+            "id" : "60106",
+            "gpg13" : [
+              "7.1",
+              "7.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:13:56.880Z",
+          "location" : "EventChannel",
+          "id" : "1666646036.1403855",
+          "timestamp" : "2022-10-24T21:13:56.880+0000"
+        }
+      }
+    ]
+  }
+}

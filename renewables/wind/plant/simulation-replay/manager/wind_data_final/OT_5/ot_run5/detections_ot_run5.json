@@ -1,0 +1,4023 @@
+{
+  "took" : 10,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 308,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "S6tCaIQBDfUCqeglkGAC",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:05",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "TKtCaIQBDfUCqeglkGAM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:05",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "TatCaIQBDfUCqeglkGAV",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:05",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "TqtCaIQBDfUCqeglkGAe",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:05",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_qtCaIQBDfUCqegloWRb",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:10",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_6tCaIQBDfUCqegloWRp",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:10",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "AKtCaIQBDfUCqegloWVy",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:10",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "AatCaIQBDfUCqegloWV7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:10",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "4KtCaIQBDfUCqeglmGGs",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:08",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "4atCaIQBDfUCqeglmGG3",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:08",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "4qtCaIQBDfUCqeglmGHA",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:08",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "46tCaIQBDfUCqeglmGHI",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:08",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cqtCaIQBDfUCqeglnWMD",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:09",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "c6tCaIQBDfUCqeglnWMN",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:09",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "dKtCaIQBDfUCqeglnWMX",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:09",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "datCaIQBDfUCqeglnWMf",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:09",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "2qtCaIQBDfUCqegllGFR",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:06",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "26tCaIQBDfUCqegllGFd",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:06",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3KtCaIQBDfUCqegllGFm",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:06",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3atCaIQBDfUCqegllGFv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:06",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "lKtCaIQBDfUCqeglqWb8",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:12",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "latCaIQBDfUCqeglqmYG",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:12",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "lqtCaIQBDfUCqeglqmYN",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:12",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "l6tCaIQBDfUCqeglqmYT",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:12",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CatCaIQBDfUCqeglpWWx",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:11",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CqtCaIQBDfUCqeglpWW7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:11",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "C6tCaIQBDfUCqeglpWXD",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:11",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "DKtCaIQBDfUCqeglpWXL",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:11",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "Y6tCaIQBDfUCqeglxGsT",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:19",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "ZKtCaIQBDfUCqeglxGse",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:19",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "ZatCaIQBDfUCqeglxGsn",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:19",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "ZqtCaIQBDfUCqeglxGsw",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:19",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "aatCaIQBDfUCqeglyGtx",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:20",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "aqtCaIQBDfUCqeglyGt7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:20",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "a6tCaIQBDfUCqeglyGuE",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:20",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "bKtCaIQBDfUCqeglyGuN",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:20",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "MqtCaIQBDfUCqegltmj0",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:15",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "M6tCaIQBDfUCqeglt2gF",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:15",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NKtCaIQBDfUCqeglt2gO",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:15",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NatCaIQBDfUCqeglt2gW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:15",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "natCaIQBDfUCqeglrmZJ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:13",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "nqtCaIQBDfUCqeglrmZT",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:13",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "n6tCaIQBDfUCqeglrmZb",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:13",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "oKtCaIQBDfUCqeglrmZk",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:13",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "LKtCaIQBDfUCqeglsmie",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:14",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "LatCaIQBDfUCqeglsmin",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:14",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "LqtCaIQBDfUCqeglsmiw",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:14",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "L6tCaIQBDfUCqeglsmi4",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:14",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "1KtCaIQBDfUCqeglv2mv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:18",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "1atCaIQBDfUCqeglv2m5",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:18",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "1qtCaIQBDfUCqeglv2nC",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:18",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "16tCaIQBDfUCqeglv2nM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:18",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "watCaIQBDfUCqeglu2lU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:16",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "wqtCaIQBDfUCqeglu2le",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:16",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "w6tCaIQBDfUCqeglu2ln",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:16",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "xKtCaIQBDfUCqeglu2lv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:16",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_atCaIQBDfUCqegl0Wwz",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:22",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_qtCaIQBDfUCqegl0Ww_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:22",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_6tCaIQBDfUCqegl0WxH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:22",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "AKtCaIQBDfUCqegl0W1Q",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:22",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "-KtCaIQBDfUCqeglzGzP",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:21",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "-atCaIQBDfUCqeglzGzl",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:21",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "-qtCaIQBDfUCqeglzGzt",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:21",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "-6tCaIQBDfUCqeglzGz2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:21",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "j6tCaIQBDfUCqegl1W6J",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:23",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "kKtCaIQBDfUCqegl1W6T",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:23",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "katCaIQBDfUCqegl1W6d",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:23",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "kqtCaIQBDfUCqegl1W6l",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:23",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "G6tCaIQBDfUCqegl2XDd",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:24",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "HKtCaIQBDfUCqegl2XDm",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:24",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "HatCaIQBDfUCqegl2XDv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:24",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "HqtCaIQBDfUCqegl2XD3",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:24",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "JKtCaIQBDfUCqegl3nA5",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:25",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "JatCaIQBDfUCqegl3nBE",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:25",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "JqtCaIQBDfUCqegl3nBM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:25",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "J6tCaIQBDfUCqegl3nBU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:25",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "s6tCaIQBDfUCqegl4nGe",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:27",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tKtCaIQBDfUCqegl4nGo",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:27",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tatCaIQBDfUCqegl4nGx",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:27",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tqtCaIQBDfUCqegl4nG7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:27",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "uKtCaIQBDfUCqegl53EA",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:28",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "uatCaIQBDfUCqegl53EL",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:28",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "uqtCaIQBDfUCqegl53Ee",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:28",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "u6tCaIQBDfUCqegl53Eo",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:28",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SKtCaIQBDfUCqegl63Nu",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:29",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SatCaIQBDfUCqegl63N4",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:29",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SqtCaIQBDfUCqegl63OA",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:29",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "S6tCaIQBDfUCqegl63OK",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:29",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "TatCaIQBDfUCqegl73PR",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:30",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "TqtCaIQBDfUCqegl73Pb",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:30",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "T6tCaIQBDfUCqegl73Pk",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:30",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "UKtCaIQBDfUCqegl73Ps",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:30",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "datDaIQBDfUCqeglAXZA",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:34",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "dqtDaIQBDfUCqeglAXZK",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:34",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "d6tDaIQBDfUCqeglAXZT",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:34",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "eKtDaIQBDfUCqeglAXZb",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:34",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "BKtDaIQBDfUCqeglBXih",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:35",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "BatDaIQBDfUCqeglBXiq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:35",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "BqtDaIQBDfUCqeglBXiz",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:36",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "B6tDaIQBDfUCqeglBXi9",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:36",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "k6tDaIQBDfUCqeglCXn7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:37",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "lKtDaIQBDfUCqeglCnkK",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:37",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "latDaIQBDfUCqeglCnkU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:37",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "lqtDaIQBDfUCqeglCnkc",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:37",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "HqtDaIQBDfUCqeglDntY",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:38",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "H6tDaIQBDfUCqeglDntg",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:38",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "IKtDaIQBDfUCqeglDnto",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:38",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "IatDaIQBDfUCqeglDntx",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:38",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "J6tDaIQBDfUCqeglEnu2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:39",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "KKtDaIQBDfUCqeglEnu_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:39",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "KatDaIQBDfUCqeglEnvH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:39",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "KqtDaIQBDfUCqeglEnvQ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:39",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "s6tDaIQBDfUCqeglF3wQ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:40",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tKtDaIQBDfUCqeglF3wY",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:40",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tatDaIQBDfUCqeglF3wh",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:40",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tqtDaIQBDfUCqeglF3wq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:40",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "vKtDaIQBDfUCqeglG3xs",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:41",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "vatDaIQBDfUCqeglG3x1",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:41",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "vqtDaIQBDfUCqeglG3x-",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:41",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "v6tDaIQBDfUCqeglG3yH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:41",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "R6tDaIQBDfUCqeglH37G",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:42",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SKtDaIQBDfUCqeglH37P",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:42",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SatDaIQBDfUCqeglH37Y",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:42",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SqtDaIQBDfUCqeglH37h",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:42",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "UKtDaIQBDfUCqeglJH4l",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:43",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "UatDaIQBDfUCqeglJH4t",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:43",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "UqtDaIQBDfUCqeglJH42",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:43",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "U6tDaIQBDfUCqeglJH4_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:43",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "26tDaIQBDfUCqeglKH-A",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:44",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3KtDaIQBDfUCqeglKH-J",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:44",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3atDaIQBDfUCqeglKH-S",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:44",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3qtDaIQBDfUCqeglKH-b",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:44",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "5KtDaIQBDfUCqeglLH_f",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:46",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "5atDaIQBDfUCqeglLH_n",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:46",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "5qtDaIQBDfUCqeglLH_w",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:46",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "56tDaIQBDfUCqeglLH_5",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:46",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "b6tDaIQBDfUCqeglMYE9",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:47",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cKtDaIQBDfUCqeglMYFG",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:47",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "catDaIQBDfUCqeglMYFO",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:47",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cqtDaIQBDfUCqeglMYFW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:47",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "eKtDaIQBDfUCqeglNYGz",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:48",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "eatDaIQBDfUCqeglNYG8",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:48",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "eqtDaIQBDfUCqeglNYHD",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:48",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "e6tDaIQBDfUCqeglNYHL",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:48",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "B6tDaIQBDfUCqeglOoME",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:49",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CKtDaIQBDfUCqeglOoMM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:49",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CatDaIQBDfUCqeglOoMV",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:49",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CqtDaIQBDfUCqeglOoMe",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:49",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "DKtDaIQBDfUCqeglPoNj",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:50",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "DatDaIQBDfUCqeglPoNs",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:50",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "DqtDaIQBDfUCqeglPoN1",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:50",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "D6tDaIQBDfUCqeglPoN-",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:50",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "xqtDaIQBDfUCqeglT4fN",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:54",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "x6tDaIQBDfUCqeglT4fY",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:54",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "yKtDaIQBDfUCqeglT4fh",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:55",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "yatDaIQBDfUCqeglT4fq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:55",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "MqtDaIQBDfUCqeglR4Yg",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:52",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "M6tDaIQBDfUCqeglR4Yq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:52",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NKtDaIQBDfUCqeglR4Yy",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:52",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NatDaIQBDfUCqeglR4Y7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:52",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "p6tDaIQBDfUCqeglQoTC",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:51",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "qKtDaIQBDfUCqeglQoTM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:51",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "qatDaIQBDfUCqeglQoTU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:51",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "qqtDaIQBDfUCqeglQoTd",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:51",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "O6tDaIQBDfUCqeglS4Z4",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:53",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "PKtDaIQBDfUCqeglS4aD",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:53",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "PatDaIQBDfUCqeglS4aM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:53",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "PqtDaIQBDfUCqeglS4aV",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:53",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3KtCaIQBDfUCqegl9HQp",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:31",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3atCaIQBDfUCqegl9HQy",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:31",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3qtCaIQBDfUCqegl9HQ7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:31",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "36tCaIQBDfUCqegl9HRE",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:31",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "4atCaIQBDfUCqegl-HSH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:32",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "4qtCaIQBDfUCqegl-HSR",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:32",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "46tCaIQBDfUCqegl-HSa",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:32",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "5KtCaIQBDfUCqegl-HSj",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:32",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cKtCaIQBDfUCqegl_Hbk",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:33",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "catCaIQBDfUCqegl_Hbv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:33",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cqtCaIQBDfUCqegl_Hb4",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:33",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "c6tCaIQBDfUCqegl_XYB",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:33",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 96.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "-qtDaIQBDfUCqeglYYoF",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:59",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "-6tDaIQBDfUCqeglYYoP",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:59",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_KtDaIQBDfUCqeglYYoX",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:59",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "_atDaIQBDfUCqeglYYof",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:59",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "o6tDaIQBDfUCqeglbYzq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:02",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "pKtDaIQBDfUCqeglbYzz",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:02",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "patDaIQBDfUCqeglbYz8",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:02",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "pqtDaIQBDfUCqeglbowK",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:02",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "26tDaIQBDfUCqeglVIch",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:56",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3KtDaIQBDfUCqeglVIcq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:56",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3atDaIQBDfUCqeglVIcy",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:56",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3qtDaIQBDfUCqeglVIc6",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:56",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "ZqtDaIQBDfUCqeglWIlq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:57",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "Z6tDaIQBDfUCqeglWIl0",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:57",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "aKtDaIQBDfUCqeglWIl9",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:57",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "aatDaIQBDfUCqeglWImG",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:57",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "b6tDaIQBDfUCqeglXIm2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:58",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cKtDaIQBDfUCqeglXInB",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:58",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "catDaIQBDfUCqeglXInK",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:58",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cqtDaIQBDfUCqeglXInT",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:55:58",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "A6tDaIQBDfUCqeglZYtS",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:00",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CKtDaIQBDfUCqeglZYtg",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:00",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CatDaIQBDfUCqeglZYtn",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:00",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "C6tDaIQBDfUCqeglZYtv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:00",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "nqtDaIQBDfUCqeglaYyh",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:01",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "n6tDaIQBDfUCqeglaYyq",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:01",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "oKtDaIQBDfUCqeglaYyy",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:01",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "oatDaIQBDfUCqeglaYy7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:01",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "M6tDaIQBDfUCqeglco5G",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:03",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NKtDaIQBDfUCqeglco5Q",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:03",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NatDaIQBDfUCqeglco5Z",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:03",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NqtDaIQBDfUCqeglco5h",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:03",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "OKtDaIQBDfUCqegldo6b",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:04",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "OatDaIQBDfUCqegldo6m",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:04",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "OqtDaIQBDfUCqegldo6v",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:04",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "O6tDaIQBDfUCqegldo66",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:04",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "x6tDaIQBDfUCqegleo_p",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:06",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "yKtDaIQBDfUCqegleo_0",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:06",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "yatDaIQBDfUCqegleo_7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:06",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "yqtDaIQBDfUCqegle48D",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:06",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "zKtDaIQBDfUCqeglf48z",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:07",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "zatDaIQBDfUCqeglf49H",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:07",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "VKtDaIQBDfUCqeglf5FQ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:07",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "VatDaIQBDfUCqeglf5FX",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:07",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "W6tDaIQBDfUCqeglg5GJ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:08",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "XKtDaIQBDfUCqeglg5GU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:08",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "XatDaIQBDfUCqeglg5Gc",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:08",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "XqtDaIQBDfUCqeglg5Gk",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:08",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "5qtDaIQBDfUCqeglh5LV",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:09",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "56tDaIQBDfUCqeglh5Lf",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:09",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "6KtDaIQBDfUCqeglh5Lo",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:09",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "6atDaIQBDfUCqeglh5Ly",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:09",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "8KtDaIQBDfUCqegljJIt",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:10",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "8qtDaIQBDfUCqegljJI3",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:10",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "9atDaIQBDfUCqegljJI_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:10",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "9qtDaIQBDfUCqegljJJH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:10",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "hqtDaIQBDfUCqeglkJR8",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:11",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "h6tDaIQBDfUCqeglkJSG",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:11",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "iKtDaIQBDfUCqeglkJSP",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:11",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "iatDaIQBDfUCqeglkJSZ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:11",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "FatDaIQBDfUCqegllJbU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:12",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "FqtDaIQBDfUCqegllJbe",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:12",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "F6tDaIQBDfUCqegllJbo",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:12",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "GKtDaIQBDfUCqegllJbx",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:12",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "HqtDaIQBDfUCqeglmZYr",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:13",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "H6tDaIQBDfUCqeglmZY2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:13",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "IKtDaIQBDfUCqeglmZY_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:13",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "IatDaIQBDfUCqeglmZZI",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:13",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "qatDaIQBDfUCqeglnZd_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:14",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "qqtDaIQBDfUCqeglnZeJ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:14",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "q6tDaIQBDfUCqeglnZeR",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:14",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "rKtDaIQBDfUCqeglnZea",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:14",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "sqtDaIQBDfUCqegloZfW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:15",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "s6tDaIQBDfUCqegloZft",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:15",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tKtDaIQBDfUCqegloZf1",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:16",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "tatDaIQBDfUCqegloZf8",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:16",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "0atDaIQBDfUCqeglrprr",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:19",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "0qtDaIQBDfUCqeglrpr2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:19",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "06tDaIQBDfUCqeglr5oA",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:19",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "1KtDaIQBDfUCqeglr5oJ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:19",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "eqtDaIQBDfUCqeglvJwI",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:22",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "AatDaIQBDfUCqeglvJ4S",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:22",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "AqtDaIQBDfUCqeglvJ4a",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:22",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "A6tDaIQBDfUCqeglvJ4i",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:22",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "PatDaIQBDfUCqeglppk2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:17",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "PqtDaIQBDfUCqeglpplA",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:17",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "P6tDaIQBDfUCqeglpplI",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:17",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "QKtDaIQBDfUCqeglpplQ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:17",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "RqtDaIQBDfUCqeglqpmM",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:18",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "R6tDaIQBDfUCqeglqpmW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:18",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SKtDaIQBDfUCqeglqpmf",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:18",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "SatDaIQBDfUCqeglqpmn",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:18",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "2qtDaIQBDfUCqegls5pD",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:20",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "26tDaIQBDfUCqegls5pN",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:20",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "3atDaIQBDfUCqegls5pW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:20",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "4qtDaIQBDfUCqegls5pg",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:20",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "catDaIQBDfUCqeglt5yj",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:21",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "cqtDaIQBDfUCqeglt5yt",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:21",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "c6tDaIQBDfUCqeglt5y1",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:21",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "dKtDaIQBDfUCqeglt5zH",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:21",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "BatDaIQBDfUCqeglwJ5R",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:23",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "BqtDaIQBDfUCqeglwJ5c",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:23",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "B6tDaIQBDfUCqeglwJ5k",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:23",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "CKtDaIQBDfUCqeglwJ5u",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:23",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "lKtDaIQBDfUCqeglxJ-n",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:24",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "latDaIQBDfUCqeglxJ-x",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:24",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "lqtDaIQBDfUCqeglxJ-5",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:24",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "l6tDaIQBDfUCqeglxJ_C",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:24",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "natDaIQBDfUCqeglyJ_z",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:25",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "nqtDaIQBDfUCqeglyJ_9",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:26",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "n6tDaIQBDfUCqeglyZ8I",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:26",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "oKtDaIQBDfUCqeglyZ8R",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:26",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "KKtDaIQBDfUCqeglzaFB",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:27",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "KatDaIQBDfUCqeglzaFL",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:27",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "KqtDaIQBDfUCqeglzaFU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:27",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "K6tDaIQBDfUCqeglzaFd",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:27",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "MatDaIQBDfUCqegl0aGR",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:28",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "MqtDaIQBDfUCqegl0aGb",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:28",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "M6tDaIQBDfUCqegl0aGk",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:28",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "NKtDaIQBDfUCqegl0aGt",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:28",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "vKtDaIQBDfUCqegl1aLn",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:29",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "vatDaIQBDfUCqegl1aLv",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:29",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "vqtDaIQBDfUCqegl1aL3",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:29",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "v6tDaIQBDfUCqegl1aL-",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:29",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "xatDaIQBDfUCqegl2qIs",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:30",
+          "doc" : {
+            "Id" : "Resilience",
+            "Detection" : 0.0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "xqtDaIQBDfUCqegl2qI2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:30",
+          "doc" : {
+            "Id" : "Cyber",
+            "Detection" : 0
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "x6tDaIQBDfUCqegl2qI-",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:30",
+          "doc" : {
+            "Id" : "Physical",
+            "Detection" : 4.01
+          }
+        }
+      },
+      {
+        "_index" : "detections",
+        "_type" : "_doc",
+        "_id" : "yKtDaIQBDfUCqegl2qJG",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-11 19:56:30",
+          "doc" : {
+            "Id" : "Score",
+            "Detection" : 95.99
+          }
+        }
+      }
+    ]
+  }
+}

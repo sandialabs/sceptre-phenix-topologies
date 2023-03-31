@@ -1,0 +1,40 @@
+#!/bin/bash
+#file: wait-for-elastic
+#auth: rafer cooley (using template from @rochacbruno on github)
+#desc: provide a waiting service so the python data_manager docker container can detect when the elasticsearch container is ready to accept input. Wait and Start commands defined in docker-compose.yml under data manager service environment variables
+
+WAIT_COMMAND="[ $(curl --write-out %{http_code} --silent --output /dev/null http://$ELASTICSEARCH_CONTAINER_NAME:9200/_cat/health?h=st) = 200 ]"
+
+echo "----------------------------------------------------"
+echo "> begin wait-for-elastic script"
+echo "> elasticsearch container IP: http://$ELASTICSEARCH_CONTAINER_NAME:9200/"
+echo "> wait command to determine what condition must be satisfied:"
+# echo "$WAIT_COMMAND"
+echo "> command to run after wait condition is met:"
+echo $WAIT_START_CMD
+
+is_ready() {
+    eval [ $(curl --write-out %{http_code} --silent --output /dev/null http://$ELASTICSEARCH_CONTAINER_NAME:9200/_cat/health?h=st) = 200 ]
+}
+
+# wait until is ready
+echo "----------------------------------------------------"
+i=0
+while ! is_ready; do
+    i=`expr $i + 1`
+    if [[ $i -ge $WAIT_LOOPS ]]; then
+        echo ">> $(date) - still not ready, giving up"
+
+        exit 1
+    fi
+    echo "$(date) - [$i/$WAIT_LOOPS] waiting to be ready"
+    sleep $WAIT_SLEEP
+done
+echo "----------------------------------------------------"
+
+#start the script
+echo "> executing start command"
+exec $WAIT_START_CMD
+echo "----------------------------------------------------"
+
+#credit: https://gist.github.com/rochacbruno/bdcad83367593fd52005

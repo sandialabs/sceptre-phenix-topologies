@@ -1,0 +1,78 @@
+#file: docker-compose.yml
+#auth: Rafer Cooley, Michael McCarty
+#desc: setup dev environment for building out a grafana dashboard using the flowcharting plugin
+version: '2'
+
+services:
+  elasticsearch:
+    image: "${ELASTICSEARCH_IMAGE_NAME:?err}:${ELASTICSEARCH_VERSION:?err}"
+    container_name: "${ELASTICSEARCH_CONTAINER_NAME:?err}"
+    profiles:
+      - infrastructure
+    ports:
+      - 9200:9200
+    env_file:
+      - ./.env
+    environment:
+      - "discovery.type=single-node"
+    volumes:
+      - elastic-storage:/usr/share/elasticsearch/data
+    mem_limit: 3072m #mostly for testing b/c i have a potato
+  grafana:
+    image: "${GRAFANA_IMAGE_NAME:?err}:${GRAFANA_VERSION:?err}"
+    container_name: "${GRAFANA_CONTAINER_NAME:?err}"
+    depends_on:
+      - elasticsearch
+    profiles:
+      - infrastructure
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+    environment:
+      - "ingest.geoip.downloader.enabled=false"
+      - "ELASTIC_IP=${ELASTICSEARCH_CONTAINER_NAME:?err}" #need to mod this envvar name b/c grafana explicitly looks for ELASTIC_IP
+      - "GRAFANA_USERNAME=admin" #WARNING: do not use in production environment
+      - "GRAFANA_PASSWORD=admin" #WARNING: do not use in production environment
+      - "GF_INSTALL_PLUGINS=agenty-flowcharting-panel"
+      # - "GF_PATHS_PROVISIONING=/var/lib/grafana/provisioning"
+      # - "GF_PATHS_PROVISIONING=/etc/grafana/provisioning"
+      # - "GF_PATHS_DASHBOARDS=/var/lib/grafana/dashboards"
+    volumes:
+      - ./grafana/custom.ini:/etc/grafana/custom.ini
+      - ./grafana/provisioning/:/etc/grafana/provisioning
+      - ./grafana/dashboards/:/etc/grafana/dashboards/weto-sceptre
+      - grafana-storage:/var/lib/grafana
+    command: ./etc/extra-config/grafana/post.sh
+  # elastichq: #for testing only
+  #   image: elastichq/elasticsearch-hq:latest
+  #   profiles:
+  #     - infrastructure
+  #   depends_on:
+  #     - elasticsearch
+  #   ports:
+  #     - 5000:5000
+  #   env_file:
+  #     - ./.env
+  #   environment:
+  #     - "HQ_DEFAULT_URL=http://${ELASTICSEARCH_CONTAINER_NAME:?err}:9200"
+  manager: #data manager
+    build: './manager'
+    image: '${DATA_MANAGER_IMAGE_NAME:?err}:${DATA_MANAGER_VERSION:?err}'
+    container_name: "${DATA_MANAGER_CONTAINER_NAME:?err}"
+    profiles:
+      - runner
+    env_file:
+      - ./.env
+      - ./.env_data_manager_version #seperate file created by ./setup to track our build versioning during dev, so our cleanup script will catch the intermediary builds
+    environment:
+      - "ELASTICSEARCH_CONTAINER_NAME=${ELASTICSEARCH_CONTAINER_NAME:?err}"
+      # - "WAIT_COMMAND=[ $(curl --write-out %{http_code} --silent --output /dev/null http://$INNER_ENV_ELASTICSEARCH_CONTAINER_NAME:9200/_cat/health?h=st) = 200 ]"
+      # - "WAIT_COMMAND=[ $(curl --write-out %{http_code} --silent --output /dev/null http://${ELASTICSEARCH_CONTAINER_NAME:?err}:9200/_cat/health?h=st) = 200 ]"
+      - "WAIT_START_CMD=python /opt/app/data_manager.py init"
+      - "WAIT_SLEEP=2"
+      - "WAIT_LOOPS=60" #hopefully it won't take longer than 2*60 seconds, 
+    # command: python data_manager.py
+volumes:
+  grafana-storage:
+  elastic-storage:

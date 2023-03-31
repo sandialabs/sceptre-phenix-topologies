@@ -1,0 +1,339 @@
+{
+  "took" : 0,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 26,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "y3ZMC4QBHLYzZ6v0mSiS",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:19+00:00",
+          "attack" : true,
+          "name" : "inet-eb_session_migrate.02",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "zHZMC4QBHLYzZ6v0mSi6",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:19+00:00",
+          "attack" : true,
+          "name" : "inet-eb_session_migrate.02",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "zXZMC4QBHLYzZ6v0mSji",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:19+00:00",
+          "attack" : true,
+          "name" : "inet-eb_hashdump.02a",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "OnZMC4QBHLYzZ6v00SmF",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:33+00:00",
+          "attack" : true,
+          "name" : "inet-eb_add_user.03",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "O3ZMC4QBHLYzZ6v00Sm4",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:33+00:00",
+          "attack" : true,
+          "name" : "inet-eb_add_user.03",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "PHZMC4QBHLYzZ6v00Sng",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:33+00:00",
+          "attack" : true,
+          "name" : "inet-eb_schedule_task.04",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "_3ZMC4QBHLYzZ6v0sSiX",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:25+00:00",
+          "attack" : true,
+          "name" : "inet-eb_hashdump.02a",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "AHZMC4QBHLYzZ6v0sSm2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:25+00:00",
+          "attack" : true,
+          "name" : "inet-eb_hashdump.02a",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "AXZMC4QBHLYzZ6v0sSne",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:25+00:00",
+          "attack" : true,
+          "name" : "inet-eb_add_user.03",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "DXZJC4QBHLYzZ6v0vCN3",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:38:11+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "DnZJC4QBHLYzZ6v0vCOa",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:38:11+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "D3ZJC4QBHLYzZ6v0vCPC",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:38:11+00:00",
+          "attack" : true,
+          "name" : "inet-eb_session_migrate.02",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "sXZJC4QBHLYzZ6v0ISFF",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:31+00:00",
+          "attack" : true,
+          "name" : "inet-nmap.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "snZJC4QBHLYzZ6v0ISFr",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:31+00:00",
+          "attack" : true,
+          "name" : "inet-nmap.01",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "s3ZJC4QBHLYzZ6v0ISGN",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:31+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "VHZNC4QBHLYzZ6v0YCp2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:42:09+00:00",
+          "attack" : true,
+          "name" : "inet-eb_modbus_attack.05",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "VXZNC4QBHLYzZ6v0YCqb",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:42:09+00:00",
+          "attack" : true,
+          "name" : "inet-eb_modbus_attack.05",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "YHZJC4QBHLYzZ6v0byKn",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:51+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "ZXZJC4QBHLYzZ6v0byLJ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:51+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "Z3ZJC4QBHLYzZ6v0byLw",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:51+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "oXZJC4QBHLYzZ6v0GiG7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:29+00:00",
+          "attack" : true,
+          "name" : "inet-eb_startup.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "onZJC4QBHLYzZ6v0GiHu",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:30+00:00",
+          "attack" : true,
+          "name" : "inet-nmap.01",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "ZnZIC4QBHLYzZ6v0_yF1",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:37:22+00:00",
+          "attack" : true,
+          "name" : "inet-eb_cleanup.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "fHZMC4QBHLYzZ6v08Cn6",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:41+00:00",
+          "attack" : true,
+          "name" : "inet-eb_schedule_task.04",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "fXZMC4QBHLYzZ6v08Skd",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:41+00:00",
+          "attack" : true,
+          "name" : "inet-eb_schedule_task.04",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "fnZMC4QBHLYzZ6v08SlG",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:41:41+00:00",
+          "attack" : true,
+          "name" : "inet-eb_modbus_attack.05",
+          "stage" : "start"
+        }
+      }
+    ]
+  }
+}

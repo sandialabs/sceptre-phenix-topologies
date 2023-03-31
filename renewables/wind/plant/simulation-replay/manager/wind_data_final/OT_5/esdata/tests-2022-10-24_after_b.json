@@ -1,0 +1,84 @@
+{
+  "took" : 0,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 5,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "wHY9C4QBHLYzZ6v0VwqU",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:24:39+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "3nY9C4QBHLYzZ6v0aArF",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:24:43+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "DXY9C4QBHLYzZ6v0fQv2",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:24:48+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "OHY9C4QBHLYzZ6v0kAuB",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:24:53+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-10-24",
+        "_type" : "_doc",
+        "_id" : "vXY9C4QBHLYzZ6v0zgun",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-10-24T18:25:09+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      }
+    ]
+  }
+}

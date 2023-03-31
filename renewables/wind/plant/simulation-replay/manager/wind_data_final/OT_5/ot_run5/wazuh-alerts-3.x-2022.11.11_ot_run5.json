@@ -1,0 +1,1362 @@
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 3,
+    "successful" : 3,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 14,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "xatCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.353800000Z",
+                "eventRecordID" : "1948",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 137,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.356Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.883356",
+          "timestamp" : "2022-11-11T19:55:07.356+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "xqtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.353800000Z",
+                "eventRecordID" : "1949",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 138,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.359Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.889287",
+          "timestamp" : "2022-11-11T19:55:07.359+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "x6tCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.369400000Z",
+                "eventRecordID" : "1950",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 139,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.360Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.895218",
+          "timestamp" : "2022-11-11T19:55:07.360+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "y6tCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.634600000Z",
+                "eventRecordID" : "1955",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 142,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.434Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.919228",
+          "timestamp" : "2022-11-11T19:55:07.434+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "zKtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.837400000Z",
+                "eventRecordID" : "1956",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 143,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.451Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.925159",
+          "timestamp" : "2022-11-11T19:55:07.451+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "zqtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.884200000Z",
+                "eventRecordID" : "1958",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 145,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.482Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.937021",
+          "timestamp" : "2022-11-11T19:55:07.482+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "z6tCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:27.055800000Z",
+                "eventRecordID" : "1959",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 146,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:09.341Z",
+          "location" : "EventChannel",
+          "id" : "1668196509.942952",
+          "timestamp" : "2022-11-11T19:55:09.341+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "0KtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "targetLogonId" : "0x798911",
+                "targetUserName" : "admin",
+                "targetDomainName" : "WS-OT",
+                "targetUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "logonType" : "3"
+              },
+              "system" : {
+                "eventID" : "4634",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was logged off.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0x798911\r\n\r\nLogon Type:\t\t\t3\r\n\r\nThis event is generated when a logon session is destroyed. It may be positively correlated with a logon event using the Logon ID value. Logon IDs are only unique between reboots on the same computer.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:27.087000000Z",
+                "eventRecordID" : "1960",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12545",
+                "processID" : "488",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 5,
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows User Logoff",
+            "groups" : [
+              "windows",
+              "windows_security"
+            ],
+            "id" : "60137",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:09.343Z",
+          "location" : "EventChannel",
+          "id" : "1668196509.948883",
+          "timestamp" : "2022-11-11T19:55:09.343+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "0qtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "type" : "%%14640"
+              },
+              "system" : {
+                "eventID" : "5148",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.\r\n\r\nNetwork Information:\r\n\tType:\t\tICMP Echo-Request\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:27.492600000Z",
+                "eventRecordID" : "1962",
+                "threadID" : "44",
+                "computer" : "ws-ot",
+                "task" : "12804",
+                "processID" : "4",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 10,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.6.1"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows audit failure event",
+            "groups" : [
+              "windows",
+              "windows_security"
+            ],
+            "id" : "60104",
+            "nist_800_53" : [
+              "AU.6"
+            ],
+            "gdpr" : [
+              "IV_35.7.d"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:09.368Z",
+          "location" : "EventChannel",
+          "id" : "1668196509.952950",
+          "timestamp" : "2022-11-11T19:55:09.368+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "yatCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.603400000Z",
+                "eventRecordID" : "1953",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 140,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.403Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.907366",
+          "timestamp" : "2022-11-11T19:55:07.403+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "0atCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "packetsDiscarded" : "109818",
+                "type" : "%%14640"
+              },
+              "system" : {
+                "eventID" : "5149",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"The DoS attack has subsided and normal processing is being resumed.\r\n\r\nNetwork Information:\r\n\tType:\t\tICMP Echo-Request\r\n\tPackets Discarded:\t\t\t109818\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:27.492600000Z",
+                "eventRecordID" : "1961",
+                "threadID" : "44",
+                "computer" : "ws-ot",
+                "task" : "12804",
+                "processID" : "4",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 9,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.6.1"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows audit failure event",
+            "groups" : [
+              "windows",
+              "windows_security"
+            ],
+            "id" : "60104",
+            "nist_800_53" : [
+              "AU.6"
+            ],
+            "gdpr" : [
+              "IV_35.7.d"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:09.353Z",
+          "location" : "EventChannel",
+          "id" : "1668196509.951314",
+          "timestamp" : "2022-11-11T19:55:09.353+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "yKtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "lmPackageName" : "NTLM V2",
+                "targetLogonId" : "0x798911",
+                "logonProcessName" : "NtLmSsp",
+                "logonGuid" : "{00000000-0000-0000-0000-000000000000}",
+                "targetUserName" : "admin",
+                "keyLength" : "128",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "targetDomainName" : "WS-OT",
+                "targetUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "logonType" : "3"
+              },
+              "system" : {
+                "eventID" : "4624",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nNew Logon:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0x798911\r\n\tLogon GUID:\t\t{00000000-0000-0000-0000-000000000000}\r\n\r\nProcess Information:\r\n\tProcess ID:\t\t0x0\r\n\tProcess Name:\t\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\tNTLM V2\r\n\tKey Length:\t\t128\r\n\r\nThis event is generated when a logon session is created. It is generated on the computer that was accessed.\r\n\r\nThe subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.\r\n\r\nThe network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.369400000Z",
+                "eventRecordID" : "1952",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows Logon Success",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "authentication_success"
+            ],
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ],
+            "firedtimes" : 6,
+            "mitre" : {
+              "technique" : [
+                "Valid Accounts"
+              ],
+              "id" : [
+                "T1078"
+              ],
+              "tactic" : [
+                "Defense Evasion",
+                "Initial Access",
+                "Persistence",
+                "Privilege Escalation"
+              ]
+            },
+            "id" : "60106",
+            "gpg13" : [
+              "7.1",
+              "7.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.388Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.901149",
+          "timestamp" : "2022-11-11T19:55:07.388+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "yqtCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.619000000Z",
+                "eventRecordID" : "1954",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 141,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.419Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.913297",
+          "timestamp" : "2022-11-11T19:55:07.419+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "zatCaIQBDfUCqeglv2kw",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "workstation",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-11-12T01:54:26.853000000Z",
+                "eventRecordID" : "1957",
+                "threadID" : "2176",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "488",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 144,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-11-11T19:55:07.465Z",
+          "location" : "EventChannel",
+          "id" : "1668196507.931090",
+          "timestamp" : "2022-11-11T19:55:07.465+0000"
+        }
+      }
+    ]
+  }
+}

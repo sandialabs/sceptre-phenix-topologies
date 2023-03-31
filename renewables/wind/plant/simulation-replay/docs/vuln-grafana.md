@@ -1,0 +1,23 @@
+| Package | Version Installed | Vulnerability ID | Severity |
+| -- | -- | -- | -- |
+| google.golang.org/protobuf | v1.27.1 | CVE-2015-5237 | High |
+| google.golang.org/protobuf | v1.27.1 | CVE-2015-5237 | High |
+| github.com/prometheus/prometheus | v1.8.2-0.20211011171444-354d8d2ecfac | CVE-2019-3826 | Medium |
+| github.com/prometheus/prometheus | v1.8.2-0.20211011171444-354d8d2ecfac | CVE-2019-3826 | Medium |
+| google.golang.org/protobuf | v1.27.1 | CVE-2021-22570 | Medium |
+| google.golang.org/protobuf | v1.27.1 | CVE-2021-22570 | Medium |
+| github.com/grafana/loki | v1.6.2-0.20211015002020-7832783b1caa | CVE-2021-36156 | Medium |
+| libtirpc | 1.3.2-r0 | CVE-2021-46828 | High |
+| libtirpc-conf | 1.3.2-r0 | CVE-2021-46828 | High |
+| libcrypto1.1 | 1.1.1n-r0 | CVE-2022-2097 | Medium |
+| libssl1.1 | 1.1.1n-r0 | CVE-2022-2097 | Medium |
+| openssl | 1.1.1n-r0 | CVE-2022-2097 | Medium |
+| ncurses-libs | 6.3_p20211120-r0 | CVE-2022-29458 | High |
+| ncurses-terminfo-base | 6.3_p20211120-r0 | CVE-2022-29458 | High |
+| zlib | 1.2.12-r0 | CVE-2022-37434 | Critical |
+| krb5-libs | 1.19.3-r0 | CVE-2022-42898 | Unknown |
+| github.com/prometheus/exporter-toolkit | v0.7.0 | CVE-2022-46146 | High |
+| github.com/prometheus/exporter-toolkit | v0.7.0 | CVE-2022-46146 | High |
+| github.com/prometheus/exporter-toolkit | v0.7.0 | GHSA-7rg2-cxvp-9p7p | Medium |
+| github.com/prometheus/exporter-toolkit | v0.7.0 | GHSA-7rg2-cxvp-9p7p | Medium |
+| github.com/grafana/loki | v1.6.2-0.20211015002020-7832783b1caa | GHSA-grj5-8x6q-hc9q | Medium |

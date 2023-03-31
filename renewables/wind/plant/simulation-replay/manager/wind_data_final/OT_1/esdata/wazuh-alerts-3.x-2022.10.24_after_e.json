@@ -1,0 +1,2153 @@
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 3,
+    "successful" : 3,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 29,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "Un_hC4QBHLYzZ6v0oXP6",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, APPCRASH, Not available, 0, spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_07b966fc, 0, d5bca460-540c-11ed-bec8-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "454",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: spoolsv.exe\r\nP2: 6.1.7600.16385\r\nP3: 4a5bd3d1\r\nP4: ntdll.dll\r\nP5: 6.1.7600.16385\r\nP6: 4a5be02b\r\nP7: c000071c\r\nP8: 000000000006f035\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_07b966fc\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: d5bca460-540c-11ed-bec8-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:04.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 6,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:04.104Z",
+          "location" : "EventChannel",
+          "id" : "1666646644.1418307",
+          "timestamp" : "2022-10-24T21:24:04.104+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "b3_hC4QBHLYzZ6v0rXax",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, APPCRASH, Not available, 0, spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_081c4de1, 0, 54626d60-5410-11ed-bec8-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "455",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: spoolsv.exe\r\nP2: 6.1.7600.16385\r\nP3: 4a5bd3d1\r\nP4: ntdll.dll\r\nP5: 6.1.7600.16385\r\nP6: 4a5be02b\r\nP7: c000071c\r\nP8: 000000000006f035\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_081c4de1\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 54626d60-5410-11ed-bec8-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:06.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 7,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:06.736Z",
+          "location" : "EventChannel",
+          "id" : "1666646646.1420943",
+          "timestamp" : "2022-10-24T21:24:06.736+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "mX_hC4QBHLYzZ6v0vXld",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, APPCRASH, Not available, 0, spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035,   C:\\\\Windows\\\\Temp\\\\WER982C.tmp.appcompat.txt  C:\\\\Windows\\\\Temp\\\\WER983D.tmp.WERInternalMetadata.xml  C:\\\\Windows\\\\Temp\\\\WER983E.tmp.hdmp  C:\\\\Windows\\\\Temp\\\\WER9F8F.tmp.mdmp, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_cab_04939fca, 0, f71b4b10-5408-11ed-9982-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "457",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: spoolsv.exe\r\nP2: 6.1.7600.16385\r\nP3: 4a5bd3d1\r\nP4: ntdll.dll\r\nP5: 6.1.7600.16385\r\nP6: 4a5be02b\r\nP7: c000071c\r\nP8: 000000000006f035\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\nC:\\Windows\\Temp\\WER982C.tmp.appcompat.txt\r\nC:\\Windows\\Temp\\WER983D.tmp.WERInternalMetadata.xml\r\nC:\\Windows\\Temp\\WER983E.tmp.hdmp\r\nC:\\Windows\\Temp\\WER9F8F.tmp.mdmp\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_cab_04939fca\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: f71b4b10-5408-11ed-9982-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:11.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 9,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:11.998Z",
+          "location" : "EventChannel",
+          "id" : "1666646651.1426215",
+          "timestamp" : "2022-10-24T21:24:11.998+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "nH_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.319600000Z",
+                "eventRecordID" : "1948",
+                "threadID" : "2188",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 4,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.022Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1441741",
+          "timestamp" : "2022-10-24T21:24:13.022+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "oX_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.818800000Z",
+                "eventRecordID" : "1953",
+                "threadID" : "2188",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 9,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.100Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1471401",
+          "timestamp" : "2022-10-24T21:24:13.100+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "qn_hC4QBHLYzZ6v0wXlA",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.818800000Z",
+                "eventRecordID" : "1955",
+                "threadID" : "2188",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 11,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.131Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1483265",
+          "timestamp" : "2022-10-24T21:24:13.131+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "rH_hC4QBHLYzZ6v0wXlA",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "type" : "%%14640"
+              },
+              "system" : {
+                "eventID" : "5148",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.\r\n\r\nNetwork Information:\r\n\tType:\t\tICMP Echo-Request\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:12.474000000Z",
+                "eventRecordID" : "1957",
+                "threadID" : "44",
+                "computer" : "ws-ot",
+                "task" : "12804",
+                "processID" : "4",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 1,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.6.1"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows audit failure event",
+            "groups" : [
+              "windows",
+              "windows_security"
+            ],
+            "id" : "60104",
+            "nist_800_53" : [
+              "AU.6"
+            ],
+            "gdpr" : [
+              "IV_35.7.d"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.162Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1491625",
+          "timestamp" : "2022-10-24T21:24:13.162+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "rX_hC4QBHLYzZ6v0wXlA",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, WindowsUpdateFailure, Not available, 0, 7.3.7600.16385, 80072efe, 00000000-0000-0000-0000-000000000000, Scan, 101, Unmanaged, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_7.3.7600.16385_83d89db3bee8694b325a46ad46dd6fefb24c93ab_cab_08763cc1, 0, e5978a90-703b-11ec-98e2-c516cfe5108f, 0"
+              },
+              "system" : {
+                "eventRecordID" : "458",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: WindowsUpdateFailure\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 7.3.7600.16385\r\nP2: 80072efe\r\nP3: 00000000-0000-0000-0000-000000000000\r\nP4: Scan\r\nP5: 101\r\nP6: Unmanaged\r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_7.3.7600.16385_83d89db3bee8694b325a46ad46dd6fefb24c93ab_cab_08763cc1\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: e5978a90-703b-11ec-98e2-c516cfe5108f\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:14.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 10,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:14.619Z",
+          "location" : "EventChannel",
+          "id" : "1666646654.1493277",
+          "timestamp" : "2022-10-24T21:24:14.619+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "nX_hC4QBHLYzZ6v06IFQ",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, MpTelemetry, Not available, 0, 8024402c, EndSearch, Search, 6.1.7600.16385, MpSigDwn.dll, 6.1.7600.16385, Windows Defender, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_01d1711a, 0, 26c83050-53f8-11ed-9982-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "461",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: MpTelemetry\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 8024402c\r\nP2: EndSearch\r\nP3: Search\r\nP4: 6.1.7600.16385\r\nP5: MpSigDwn.dll\r\nP6: 6.1.7600.16385\r\nP7: Windows Defender\r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_01d1711a\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 26c83050-53f8-11ed-9982-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:22.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 13,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:22.480Z",
+          "location" : "EventChannel",
+          "id" : "1666646662.1501455",
+          "timestamp" : "2022-10-24T21:24:22.480+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "qH_hC4QBHLYzZ6v0lnFH",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, PnPRequestAdditionalSoftware, Not available, 0, x64, USB\\\\VID_0627&amp;PID_0001&amp;REV_0000, 6.1.0.0, 0409, input.inf, *, C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_x64_dc9b637cc17754c3e77aa5152293882c915d58d_cab_090444bc, 0, d9815a00-a011-11ec-bae0-f0d1976a3154, 0"
+              },
+              "system" : {
+                "eventRecordID" : "452",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: PnPRequestAdditionalSoftware\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: x64\r\nP2: USB\\VID_0627&PID_0001&REV_0000\r\nP3: 6.1.0.0\r\nP4: 0409\r\nP5: input.inf\r\nP6: *\r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\Users\\admin\\AppData\\Local\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_x64_dc9b637cc17754c3e77aa5152293882c915d58d_cab_090444bc\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: d9815a00-a011-11ec-bae0-f0d1976a3154\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:23:58.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 4,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:23:58.863Z",
+          "location" : "EventChannel",
+          "id" : "1666646638.1412811",
+          "timestamp" : "2022-10-24T21:23:58.863+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "mn_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.319600000Z",
+                "eventRecordID" : "1946",
+                "threadID" : "2508",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 3,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:12.991Z",
+          "location" : "EventChannel",
+          "id" : "1666646652.1429595",
+          "timestamp" : "2022-10-24T21:24:12.991+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "m3_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "lmPackageName" : "NTLM V2",
+                "targetLogonId" : "0xfcc67",
+                "logonProcessName" : "NtLmSsp",
+                "logonGuid" : "{00000000-0000-0000-0000-000000000000}",
+                "targetUserName" : "admin",
+                "keyLength" : "128",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "targetDomainName" : "WS-OT",
+                "targetUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "logonType" : "3"
+              },
+              "system" : {
+                "eventID" : "4624",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nNew Logon:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xfcc67\r\n\tLogon GUID:\t\t{00000000-0000-0000-0000-000000000000}\r\n\r\nProcess Information:\r\n\tProcess ID:\t\t0x0\r\n\tProcess Name:\t\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\tNTLM V2\r\n\tKey Length:\t\t128\r\n\r\nThis event is generated when a logon session is created. It is generated on the computer that was accessed.\r\n\r\nThe subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.\r\n\r\nThe network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.319600000Z",
+                "eventRecordID" : "1947",
+                "threadID" : "1056",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows Logon Success",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "authentication_success"
+            ],
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ],
+            "firedtimes" : 6,
+            "mitre" : {
+              "technique" : [
+                "Valid Accounts"
+              ],
+              "id" : [
+                "T1078"
+              ],
+              "tactic" : [
+                "Defense Evasion",
+                "Initial Access",
+                "Persistence",
+                "Privilege Escalation"
+              ]
+            },
+            "id" : "60106",
+            "gpg13" : [
+              "7.1",
+              "7.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.006Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1435527",
+          "timestamp" : "2022-10-24T21:24:13.006+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "nX_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.319600000Z",
+                "eventRecordID" : "1949",
+                "threadID" : "2188",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 5,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.038Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1447673",
+          "timestamp" : "2022-10-24T21:24:13.038+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "q3_hC4QBHLYzZ6v0wXlA",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "targetLogonId" : "0xfcc67",
+                "targetUserName" : "admin",
+                "targetDomainName" : "WS-OT",
+                "targetUserSid" : "S-1-5-21-4007524664-390538599-4252332654-1000",
+                "logonType" : "3"
+              },
+              "system" : {
+                "eventID" : "4634",
+                "keywords" : "0x8020000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account was logged off.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-4007524664-390538599-4252332654-1000\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\tWS-OT\r\n\tLogon ID:\t\t0xfcc67\r\n\r\nLogon Type:\t\t\t3\r\n\r\nThis event is generated when a logon session is destroyed. It may be positively correlated with a logon event using the Logon ID value. Logon IDs are only unique between reboots on the same computer.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:12.037200000Z",
+                "eventRecordID" : "1956",
+                "threadID" : "2188",
+                "computer" : "ws-ot",
+                "task" : "12545",
+                "processID" : "464",
+                "severityValue" : "AUDIT_SUCCESS",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 1,
+            "mail" : false,
+            "level" : 3,
+            "pci_dss" : [
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Windows User Logoff",
+            "groups" : [
+              "windows",
+              "windows_security"
+            ],
+            "id" : "60137",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gdpr" : [
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.146Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1489197",
+          "timestamp" : "2022-10-24T21:24:13.146+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "aH_hC4QBHLYzZ6v00H7f",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, WindowsUpdateFailure, Not available, 0, 7.3.7600.16385, 80072efe, D67661EB-2423-451D-BF5D-13199E37DF28, Scan, 101, Unmanaged, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_7.3.7600.16385_e91fd7fdd27877d2797d21d2916be09151e83d_cab_063ecc91, 0, 8a30ee00-7039-11ec-98e2-c516cfe5108f, 0"
+              },
+              "system" : {
+                "eventRecordID" : "459",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: WindowsUpdateFailure\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 7.3.7600.16385\r\nP2: 80072efe\r\nP3: D67661EB-2423-451D-BF5D-13199E37DF28\r\nP4: Scan\r\nP5: 101\r\nP6: Unmanaged\r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_7.3.7600.16385_e91fd7fdd27877d2797d21d2916be09151e83d_cab_063ecc91\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 8a30ee00-7039-11ec-98e2-c516cfe5108f\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:17.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 11,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:17.238Z",
+          "location" : "EventChannel",
+          "id" : "1666646657.1495937",
+          "timestamp" : "2022-10-24T21:24:17.238+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "0n_hC4QBHLYzZ6v094Tx",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, MpTelemetry, Not available, 0, 8024402c, EndSearch, Search, 6.1.7600.16385, MpSigDwn.dll, 6.1.7600.16385, Windows Defender, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_07e56029, 0, de70c460-53f3-11ed-9982-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "463",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: MpTelemetry\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 8024402c\r\nP2: EndSearch\r\nP3: Search\r\nP4: 6.1.7600.16385\r\nP5: MpSigDwn.dll\r\nP6: 6.1.7600.16385\r\nP7: Windows Defender\r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_07e56029\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: de70c460-53f3-11ed-9982-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:27.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 15,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:27.722Z",
+          "location" : "EventChannel",
+          "id" : "1666646667.1506647",
+          "timestamp" : "2022-10-24T21:24:27.722+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "i3_iC4QBHLYzZ6v0D4lj",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, MpTelemetry, Not available, 0, 8024402c, EndSearch, Search, 6.1.7600.16385, MpSigDwn.dll, 6.1.7600.16385, Windows Defender,   C:\\\\Windows\\\\Temp\\\\MPTelemetrySubmit\\\\client_manifest.txt, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_cab_086032c3, 0, 1433b220-53f3-11ed-9982-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "465",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: MpTelemetry\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 8024402c\r\nP2: EndSearch\r\nP3: Search\r\nP4: 6.1.7600.16385\r\nP5: MpSigDwn.dll\r\nP6: 6.1.7600.16385\r\nP7: Windows Defender\r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\nC:\\Windows\\Temp\\MPTelemetrySubmit\\client_manifest.txt\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_cab_086032c3\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 1433b220-53f3-11ed-9982-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:32.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 17,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:32.963Z",
+          "location" : "EventChannel",
+          "id" : "1666646672.1511839",
+          "timestamp" : "2022-10-24T21:24:32.963+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "XH_iC4QBHLYzZ6v0Jo7U",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, PnPDriverNotFound, Not available, 0, x64, ACPI\\\\QEMU0002,   C:\\\\Windows\\\\Temp\\\\DMIC5AE.tmp.log.xml, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_x64_7e7688eac2ab845272f4daac96479e93e0f0a5_cab_06f1c62b, 0, 0e3fa540-7041-11ec-b9ee-84544cfc73cc, 0"
+              },
+              "system" : {
+                "eventRecordID" : "467",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: PnPDriverNotFound\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: x64\r\nP2: ACPI\\QEMU0002\r\nP3: \r\nP4: \r\nP5: \r\nP6: \r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\nC:\\Windows\\Temp\\DMIC5AE.tmp.log.xml\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_x64_7e7688eac2ab845272f4daac96479e93e0f0a5_cab_06f1c62b\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 0e3fa540-7041-11ec-b9ee-84544cfc73cc\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:38.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 19,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:38.204Z",
+          "location" : "EventChannel",
+          "id" : "1666646678.1517210",
+          "timestamp" : "2022-10-24T21:24:38.204+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "p3_hC4QBHLYzZ6v0lnFH",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, PnPRequestAdditionalSoftware, Not available, 0, x64, USB\\\\VID_0627&amp;PID_0001&amp;REV_0000, 6.1.0.0, 0409, input.inf, *, C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_x64_dc9b637cc17754c3e77aa5152293882c915d58d_0a25fd32, 0, 582b90e0-53f0-11ed-81db-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "451",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: PnPRequestAdditionalSoftware\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: x64\r\nP2: USB\\VID_0627&PID_0001&REV_0000\r\nP3: 6.1.0.0\r\nP4: 0409\r\nP5: input.inf\r\nP6: *\r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\Users\\admin\\AppData\\Local\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_x64_dc9b637cc17754c3e77aa5152293882c915d58d_0a25fd32\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 582b90e0-53f0-11ed-81db-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:23:56.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 3,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:23:56.247Z",
+          "location" : "EventChannel",
+          "id" : "1666646636.1410171",
+          "timestamp" : "2022-10-24T21:23:56.247+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "qX_hC4QBHLYzZ6v0lnFH",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, PnPDriverNotFound, Not available, 0, x64, {6FDE7547-1B65-48ae-B628-80BE62016026}\\\\VIOSerialPort,   C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\DMI450A.tmp.log.xml, C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_x64_f76302232e02c698532e7939b618d18758799a2_cab_0904452a, 0, d9815a01-a011-11ec-bae0-f0d1976a3154, 0"
+              },
+              "system" : {
+                "eventRecordID" : "453",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: PnPDriverNotFound\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: x64\r\nP2: {6FDE7547-1B65-48ae-B628-80BE62016026}\\VIOSerialPort\r\nP3: \r\nP4: \r\nP5: \r\nP6: \r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\nC:\\Users\\admin\\AppData\\Local\\Temp\\DMI450A.tmp.log.xml\r\n\r\nThese files may be available here:\r\nC:\\Users\\admin\\AppData\\Local\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_x64_f76302232e02c698532e7939b618d18758799a2_cab_0904452a\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: d9815a01-a011-11ec-bae0-f0d1976a3154\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:01.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 5,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:01.484Z",
+          "location" : "EventChannel",
+          "id" : "1666646641.1415467",
+          "timestamp" : "2022-10-24T21:24:01.484+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "gX_hC4QBHLYzZ6v0sXaa",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, APPCRASH, Not available, 0, spoolsv.exe, 6.1.7600.16385, 4a5bd3d1, ntdll.dll, 6.1.7600.16385, 4a5be02b, c000071c, 000000000006f035, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_0ba1fc58, 0, eb2ae9a0-5412-11ed-922a-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "456",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: spoolsv.exe\r\nP2: 6.1.7600.16385\r\nP3: 4a5bd3d1\r\nP4: ntdll.dll\r\nP5: 6.1.7600.16385\r\nP6: 4a5be02b\r\nP7: c000071c\r\nP8: 000000000006f035\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_spoolsv.exe_783c7b8a9e3fcb94db1dd9205ac2e583bec97020_0ba1fc58\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: eb2ae9a0-5412-11ed-922a-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:09.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 8,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:09.361Z",
+          "location" : "EventChannel",
+          "id" : "1666646649.1423579",
+          "timestamp" : "2022-10-24T21:24:09.361+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "nn_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.569200000Z",
+                "eventRecordID" : "1950",
+                "threadID" : "1056",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 6,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.053Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1453605",
+          "timestamp" : "2022-10-24T21:24:13.053+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "n3_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.569200000Z",
+                "eventRecordID" : "1951",
+                "threadID" : "1056",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 7,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.069Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1459537",
+          "timestamp" : "2022-10-24T21:24:13.069+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "oH_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.584800000Z",
+                "eventRecordID" : "1952",
+                "threadID" : "1056",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 8,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.084Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1465469",
+          "timestamp" : "2022-10-24T21:24:13.084+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "on_hC4QBHLYzZ6v0vXle",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "subjectLogonId" : "0x0",
+                "authenticationPackageName" : "NTLM",
+                "workstationName" : "kali-ot",
+                "subStatus" : "0xc000006a",
+                "logonProcessName" : "NtLmSsp",
+                "targetUserName" : "admin",
+                "keyLength" : "0",
+                "subjectUserSid" : "S-1-0-0",
+                "processId" : "0x0",
+                "failureReason" : "%%2313",
+                "targetUserSid" : "S-1-0-0",
+                "logonType" : "3",
+                "status" : "0xc000006d"
+              },
+              "system" : {
+                "eventID" : "4625",
+                "keywords" : "0x8010000000000000",
+                "providerGuid" : "{54849625-5478-4994-A5BA-3E3B0328C30D}",
+                "level" : "0",
+                "channel" : "Security",
+                "opcode" : "0",
+                "message" : "\"An account failed to log on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\t-\r\n\tAccount Domain:\t\t-\r\n\tLogon ID:\t\t0x0\r\n\r\nLogon Type:\t\t\t3\r\n\r\nAccount For Which Logon Failed:\r\n\tSecurity ID:\t\tS-1-0-0\r\n\tAccount Name:\t\tadmin\r\n\tAccount Domain:\t\t\r\n\r\nFailure Information:\r\n\tFailure Reason:\t\tUnknown user name or bad password.\r\n\tStatus:\t\t\t0xc000006d\r\n\tSub Status:\t\t0xc000006a\r\n\r\nProcess Information:\r\n\tCaller Process ID:\t0x0\r\n\tCaller Process Name:\t-\r\n\r\nNetwork Information:\r\n\tWorkstation Name:\tkali-ot\r\n\tSource Network Address:\t-\r\n\tSource Port:\t\t-\r\n\r\nDetailed Authentication Information:\r\n\tLogon Process:\t\tNtLmSsp \r\n\tAuthentication Package:\tNTLM\r\n\tTransited Services:\t-\r\n\tPackage Name (NTLM only):\t-\r\n\tKey Length:\t\t0\r\n\r\nThis event is generated when a logon request fails. It is generated on the computer where access was attempted.\r\n\r\nThe Subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.\r\n\r\nThe Logon Type field indicates the kind of logon that was requested. The most common types are 2 (interactive) and 3 (network).\r\n\r\nThe Process Information fields indicate which account and process on the system requested the logon.\r\n\r\nThe Network Information fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.\r\n\r\nThe authentication information fields provide detailed information about this specific logon request.\r\n\t- Transited services indicate which intermediate services have participated in this logon request.\r\n\t- Package name indicates which sub-protocol was used among the NTLM protocols.\r\n\t- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.\"",
+                "version" : "0",
+                "systemTime" : "2022-10-25T03:24:11.818800000Z",
+                "eventRecordID" : "1954",
+                "threadID" : "2188",
+                "computer" : "ws-ot",
+                "task" : "12544",
+                "processID" : "464",
+                "severityValue" : "AUDIT_FAILURE",
+                "providerName" : "Microsoft-Windows-Security-Auditing"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 10,
+            "mail" : false,
+            "level" : 5,
+            "pci_dss" : [
+              "10.2.4",
+              "10.2.5"
+            ],
+            "hipaa" : [
+              "164.312.b"
+            ],
+            "tsc" : [
+              "CC6.1",
+              "CC6.8",
+              "CC7.2",
+              "CC7.3"
+            ],
+            "description" : "Logon Failure - Unknown user or bad password",
+            "groups" : [
+              "windows",
+              "windows_security",
+              "win_authentication_failed"
+            ],
+            "id" : "60122",
+            "nist_800_53" : [
+              "AU.14",
+              "AC.7"
+            ],
+            "gpg13" : [
+              "7.1"
+            ],
+            "gdpr" : [
+              "IV_35.7.d",
+              "IV_32.2"
+            ]
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:13.115Z",
+          "location" : "EventChannel",
+          "id" : "1666646653.1477333",
+          "timestamp" : "2022-10-24T21:24:13.115+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "CH_hC4QBHLYzZ6v03ICX",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, MpTelemetry, Not available, 0, 80072efe, EndSearch, Search, 6.1.7600.16385, MpSigDwn.dll, 6.1.7600.16385, Windows Defender,   C:\\\\Windows\\\\Temp\\\\MPTelemetrySubmit\\\\client_manifest.txt, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_80072efe_eed54846deb8b3ece27f3b18d37b7066c8c31be_cab_0bee2efc, 0, e0ec0bb0-703b-11ec-98e2-c516cfe5108f, 0"
+              },
+              "system" : {
+                "eventRecordID" : "460",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: MpTelemetry\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 80072efe\r\nP2: EndSearch\r\nP3: Search\r\nP4: 6.1.7600.16385\r\nP5: MpSigDwn.dll\r\nP6: 6.1.7600.16385\r\nP7: Windows Defender\r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\nC:\\Windows\\Temp\\MPTelemetrySubmit\\client_manifest.txt\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_80072efe_eed54846deb8b3ece27f3b18d37b7066c8c31be_cab_0bee2efc\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: e0ec0bb0-703b-11ec-98e2-c516cfe5108f\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:19.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 12,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:19.860Z",
+          "location" : "EventChannel",
+          "id" : "1666646659.1498589",
+          "timestamp" : "2022-10-24T21:24:19.860+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "zH_hC4QBHLYzZ6v09IQK",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, MpTelemetry, Not available, 0, 8024402c, EndSearch, Search, 6.1.7600.16385, MpSigDwn.dll, 6.1.7600.16385, Windows Defender, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_05f43745, 0, de62c3a0-540d-11ed-bec8-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "462",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: MpTelemetry\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 8024402c\r\nP2: EndSearch\r\nP3: Search\r\nP4: 6.1.7600.16385\r\nP5: MpSigDwn.dll\r\nP6: 6.1.7600.16385\r\nP7: Windows Defender\r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_05f43745\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: de62c3a0-540d-11ed-bec8-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:25.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 14,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:25.101Z",
+          "location" : "EventChannel",
+          "id" : "1666646665.1504051",
+          "timestamp" : "2022-10-24T21:24:25.101+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "-X_iC4QBHLYzZ6v0A4eq",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, MpTelemetry, Not available, 0, 8024402c, EndSearch, Search, 6.1.7600.16385, MpSigDwn.dll, 6.1.7600.16385, Windows Defender, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_0a09648c, 0, a89fd5e0-540e-11ed-bec8-444f5e2a2f8e, 0"
+              },
+              "system" : {
+                "eventRecordID" : "464",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: MpTelemetry\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 8024402c\r\nP2: EndSearch\r\nP3: Search\r\nP4: 6.1.7600.16385\r\nP5: MpSigDwn.dll\r\nP6: 6.1.7600.16385\r\nP7: Windows Defender\r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_8024402c_a728027ac40dacf25be0b7dcff722b28db819_0a09648c\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: a89fd5e0-540e-11ed-bec8-444f5e2a2f8e\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:30.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 16,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:30.343Z",
+          "location" : "EventChannel",
+          "id" : "1666646670.1509243",
+          "timestamp" : "2022-10-24T21:24:30.343+0000"
+        }
+      },
+      {
+        "_index" : "wazuh-alerts-3.x-2022.10.24",
+        "_type" : "_doc",
+        "_id" : "un_iC4QBHLYzZ6v0G4wc",
+        "_score" : 1.0,
+        "_source" : {
+          "agent" : {
+            "ip" : "192.168.100.100",
+            "name" : "WORKSTATION",
+            "id" : "007"
+          },
+          "manager" : {
+            "name" : "wazuhmanager"
+          },
+          "data" : {
+            "win" : {
+              "eventdata" : {
+                "data" : "0, PnPGenericDriverFound, Not available, 0, x64, PCI\\\\VEN_1234&amp;DEV_1111&amp;SUBSYS_11001AF4&amp;REV_02, C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\WER\\\\ReportQueue\\\\NonCritical_x64_14581a24ae3cd03160d66be822236893de867_cab_07056f36, 0, 00ff9de0-7041-11ec-b9ee-b23daec04465, 0"
+              },
+              "system" : {
+                "eventRecordID" : "466",
+                "eventID" : "1001",
+                "computer" : "ws-ot",
+                "task" : "0",
+                "keywords" : "0x80000000000000",
+                "level" : "4",
+                "severityValue" : "INFORMATION",
+                "channel" : "Application",
+                "message" : "\"Fault bucket , type 0\r\nEvent Name: PnPGenericDriverFound\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: x64\r\nP2: PCI\\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\r\nP3: \r\nP4: \r\nP5: \r\nP6: \r\nP7: \r\nP8: \r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\nC:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\NonCritical_x64_14581a24ae3cd03160d66be822236893de867_cab_07056f36\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 00ff9de0-7041-11ec-b9ee-b23daec04465\r\nReport Status: 0\"",
+                "systemTime" : "2022-10-25T03:24:35.000000000Z",
+                "providerName" : "Windows Error Reporting"
+              }
+            }
+          },
+          "rule" : {
+            "firedtimes" : 18,
+            "mail" : false,
+            "level" : 4,
+            "description" : "Summary event of the report's signatures",
+            "groups" : [
+              "windows",
+              "windows_application"
+            ],
+            "id" : "60608"
+          },
+          "decoder" : {
+            "name" : "windows_eventchannel"
+          },
+          "input" : {
+            "type" : "log"
+          },
+          "@timestamp" : "2022-10-24T21:24:35.583Z",
+          "location" : "EventChannel",
+          "id" : "1666646675.1514697",
+          "timestamp" : "2022-10-24T21:24:35.583+0000"
+        }
+      }
+    ]
+  }
+}

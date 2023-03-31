@@ -1,0 +1,1563 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 16,
+      "panels": [],
+      "title": "Physical",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEBC1D95F13C770DE"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "Power (MW)",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "points",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 1
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "1"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEBC1D95F13C770DE"
+          },
+          "metrics": [
+            {
+              "field": "value",
+              "id": "1",
+              "type": "avg"
+            }
+          ],
+          "query": "field:mw",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Power (MW)",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEBC1D95F13C770DE"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line+area"
+            }
+          },
+          "mappings": [],
+          "max": 1.06,
+          "min": 0.94,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.95
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "dark-red",
+                "value": 1.05
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 11,
+        "y": 1
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEBC1D95F13C770DE"
+          },
+          "metrics": [
+            {
+              "field": "value",
+              "id": "1",
+              "type": "avg"
+            }
+          ],
+          "query": "field:voltage",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Voltage",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 14,
+      "panels": [],
+      "title": "Cyber",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "Alert Count",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 11
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "NIDS",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "HIDS",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "uid": "P45A1D828630779A3"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "",
+          "refId": "B",
+          "timeField": "timestamp"
+        }
+      ],
+      "title": "Alerts",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 0
+              },
+              {
+                "color": "dark-green",
+                "value": 0.0001
+              },
+              {
+                "color": "yellow",
+                "value": 20
+              },
+              {
+                "color": "dark-red",
+                "value": 60
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 16,
+        "y": 11
+      },
+      "id": 22,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "uid": "P45A1D828630779A3"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "rule.level",
+              "id": "1",
+              "type": "sum"
+            }
+          ],
+          "query": "field:rule.level",
+          "refId": "B",
+          "timeField": "timestamp"
+        },
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "port",
+              "id": "1",
+              "type": "sum"
+            }
+          ],
+          "query": "*",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Alert Level",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 218
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "message"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 172
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "port"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 75
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "@timestamp"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 181
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 78
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Message"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 198
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 20
+      },
+      "id": 4,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Severity"
+          }
+        ]
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "NIDS Alerts",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "@version": true,
+              "_id": true,
+              "_index": true,
+              "_type": true,
+              "cef.device_custom_string_1.label": true,
+              "cef.device_custom_string_1.value": true,
+              "cef.device_custom_string_2.label": true,
+              "cef.device_custom_string_2.value": true,
+              "cef.device_custom_string_3.label": true,
+              "cef.device_custom_string_3.value": true,
+              "cef.device_custom_string_5.label": true,
+              "cef.device_custom_string_5.value": true,
+              "cef.device_custom_string_6.label": true,
+              "cef.device_custom_string_6.value": true,
+              "cef.version": true,
+              "cefVersion": false,
+              "destination.mac": true,
+              "deviceCustomString1": false,
+              "deviceCustomString1Label": false,
+              "deviceCustomString6": false,
+              "deviceCustomString6Label": false,
+              "deviceEventClassId": false,
+              "deviceHostName": false,
+              "deviceProduct": false,
+              "deviceVendor": false,
+              "deviceVersion": false,
+              "event.code": true,
+              "event.start": true,
+              "flexString3": true,
+              "flexString3Label": true,
+              "highlight": true,
+              "host": false,
+              "message": false,
+              "name": false,
+              "observer.hostname": true,
+              "observer.ip": true,
+              "observer.product": true,
+              "observer.vendor": true,
+              "observer.version": true,
+              "port": false,
+              "severity": false,
+              "sort": false,
+              "source.mac": true,
+              "sourceAddress": false,
+              "sourceUserName": false,
+              "startTime": false,
+              "syslog": false,
+              "tags": true
+            },
+            "indexByName": {
+              "@timestamp": 0,
+              "@version": 1,
+              "_id": 2,
+              "_index": 5,
+              "_type": 6,
+              "applicationProtocol": 26,
+              "cefVersion": 12,
+              "destinationAddress": 27,
+              "destinationHostName": 28,
+              "destinationMacAddress": 29,
+              "destinationPort": 30,
+              "deviceAddress": 31,
+              "deviceCustomString1": 13,
+              "deviceCustomString1Label": 14,
+              "deviceCustomString2": 32,
+              "deviceCustomString2Label": 33,
+              "deviceCustomString3": 34,
+              "deviceCustomString3Label": 35,
+              "deviceCustomString5": 36,
+              "deviceCustomString5Label": 37,
+              "deviceCustomString6": 15,
+              "deviceCustomString6Label": 16,
+              "deviceEventClassId": 17,
+              "deviceHostName": 18,
+              "deviceProduct": 19,
+              "deviceVendor": 20,
+              "deviceVersion": 21,
+              "flexString1": 38,
+              "flexString1Label": 39,
+              "flexString2": 40,
+              "flexString2Label": 41,
+              "flexString3": 42,
+              "flexString3Label": 43,
+              "highlight": 7,
+              "host": 8,
+              "message": 10,
+              "name": 3,
+              "port": 9,
+              "severity": 4,
+              "sort": 11,
+              "sourceAddress": 22,
+              "sourceMacAddress": 44,
+              "sourcePort": 45,
+              "sourceUserName": 23,
+              "startTime": 24,
+              "syslog": 25,
+              "transportProtocol": 46
+            },
+            "renameByName": {
+              "@timestamp": "Time",
+              "_index": "Index",
+              "cef.name": "Name",
+              "host": "Host",
+              "message": "Message",
+              "name": "Alert",
+              "port": "Port",
+              "severity": "Severity",
+              "sort": ""
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "P45A1D828630779A3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "@timestamp"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 216
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "data.win.eventdata.data"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 199
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "data.win.eventdata.processName"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 291
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "data.win.system.message"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 761
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "rule.description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 362
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "rule.mitre.tactic"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 518
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "rule.level"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 83
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 189
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Level"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 42
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 315
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 11,
+        "y": 20
+      },
+      "id": 10,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Time"
+          }
+        ]
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P45A1D828630779A3"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "timestamp"
+        }
+      ],
+      "title": "HIDS Alerts",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "@timestamp": true,
+              "_id": true,
+              "_index": true,
+              "_type": true,
+              "agent.id": true,
+              "agent.name": true,
+              "data.extra_data": true,
+              "data.sca.check.command": true,
+              "data.sca.check.compliance.cis": true,
+              "data.sca.check.compliance.cis_csc": true,
+              "data.sca.check.compliance.gdpr_IV": true,
+              "data.sca.check.compliance.gpg_13": true,
+              "data.sca.check.compliance.hipaa": true,
+              "data.sca.check.compliance.nist_800_53": true,
+              "data.sca.check.compliance.pci_dss": true,
+              "data.sca.check.compliance.tsc": true,
+              "data.sca.check.description": true,
+              "data.sca.check.directory": true,
+              "data.sca.check.file": true,
+              "data.sca.check.id": true,
+              "data.sca.check.rationale": true,
+              "data.sca.check.reason": true,
+              "data.sca.check.references": true,
+              "data.sca.check.registry": true,
+              "data.sca.check.remediation": true,
+              "data.sca.check.result": true,
+              "data.sca.check.status": true,
+              "data.sca.check.title": true,
+              "data.sca.description": true,
+              "data.sca.failed": true,
+              "data.sca.file": true,
+              "data.sca.invalid": true,
+              "data.sca.passed": true,
+              "data.sca.policy": true,
+              "data.sca.policy_id": true,
+              "data.sca.scan_id": true,
+              "data.sca.score": true,
+              "data.sca.total_checks": true,
+              "data.sca.type": true,
+              "data.win.eventdata.accessMask": true,
+              "data.win.eventdata.accountExpires": true,
+              "data.win.eventdata.auditPolicyChanges": true,
+              "data.win.eventdata.auditPolicyChangesId": true,
+              "data.win.eventdata.authenticationPackageName": true,
+              "data.win.eventdata.binary": true,
+              "data.win.eventdata.category": true,
+              "data.win.eventdata.categoryId": true,
+              "data.win.eventdata.data": true,
+              "data.win.eventdata.displayName": true,
+              "data.win.eventdata.extraInfo": true,
+              "data.win.eventdata.failureReason": true,
+              "data.win.eventdata.handleId": true,
+              "data.win.eventdata.homeDirectory": true,
+              "data.win.eventdata.homePath": true,
+              "data.win.eventdata.ipAddress": true,
+              "data.win.eventdata.ipPort": true,
+              "data.win.eventdata.keyLength": true,
+              "data.win.eventdata.lmPackageName": true,
+              "data.win.eventdata.logonGuid": true,
+              "data.win.eventdata.logonHours": true,
+              "data.win.eventdata.logonProcessName": true,
+              "data.win.eventdata.logonType": true,
+              "data.win.eventdata.newUacValue": true,
+              "data.win.eventdata.objectServer": true,
+              "data.win.eventdata.oldUacValue": true,
+              "data.win.eventdata.packageName": true,
+              "data.win.eventdata.param1": true,
+              "data.win.eventdata.param2": true,
+              "data.win.eventdata.param3": true,
+              "data.win.eventdata.param4": true,
+              "data.win.eventdata.param5": true,
+              "data.win.eventdata.privilegeList": true,
+              "data.win.eventdata.processId": true,
+              "data.win.eventdata.processName": true,
+              "data.win.eventdata.profilePath": true,
+              "data.win.eventdata.ruleAttr": true,
+              "data.win.eventdata.ruleId": true,
+              "data.win.eventdata.ruleName": true,
+              "data.win.eventdata.samAccountName": true,
+              "data.win.eventdata.scriptPath": true,
+              "data.win.eventdata.service": true,
+              "data.win.eventdata.status": true,
+              "data.win.eventdata.subStatus": true,
+              "data.win.eventdata.subcategory": true,
+              "data.win.eventdata.subcategoryGuid": true,
+              "data.win.eventdata.subcategoryId": true,
+              "data.win.eventdata.subjectDomainName": true,
+              "data.win.eventdata.subjectLogonId": true,
+              "data.win.eventdata.subjectUserName": false,
+              "data.win.eventdata.subjectUserSid": false,
+              "data.win.eventdata.targetLogonId": true,
+              "rule.mail": true,
+              "rule.nist_800_53": false,
+              "rule.pci_dss": true,
+              "rule.tsc": true
+            },
+            "indexByName": {
+              "@timestamp": 1,
+              "_id": 2,
+              "_index": 3,
+              "_type": 4,
+              "agent.id": 5,
+              "agent.ip": 8,
+              "agent.name": 12,
+              "data.win.eventdata.authenticationPackageName": 13,
+              "data.win.eventdata.data": 14,
+              "data.win.eventdata.keyLength": 15,
+              "data.win.eventdata.lmPackageName": 65,
+              "data.win.eventdata.logonGuid": 16,
+              "data.win.eventdata.logonProcessName": 17,
+              "data.win.eventdata.logonType": 18,
+              "data.win.eventdata.param1": 19,
+              "data.win.eventdata.param2": 20,
+              "data.win.eventdata.param3": 21,
+              "data.win.eventdata.param4": 22,
+              "data.win.eventdata.processId": 23,
+              "data.win.eventdata.subjectLogonId": 24,
+              "data.win.eventdata.subjectUserSid": 25,
+              "data.win.eventdata.targetDomainName": 26,
+              "data.win.eventdata.targetLogonId": 27,
+              "data.win.eventdata.targetUserName": 11,
+              "data.win.eventdata.targetUserSid": 28,
+              "data.win.eventdata.workstationName": 66,
+              "data.win.system.channel": 29,
+              "data.win.system.computer": 30,
+              "data.win.system.eventID": 31,
+              "data.win.system.eventRecordID": 32,
+              "data.win.system.eventSourceName": 33,
+              "data.win.system.keywords": 34,
+              "data.win.system.level": 35,
+              "data.win.system.message": 36,
+              "data.win.system.opcode": 37,
+              "data.win.system.processID": 38,
+              "data.win.system.providerGuid": 39,
+              "data.win.system.providerName": 40,
+              "data.win.system.severityValue": 41,
+              "data.win.system.systemTime": 42,
+              "data.win.system.task": 43,
+              "data.win.system.threadID": 44,
+              "data.win.system.version": 45,
+              "decoder.name": 46,
+              "highlight": 47,
+              "id": 48,
+              "input.type": 49,
+              "location": 50,
+              "manager.name": 51,
+              "rule.description": 7,
+              "rule.firedtimes": 52,
+              "rule.gdpr": 53,
+              "rule.gpg13": 54,
+              "rule.groups": 55,
+              "rule.hipaa": 56,
+              "rule.id": 57,
+              "rule.info": 58,
+              "rule.level": 6,
+              "rule.mail": 59,
+              "rule.mitre.id": 9,
+              "rule.mitre.tactic": 10,
+              "rule.mitre.technique": 60,
+              "rule.nist_800_53": 61,
+              "rule.pci_dss": 62,
+              "rule.tsc": 63,
+              "sort": 64,
+              "timestamp": 0
+            },
+            "renameByName": {
+              "@timestamp": "",
+              "agent.id": "",
+              "agent.ip": "IP",
+              "rule.description": "Description",
+              "rule.level": "Severity",
+              "rule.mitre.id": "MITRE ATT&CK ID",
+              "rule.mitre.tactic": "MITRE ATT&CK Tactic",
+              "rule.nist_800_53": "",
+              "timestamp": "Time"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "P45A1D828630779A3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 23,
+        "x": 0,
+        "y": 29
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P45A1D828630779A3"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "timestamp"
+        }
+      ],
+      "title": "HIDS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 23,
+        "x": 0,
+        "y": 35
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "NIDS Alerts",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "s_6WwmG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 546
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_index"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 81
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 196
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "@timestamp"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 187
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "highlight"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 162
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_type"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 23,
+        "x": 0,
+        "y": 41
+      },
+      "id": 24,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "s_6WwmG4k"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "SOAR",
+      "type": "table"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Metric Dashboard Details",
+  "uid": "UUxnsJPnk345",
+  "version": 1,
+  "weekStart": ""
+}

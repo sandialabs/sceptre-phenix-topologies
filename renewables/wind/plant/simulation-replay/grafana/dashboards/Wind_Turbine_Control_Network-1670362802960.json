@@ -1,0 +1,5017 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1670362788048,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PE5C9D7030BADA2FE"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 117,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^B$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PE5C9D7030BADA2FE"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "output == 'PASS'",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "100 - ($A*7.69)",
+          "hide": false,
+          "refId": "B",
+          "type": "math"
+        }
+      ],
+      "title": "Cyber Resilience",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "P21F47EFF8DA6823A"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 0
+      },
+      "id": 119,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P21F47EFF8DA6823A"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "doc.Detection",
+              "id": "1",
+              "type": "avg"
+            }
+          ],
+          "query": "doc.Id:'Score'",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Physical + Resilience",
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 113,
+      "panels": [],
+      "title": "Nozomi Alerts",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 1 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "severity:1",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 1 Entries",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 1 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 9
+      },
+      "id": 105,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "severity:1",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 1 Entries",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 3 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 9
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:3",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 3 Entries",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 4 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 9
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:4",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 4 Entries",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 5 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 9
+      },
+      "id": 33,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:5",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 5 Entries",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 2 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 14
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:6",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 6",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 2 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 14
+      },
+      "id": 106,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:7",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 7",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 2 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 14
+      },
+      "id": 107,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:8",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 8",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 2 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 14
+      },
+      "id": 108,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:9",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 9",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Number of entries featuring severity level 2 from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 14
+      },
+      "id": 109,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^severity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "severity:10",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Level 10",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 19
+      },
+      "id": 115,
+      "panels": [],
+      "title": "Live Alert and Metric Data",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "PEF04DE3072C5E4DD"
+      },
+      "description": "Show the count of logs that contain each severity level, represented over the given time period, queried from Logstash DS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "38"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "id": 21,
+      "interval": "2m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.5.2",
+      "targets": [
+        {
+          "alias": "Severity10",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:10",
+          "refId": "J",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity9",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:9",
+          "refId": "I",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity8",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:8",
+          "refId": "H",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity7",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:7",
+          "refId": "G",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity6",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:6",
+          "refId": "E",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity5",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:5",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity4",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:4",
+          "refId": "B",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity3",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:3",
+          "refId": "C",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity2",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:2",
+          "refId": "D",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Severity1",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "severity:1",
+          "refId": "F",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Amount of Logs by Severity Level Over Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "# System Critical Event Monitoring\n \nThis widget demonstrates combining multiple datasources into a single visualization panel as a comprehensive system monitoring solution.\n\n## Logstash WTG Network Events\n\nQueries A-V consist of one query against logstash for each WTG IP object present on the diagram, then associating each of those queries with its own Rule Mapping that causes the body of the diagram object to change color depending on the maximum severity of a log event for a particular machine within the given time frame: \n- light green(base, no records)\n- dark green (severity 1)\n- light yellow (severity 2)\n- dark yellow (severity 3)\n- light red (severity 4)\n- dark red (severity 5)\n\nQueries executed against the `logstash-*` datasource and are aliased as `WTG[1-30]-Severity-Max`. These queries are then associated with Mappings 1-30. Each WTG object is clickable and opens an additional dashboard that accepts the WTG IP Address as a variable.\n\n## Wazuh Critical Host Events\n\nQueries W-Z define how host machines (not WTG objects) are color coded according the the number of critical severity events within the given time frame. Critical severity events are defined as wazuh messages that alert with `data.win.system.level` >=5. However, currently(07/28/22) this field is treated as a string and we are unable to use it as a numeric value. Therefore, we are using the field `rule.level` as our severity value with and will change colors according the the following rules:\n- no color(base, <4)\n- orange warning(>=4)\n- red critical(>=7)\n\nQueries executed against the `wazuh-alerts-*` datasource and aliased as `[PNC1,PNC2,JH,WSC]-RuleLevel-Max`.\n",
+      "flowchartsData": {
+        "flowcharts": [
+          {
+            "allowDrawio": false,
+            "center": true,
+            "csv": "## See more information for the syntax at https://drawio-app.com/import-from-csv-to-drawio/\n##\n## Example CSV. Use ## for comments and # for configuration.\n## The following names are reserved and should not be used (or ignored):\n## id, tooltip, placeholder(s), link and label (see below)\n##\n#\n## Node label with placeholders and HTML.\n## Default is '%name_of_first_column%'.\n#\n# label: %name%<br><i style=\"color:gray;\">%position%</i><br><a href=\"mailto:%email%\">Email</a>\n#\n## Node style (placeholders are replaced once).\n## Default is the current style for nodes.\n#\n# style: label;image=%image%;whiteSpace=wrap;html=1;rounded=1;fillColor=%fill%;strokeColor=%stroke%;\n#\n## Parent style for nodes with child nodes (placeholders are replaced once).\n#\n# parentstyle: swimlane;whiteSpace=wrap;html=1;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;\n#\n## Optional column name that contains a reference to a named style in styles.\n## Default is the current style for nodes.\n#\n# stylename: -\n#\n## JSON for named styles of the form {\"name\": \"style\", \"name\": \"style\"} where style is a cell style with\n## placeholders that are replaced once.\n#\n# styles: -\n#\n## Optional column name that contains a reference to a named label in labels.\n## Default is the current label.\n#\n# labelname: -\n#\n## JSON for named labels of the form {\"name\": \"label\", \"name\": \"label\"} where label is a cell label with\n## placeholders.\n#\n# labels: -\n#\n## Uses the given column name as the identity for cells (updates existing cells).\n## Default is no identity (empty value or -).\n#\n# identity: -\n#\n## Uses the given column name as the parent reference for cells. Default is no parent (empty or -).\n## The identity above is used for resolving the reference so it must be specified.\n#\n# parent: -\n#\n## Adds a prefix to the identity of cells to make sure they do not collide with existing cells (whose\n## IDs are numbers from 0..n, sometimes with a GUID prefix in the context of realtime collaboration).\n## Default is csvimport-.\n#\n# namespace: csvimport-\n#\n## Connections between rows (\"from\": source colum, \"to\": target column).\n## Label, style and invert are optional. Defaults are '', current style and false.\n## If placeholders are used in the style, they are replaced with data from the source.\n## An optional placeholders can be set to target to use data from the target instead.\n## In addition to label, an optional fromlabel and tolabel can be used to name the column\n## that contains the text for the label in the edges source or target (invert ignored).\n## The label is concatenated in the form fromlabel + label + tolabel if all are defined.\n## The target column may contain a comma-separated list of values.\n## Multiple connect entries are allowed.\n#\n# connect: {\"from\": \"manager\", \"to\": \"name\", \"invert\": true, \"label\": \"manages\", \\\n#          \"style\": \"curved=1;endArrow=blockThin;endFill=1;fontSize=11;\"}\n# connect: {\"from\": \"refs\", \"to\": \"id\", \"style\": \"curved=1;fontSize=11;\"}\n#\n## Node x-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# left: \n#\n## Node y-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# top: \n#\n## Node width. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the width. Default is auto.\n#\n# width: auto\n#\n## Node height. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the height. Default is auto.\n#\n# height: auto\n#\n## Padding for autosize. Default is 0.\n#\n# padding: -12\n#\n## Comma-separated list of ignored columns for metadata. (These can be\n## used for connections and styles but will not be added as metadata.)\n#\n# ignore: id,image,fill,stroke,refs,manager\n#\n## Column to be renamed to link attribute (used as link).\n#\n# link: url\n#\n## Spacing between nodes. Default is 40.\n#\n# nodespacing: 40\n#\n## Spacing between levels of hierarchical layouts. Default is 100.\n#\n# levelspacing: 100\n#\n## Spacing between parallel edges. Default is 40. Use 0 to disable.\n#\n# edgespacing: 40\n#\n## Name or JSON of layout. Possible values are auto, none, verticaltree, horizontaltree,\n## verticalflow, horizontalflow, organic, circle or a JSON string as used in Layout, Apply.\n## Default is auto.\n#\n# layout: auto\n#\n## ---- CSV below this line. First line are column names. ----\nname,position,id,location,manager,email,fill,stroke,refs,url,image\nEvan Miller,CFO,emi,Office 1,,me@example.com,#dae8fc,#6c8ebf,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-9-2-128.png\nEdward Morrison,Brand Manager,emo,Office 2,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-128.png\nRon Donovan,System Admin,rdo,Office 3,Evan Miller,me@example.com,#d5e8d4,#82b366,\"emo,tva\",https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-2-128.png\nTessa Valet,HR Director,tva,Office 4,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png\n",
+            "download": false,
+            "editorTheme": "dark",
+            "editorUrl": "https://www.draw.io",
+            "enableAnim": true,
+            "grid": false,
+            "lock": true,
+            "name": "Main",
+            "scale": true,
+            "tooltip": true,
+            "type": "xml",
+            "url": "http://<YourUrl>/<Your XML/drawio file/api>",
+            "xml": "<mxfile host=\"app.diagrams.net\" modified=\"2022-07-28T19:24:14.333Z\" agent=\"5.0 (X11)\" etag=\"LveVV8HrToQArb8aKIn2\" version=\"20.2.2\" type=\"embed\"><diagram id=\"R7NXUAvnNJuNqsXBCn2h\" name=\"Page-1\">7Vxtc+I2EP41mWk/NGPL2MDHhLxd567HNTfN5VNHwYrRxViMLAK5X98Vll8lKLkQLLfwBWu1luVn17v7yIITbzRbXXM8n35iIYlPkBOuTryLE4Rc+MCXlLxkkv5QCSJOQ6VUCm7pD6KEjpIuaEjSmqJgLBZ0XhdOWJKQiajJMOdsWVd7ZHH9qnMcEU1wO8GxLr2joZhm0oHvlPIbQqNpfmXXUT0znCsrQTrFIVtWRN7liTfijInsaLYakViCl+OSnXe1obeYGCeJ2OUElJ3wjOOFujc1L/GS3yxniyQkUt858c6XUyrI7RxPZO8SzAuyqZjF0HLh8JElYsRixtfnes76A3J9Xmqqz4QLsqqI1DyvCZsRwV9ARfUGCjLlM66n2svSAv2Bkk0r6Pu5IlZWj4qhS2DgQGGzAfaL+89fY3f5Zfjp293y8u7m8uufv7kaePNkIiXuEJ26weDUd04L01cQ3QSSxIKCl53FNEqgT7B5RfoRP5B4zFIqKJO9D0wINgOFuNExAYwJjH2O1TiFoGIothAxTcioeELkBB5pHFcmNlp/QJ4Kzp5IpScYDNxzD3oijkNKyttJWEIq4gvKYfRsWgnj0k5qsPy5QVIyxXMJzWwVyXhxmhCxZPwpPZ1P9uM6qF/3HS/QfacwVNV3+u/lOr6neQUJIcaopoSKRSzB8WUpPa8/iaXORyYdZW3W70SIFxUw8UKwutHJiopv8vRTX7XuKz0XKzXyuvFSaYwJp3Df0ocyWQIYVAaSzftqXznUupWP9erokLIFn5AtOKpwJTCPiNimpwaUIG/1GE5iLOhzPdC/xfz+0dCHNHTQlp23zXpbet01GRThflM+yLLFfzcZPMLpSyzx30dK8Pp+vZzYNSUUwr07i6c5y/dppZgIjsWEFcVEgOqegwyF6GGLid6wzRyTH9/X8s3P5JhahikTzoYcs241B9t/4untWmHsO/GsTz3jHL9UFOaMJiKtjDyWgkql69Qr3Zw1XW3S996o7zoN981mXDpzcetv8G8Tz3IrobF3DI1WhEa36X2th0Zfc51lOql4Dszm6Dpvdh05qc9zPKFCGt7d14pPr1GjtU/bA0M9H8Rw1fMHOIjkwR1NQlC5pYLAFxgPsIxjsK1ShOsWuprbATCi7gR1uyrbVZ1AiTRHanrqjIbhOvGbVvDqxcA7LuL1Gqt4HjKY1DOYdB+LeO2sueTlTdGwqrzxOlXe+INmueJvLVc0/UOUK/2NQSKkz+Wj34gbvy9mczjrhqXCHCoKmWGUbQPfQYC/XmAe7nfYv8Z/yDBH+POm2KZO4P92rf9bDAzculO6/o4xcPBeaW2wi8fekiSER9MZ/51CpEBXX7JvBwIecu6+Xsu+B5wSmf2gmoBpRhEnEV7nwSy+SJVHDhURcq7lmz7kfJ4TjgXjR99QAWu4w5uK4SFLnuFPRbNbMllwWQ7CoOSZTgiY/mqEZ2DtdL9x6JcxZ4Ili6d1uRXLkjb99RiQXuN02lKor/ucb/A5/91Ym07IWntpUqxhmRe07F68yjNNR8o7r7m0eohyLcfotREuI3gf5JOdkD3XbMeg9uagVkSnPJM6hkxqimrvlkld/W0glE2uZhpbNtw0V/N6fR3Bg6YFV39DBgAiewEMbANQX0kHAPVlEVsALLbJWQOgvp4MAPbsBXBgGYBIT7YAoL5HxhYAvZ5tAOqbDgHAwFoAe7YlEWTMwn17AbQtiSBjFh5YC6BvWxJBxiys7+GwBkDrkogxC+c8zkIEA+uyiP4iUyLYHS7iG3YWHBZB/S2PRLA7ZKR9BPW3DhLB7rCR9hHU1+Ylgt2hI60jmF+/gWB3+Ej7CBr5iNsdQtI+gkZC4naHkbSPoJGRuN2hJO0jaKQkbnc4SfsIGjlJ8TNf+xBscpL2ETRyEtQhTjJsG0EjJ0Ed4iStI2jkJIaNo7YgqHGS1hE0chLUIU7SNoJ5XG4g2CFO0jqCRk6COsRJWkfQyElQhzhJ6wia9yp0iJO0jqCRk6AOcZLWETRykrzOtxBBjZO0juDmH3xVNtcBqKDzYQxXP9t5z1/tF4g7nyWmYKto+lNXkYbv/G7BfA/we3tiYx++b/qdmskVg9e7IjTLP/zKdrWWf5vmXf4D</diagram></mxfile>",
+            "zoom": "100%"
+          }
+        ]
+      },
+      "format": "short",
+      "graphId": "flowchart_104",
+      "gridPos": {
+        "h": 14,
+        "w": 8,
+        "x": 12,
+        "y": 20
+      },
+      "id": 104,
+      "newFlag": false,
+      "rulesData": {
+        "rulesData": [
+          {
+            "aggregation": "current",
+            "alias": "WTG1-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 1,
+            "overlayIcon": false,
+            "pattern": "WTG1-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphHigh": 5,
+            "tpGraphLow": 0,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG2-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 2,
+            "overlayIcon": false,
+            "pattern": "WTG2-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG3-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 3,
+            "overlayIcon": false,
+            "pattern": "WTG3-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG3",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG4-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 4,
+            "overlayIcon": false,
+            "pattern": "WTG4-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG4",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG5-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 5,
+            "overlayIcon": false,
+            "pattern": "WTG5-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG5",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG6-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 6,
+            "overlayIcon": false,
+            "pattern": "WTG1-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG6",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG7-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 7,
+            "overlayIcon": false,
+            "pattern": "WTG7-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG7",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG8-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 8,
+            "overlayIcon": false,
+            "pattern": "WTG8-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG8",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG9-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 9,
+            "overlayIcon": false,
+            "pattern": "WTG9-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG9",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG10-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 10,
+            "overlayIcon": false,
+            "pattern": "WTG10-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG10",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG11-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 11,
+            "overlayIcon": false,
+            "pattern": "WTG11-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG11",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG12-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 12,
+            "overlayIcon": false,
+            "pattern": "WTG12-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG12",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG13-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 13,
+            "overlayIcon": false,
+            "pattern": "WTG13-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG13",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG14-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 14,
+            "overlayIcon": false,
+            "pattern": "WTG14-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG14",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG15-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 15,
+            "overlayIcon": false,
+            "pattern": "WTG15-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG15",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG16-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 16,
+            "overlayIcon": false,
+            "pattern": "WTG16-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG16",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG17-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 17,
+            "overlayIcon": false,
+            "pattern": "WTG17-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG17",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG18-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 18,
+            "overlayIcon": false,
+            "pattern": "WTG18-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG18",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG19-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 19,
+            "overlayIcon": false,
+            "pattern": "WTG19-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG19",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG20-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 20,
+            "overlayIcon": false,
+            "pattern": "WTG20-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG20",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG21-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 21,
+            "overlayIcon": false,
+            "pattern": "WTG21-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG21",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG22-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 22,
+            "overlayIcon": false,
+            "pattern": "WTG22-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG22",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG23-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 23,
+            "overlayIcon": false,
+            "pattern": "WTG23-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG23",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG24-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 24,
+            "overlayIcon": false,
+            "pattern": "WTG24-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG24",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG25-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 25,
+            "overlayIcon": false,
+            "pattern": "WTG25-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG25",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG26-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 26,
+            "overlayIcon": false,
+            "pattern": "WTG26-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG26",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG27-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 27,
+            "overlayIcon": false,
+            "pattern": "WTG27-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG27",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG28-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 28,
+            "overlayIcon": false,
+            "pattern": "WTG28-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG28",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG29-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 29,
+            "overlayIcon": false,
+            "pattern": "WTG29-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG29",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WTG30-Severe",
+            "colors": [
+              "#C8F2C2",
+              "#37872D",
+              "#FFF899",
+              "#E0B400",
+              "#FFA6B0",
+              "#C4162A"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "value",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 30,
+            "overlayIcon": false,
+            "pattern": "WTG30-Severity-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "WTG30",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "tooltip": true,
+            "tooltipColors": true,
+            "tooltipLabel": "Max Severity Level",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "200px",
+            "tpGraphType": "bar",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "PNC1-RuleLevel",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 31,
+            "overlayIcon": false,
+            "pattern": "PNC1-RuleLevel-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "wc",
+                "hidden": false,
+                "pattern": "pnc1 192.168.40.100",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              4,
+              7
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "PNC2-RuleLevel",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 32,
+            "overlayIcon": false,
+            "pattern": "PNC2-RuleLevel-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "wc",
+                "hidden": false,
+                "pattern": "pnc2 192.168.50.100",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              4,
+              7
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "WSC-RuleLevel",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 33,
+            "overlayIcon": false,
+            "pattern": "WSC-RuleLevel-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "wc",
+                "hidden": false,
+                "pattern": "wsc 192.168.100.100",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              4,
+              7
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "JH-RuleLevel",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 34,
+            "overlayIcon": false,
+            "pattern": "JH-RuleLevel-Max",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "wc",
+                "hidden": false,
+                "pattern": "jh 192.168.60.100",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "value",
+            "shapeRegEx": true,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [
+              4,
+              7
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          }
+        ]
+      },
+      "targets": [
+        {
+          "alias": "WTG1-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.1",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG2-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.2",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG3-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.3",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG4-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.4",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG5-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.5",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG6-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.6",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG7-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.7",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG8-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.8",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG9-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.9",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG10-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.10",
+          "refId": "B",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG11-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.11",
+          "refId": "C",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG12-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.12",
+          "refId": "D",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG13-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.13",
+          "refId": "E",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG14-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.14",
+          "refId": "F",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG15-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.15",
+          "refId": "G",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG16-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.16",
+          "refId": "H",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG17-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.17",
+          "refId": "I",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG18-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.18",
+          "refId": "J",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG19-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.19",
+          "refId": "K",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG20-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.20",
+          "refId": "L",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG21-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.21",
+          "refId": "M",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG22-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.22",
+          "refId": "N",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG23-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.23",
+          "refId": "O",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG24-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.24",
+          "refId": "P",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG25-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.25",
+          "refId": "Q",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG26-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.26",
+          "refId": "R",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG27-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.27",
+          "refId": "S",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG28-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.28",
+          "refId": "T",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG29-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.29",
+          "refId": "U",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WTG30-Severity-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "timeZone": "utc",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "PEF04DE3072C5E4DD"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "severity",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "destinationAddress:192.168.100.30",
+          "refId": "V",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "PNC1-RuleLevel-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "uid": "P45A1D828630779A3"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "rule.level",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "agent.ip:192.168.40.100",
+          "refId": "W",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "PNC2-RuleLevel-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "uid": "P45A1D828630779A3"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "rule.level",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "agent.ip:192.168.50.100",
+          "refId": "X",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "JH-RuleLevel-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "uid": "P45A1D828630779A3"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "rule.level",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "agent.ip:192.168.60.100",
+          "refId": "Y",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "WSC-RuleLevel-Max",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "uid": "P45A1D828630779A3"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "rule.level",
+              "id": "1",
+              "type": "max"
+            }
+          ],
+          "query": "agent.ip:192.168.100.100",
+          "refId": "Z",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Flowchart-System Critical Event Monitoring",
+      "type": "agenty-flowcharting-panel",
+      "valueName": "current",
+      "version": "0.9.0"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "P21F47EFF8DA6823A"
+      },
+      "description": "Display the detection value for each resilience metric, graphed over a period of time. WARNING: this will not work until the bennu index \"Detection\" field is defined as a double/float.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "points",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 103,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Avg_Resilience_Detection",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P21F47EFF8DA6823A"
+          },
+          "metrics": [
+            {
+              "field": "doc.Detection",
+              "id": "1",
+              "type": "avg"
+            }
+          ],
+          "query": "doc.Id:\"Resilience\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Avg_Physical_Detection",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P21F47EFF8DA6823A"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "doc.Detection",
+              "id": "1",
+              "type": "avg"
+            }
+          ],
+          "query": "doc.Id:\"Physical\"",
+          "refId": "C",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Avg_Score_Detection",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P21F47EFF8DA6823A"
+          },
+          "hide": false,
+          "metrics": [
+            {
+              "field": "doc.Detection",
+              "id": "1",
+              "type": "avg"
+            }
+          ],
+          "query": "doc.Id:\"Score\"",
+          "refId": "D",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Detection Value Per Resilience Metric Over Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "P21F47EFF8DA6823A"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_type"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "doc.Id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 146
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_index"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 180
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 12,
+        "y": 34
+      },
+      "id": 111,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.4.4",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P21F47EFF8DA6823A"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "Time"
+        }
+      ],
+      "title": "Resilience Metric Table",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_id": true,
+              "_type": true,
+              "highlight": true,
+              "sort": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "P21F47EFF8DA6823A"
+        },
+        "filters": [],
+        "hide": 0,
+        "name": "Filters",
+        "skipUrlSync": false,
+        "type": "adhoc"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Chicago",
+  "title": "Wind Turbine Control Network",
+  "uid": "PgtW-2z4kasdfasdf388210543696",
+  "version": 1,
+  "weekStart": ""
+}

@@ -1,0 +1,29 @@
+{
+  "took" : 0,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "2ZXYYoQBDfUCqeglAPEz",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "EB IP Blocked 10.222.222.45 ",
+          "@timestamp" : "2022-11-10T18:40:32.92728928Z"
+        }
+      }
+    ]
+  }
+}

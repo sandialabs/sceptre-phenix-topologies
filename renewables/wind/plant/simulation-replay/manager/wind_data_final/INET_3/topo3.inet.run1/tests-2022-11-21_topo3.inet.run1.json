@@ -1,0 +1,314 @@
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 24,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "dci6m4QBwytzc61DfQJW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:46:40+00:00",
+          "attack" : true,
+          "name" : "inet-eb_cleanup.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "sci6m4QBwytzc61DmwgY",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:46:48+00:00",
+          "attack" : true,
+          "name" : "inet-eb_startup.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "ssi6m4QBwytzc61DmwhQ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:46:48+00:00",
+          "attack" : true,
+          "name" : "inet-nmap.01",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Psi6m4QBwytzc61DoQp7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:46:50+00:00",
+          "attack" : true,
+          "name" : "inet-nmap.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "P8i6m4QBwytzc61DoQqs",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:46:50+00:00",
+          "attack" : true,
+          "name" : "inet-nmap.01",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "QMi6m4QBwytzc61DogoZ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:46:50+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "esi6m4QBwytzc61D8Bo_",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:10+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "e8i6m4QBwytzc61D8Bpp",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:10+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "result",
+          "output" : "TEST FAIL"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "fMi6m4QBwytzc61D8Bqg",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:10+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Sci7m4QBwytzc61DPSpJ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:29+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Ssi7m4QBwytzc61DPSpz",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:30+00:00",
+          "attack" : true,
+          "name" : "inet-eb.01",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "S8i7m4QBwytzc61DPSqd",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:30+00:00",
+          "attack" : true,
+          "name" : "inet-eb_session_migrate.02",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Hci7m4QBwytzc61DZjKu",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:40+00:00",
+          "attack" : true,
+          "name" : "inet-eb_session_migrate.02",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Hsi7m4QBwytzc61DZjLa",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:40+00:00",
+          "attack" : true,
+          "name" : "inet-eb_session_migrate.02",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "H8i7m4QBwytzc61DZzIC",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:40+00:00",
+          "attack" : true,
+          "name" : "inet-eb_hashdump.02a",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "XMi7m4QBwytzc61DiDgW",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:49+00:00",
+          "attack" : true,
+          "name" : "inet-eb_hashdump.02a",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Yci7m4QBwytzc61DiDhF",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:49+00:00",
+          "attack" : true,
+          "name" : "inet-eb_hashdump.02a",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "Ysi7m4QBwytzc61DiDhz",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:49+00:00",
+          "attack" : true,
+          "name" : "inet-eb_add_user.03",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "nsi7m4QBwytzc61DqD4c",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:57+00:00",
+          "attack" : true,
+          "name" : "inet-eb_add_user.03",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "n8i7m4QBwytzc61DqD5E",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:57+00:00",
+          "attack" : true,
+          "name" : "inet-eb_add_user.03",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "oMi7m4QBwytzc61DqD5x",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:47:57+00:00",
+          "attack" : true,
+          "name" : "inet-eb_schedule_task.04",
+          "stage" : "start"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "4si7m4QBwytzc61DyUQZ",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:48:05+00:00",
+          "attack" : true,
+          "name" : "inet-eb_schedule_task.04",
+          "stage" : "finish"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "48i7m4QBwytzc61DyURD",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:48:05+00:00",
+          "attack" : true,
+          "name" : "inet-eb_schedule_task.04",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "5Mi7m4QBwytzc61DyURs",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:48:05+00:00",
+          "attack" : true,
+          "name" : "inet-eb_modbus_attack.05",
+          "stage" : "start"
+        }
+      }
+    ]
+  }
+}

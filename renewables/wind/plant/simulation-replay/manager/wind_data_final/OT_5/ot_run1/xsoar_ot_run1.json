@@ -1,0 +1,29 @@
+{
+  "took" : 1000,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "-6YpaIQBDfUCqegla1JL",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:27:36.327968851Z"
+        }
+      }
+    ]
+  }
+}

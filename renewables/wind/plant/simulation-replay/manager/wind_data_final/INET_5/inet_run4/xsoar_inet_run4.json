@@ -1,0 +1,189 @@
+{
+  "took" : 59,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 17,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "iqxGaIQBDfUCqeglLxrc",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute Playbook Do Nothing",
+          "@timestamp" : "2022-11-11T19:58:31.870596264Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "BaxGaIQBDfUCqegllC_W",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "EB IP Blocked 10.222.222.45 ",
+          "@timestamp" : "2022-11-11T19:59:26.949130122Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "k6tCaIQBDfUCqegl1m7-",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:55:22.513284905Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "K6tDaIQBDfUCqeglFHsh",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute Playbook Do Nothing",
+          "@timestamp" : "2022-11-11T19:55:08.161890347Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "26g2aIQBDfUCqeglQOcm",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:41:37.408185442Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "MKg2aIQBDfUCqeglZO6p",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute Playbook Do Nothing",
+          "@timestamp" : "2022-11-11T19:41:16.935563041Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "k6cvaIQBDfUCqegliY6v",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:34:17.494583963Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "zacvaIQBDfUCqegl1pxD",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute Playbook Do Nothing",
+          "@timestamp" : "2022-11-11T19:34:07.193551343Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "-6YpaIQBDfUCqegla1JL",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:27:36.327968851Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "36o7aIQBDfUCqegl9Az1",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute Playbook Do Nothing",
+          "@timestamp" : "2022-11-11T19:47:21.466405502Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "Cao8aIQBDfUCqeglDxLA",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:47:58.212828449Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "s6o-aIQBDfUCqegl9Kd7",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute disconnected Kali",
+          "@timestamp" : "2022-11-11T19:51:07.871930883Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "xao_aIQBDfUCqeglMLLr",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "Brute Playbook Do Nothing",
+          "@timestamp" : "2022-11-11T19:50:53.492217256Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "c61LaIQBDfUCqeglnjEu",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "EB IP Blocked 10.222.222.45 ",
+          "@timestamp" : "2022-11-11T20:04:56.926040215Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "-a1OaIQBDfUCqeglmss6",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "EB IP Blocked 10.222.222.45 ",
+          "@timestamp" : "2022-11-11T20:08:12.612636842Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "2q9WaIQBDfUCqeglN1JC",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "EB IP Blocked 10.222.222.45 ",
+          "@timestamp" : "2022-11-11T20:16:31.554589891Z"
+        }
+      },
+      {
+        "_index" : "xsoar",
+        "_type" : "xtype",
+        "_id" : "ZLBeaIQBDfUCqeglO-5C",
+        "_score" : 1.0,
+        "_source" : {
+          "msg" : "EB IP Blocked 10.222.222.45 ",
+          "@timestamp" : "2022-11-11T20:25:16.951890343Z"
+        }
+      }
+    ]
+  }
+}

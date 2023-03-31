@@ -1,0 +1,63 @@
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "logstash-2022.11.11",
+        "_type" : "_doc",
+        "_id" : "pqg2aIQBDfUCqeglMuTy",
+        "_score" : 1.0,
+        "_source" : {
+          "deviceCustomString1" : "7.0",
+          "message" : "Src and dst IP are equal",
+          "startTime" : "1668195691465",
+          "name" : "Protocol-based flood",
+          "sourceAddress" : "192.168.100.100",
+          "deviceAddress" : "192.168.60.125",
+          "destinationMacAddress" : "00:25:2a:ff:2c:9e",
+          "deviceCustomString1Label" : "Risk",
+          "syslog" : "<137>Nov 11 2022 19:41:31 phenix n2osevents[0]:",
+          "sourceMacAddress" : "00:07:5f:1b:55:bb",
+          "@version" : "1",
+          "deviceCustomString5Label" : "Parents",
+          "@timestamp" : "2022-11-11T19:41:35.225Z",
+          "severity" : 7.0,
+          "flexString3" : "Invalid IP",
+          "deviceHostName" : "phenix",
+          "flexString3Label" : "Name",
+          "cefVersion" : "0",
+          "deviceCustomString2" : "true",
+          "destinationHostName" : "WORKSTATION",
+          "transportProtocol" : "ICMP",
+          "deviceVendor" : "Nozomi Networks",
+          "deviceCustomString6Label" : "n2os_schema",
+          "deviceCustomString3" : "65e2c729-eaaf-4652-822e-a3a3f23ce4e0",
+          "deviceCustomString6" : "3",
+          "sourceHostName" : "WORKSTATION",
+          "deviceVersion" : "21.9.0-01051414_C13FC",
+          "deviceCustomString2Label" : "IsSecurity",
+          "port" : 36884,
+          "deviceProduct" : "N2OS",
+          "deviceEventClassId" : "SIGN:PROTOCOL-FLOOD",
+          "deviceCustomString3Label" : "Id",
+          "applicationProtocol" : "icmp",
+          "deviceCustomString5" : "[\"c92c0d7e-fd4c-48d3-b8d4-013030293bc0\"]",
+          "destinationAddress" : "192.168.100.100",
+          "host" : "192.168.60.125"
+        }
+      }
+    ]
+  }
+}

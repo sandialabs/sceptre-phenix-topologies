@@ -1,0 +1,307 @@
+#!/bin/bash
+
+#file: setup
+#auth: Rafer Cooley, Michael McCarty
+#desc: main driver for managing the different aspects of this project from setting up the environment to adding data and dashboards
+
+## HOW-TO RUN:
+# - this script uses the $@ bash script trick to allow using bash function names as the input parameters to this script
+
+## COMMANDS: (see readme for order of operations)
+# `./setup test`                            confirm initial environment and location [Section 1]
+# `./setup build`                           build container images [Section 1]
+# `./setup start`                           start up the infrastructure [Section 1]
+# `./setup list_sim`                        list all available simulations [Section 2]
+# `./setup replay <simname>`                replay a specific simulation listed from `list_sim`, or `all` to replay all [Section 2]
+# `./setup refresh`                         remove all data currently stored in the elasticsearch container [Section 3]
+# `./setup clean`                           clean up build artifacts [Section 3]
+# `./setup remove_datafile_spaces`          prepare all data files by removing spaces in filenames [Section 4]
+# `./setup list_datasource_variables`       print all occurences of datasource variables in the provided dashboards [Section 4]
+# `./setup convert_datasource_variables`    convert datasource variables in dashboards to mapping defined in csv [Section 4]
+# `./setup find_duplicate_dashboard_uids`   list any dashboards that may have duplicate UIDs [Section 4]
+# `./setup deduplicate_dashboard_uids`      attempt to deduplicate the dashboard UIDs with random numbers [Section 4]
+# `./setup dockerviz`                       generate a graphical view of the docker setup, used in the readme file [Section 4]
+# `./setup dockersecurity`                  generate SBOM and security review for each container image [Section 5]
+# `./setup document`                        generate all documentation (performs dockerviz & dockersecurity commands) [Section 6]
+
+########################################
+########################################
+#command to run docker compose (dependent on docker compose version)
+# Running `./setup test_docker`` will modify this variable uncommenting whichever version is installed on your system and prioritizing V2+ over the earlier versions
+#   Use "docker compose" command for the newest version of docker compose (Version 2+)
+# DOCKER_COMPOSE_CMD="docker compose"
+#   Use "docker-compose" command for earlier versions of the docker-compose command (with the dash, to include Version >1.28 and <2)
+# DOCKER_COMPOSE_CMD="docker-compose"
+# Use dashboard-compose script to use docker-compose version 1.29 from a docker container
+DOCKER_COMPOSE_CMD="./dashboard-compose"
+
+########################################
+########################################
+# General script helpers, nothing to see here move along
+
+#get path of setup script
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+#src: https://stackoverflow.com/questions/59895/how-do-i-get-the-directory-where-a-bash-script-is-located-from-within-the-script
+
+#source .env file to use those values here
+set -o allexport; source .env; set +o allexport #cred: https://gist.github.com/mihow/9c7f559807069a03e302605691f85572
+
+#command to run the python script in the prebuilt docker container
+DATA_MANAGER_CMD="$DOCKER_COMPOSE_CMD run manager python data_manager.py"
+
+#find latest tagged value for data_manager docker image
+function get_recent_data_manager_version(){
+    docker images | awk '($1 == "dashboard-manager-datamanager") {print $2; exit}'
+}
+
+#quick helper to access data_manager to run commands
+function manager(){
+    DATA_MANAGER_VERSION=$(get_recent_data_manager_version) $DATA_MANAGER_CMD $1
+}
+
+########################################
+########################################
+# SECTION 1
+# Initial Setup
+
+# referenced in README to show user which directory they should be in when running commands, AS WELL AS set the appropriate `docker compose` command depending on which version is installed
+function test(){
+    echo "> hello, you are in the correct directory"
+    test_docker_compose
+}
+
+# Initialize Infrastructure: performs initial setup of infrastructure
+function build(){
+    echo "> performing initial build of docker infrastructure"
+    echo "> testing if previous images exist, if so then incrementing tag versions"
+    next_version=${DATA_MANAGER_VERSION}
+    if [ $(docker image ls | grep dashboard-manager-datamanager | wc -l) -gt 0 ]; then
+        most_recent_version=$(get_recent_data_manager_version)
+        next_version=$(awk "BEGIN {print $most_recent_version+0.01; exit}")
+        echo ">> detected previous versions of datamanager image (found $most_recent_version, advancing to $next_version)"
+    else
+        echo ">> no existing datamanager builds, using version number $next_version"
+    fi
+    echo "DATA_MANAGER_VERSION=$next_version" > .env_data_manager_version
+    echo "> run docker build"
+    DATA_MANAGER_VERSION=$next_version $DOCKER_COMPOSE_CMD --profile infrastructure --profile runner build
+    echo "> tagging newly built $DATA_MANAGER_IMAGE_NAME as latest"
+    docker tag $DATA_MANAGER_IMAGE_NAME:$next_version $DATA_MANAGER_IMAGE_NAME:latest
+    echo "> done"
+    ## docker-compose up combines build and run so this might be redundant, but we're going to keep it separate for the purpose of verbosity (and allowing for docker version checks)
+}
+
+# Start Infrastructure: spins up the necessary docker infrastructure for visualizing the data
+function start(){
+    echo "> starting infrastructure"
+    echo "> running docker compose up"
+    # docker compose --env-file .env --profile infrastructure up -d
+    $DOCKER_COMPOSE_CMD --profile infrastructure up -d
+    echo "> running wait-for-it, then data_manager init (should not take longer than 1 minute)"
+    DATA_MANAGER_VERSION=$(get_recent_data_manager_version) $DOCKER_COMPOSE_CMD run manager bash /opt/app/wait-for-elastic #see docker compose for data manager wait command
+    echo "> done"
+}
+
+########################################
+# SECTION 2
+# Running Simulations
+
+# List Simulations: print list of simulations available to run
+function list_sim(){
+	echo "> listing available simulations"
+	DATA_MANAGER_VERSION=$(get_recent_data_manager_version) $DATA_MANAGER_CMD list
+}
+
+# Run Data Replay:replays the data into elasticsearch like it is currently happening
+function replay(){
+    echo "> running data replay"
+    DATA_MANAGER_VERSION=$(get_recent_data_manager_version) $DATA_MANAGER_CMD replay $1
+}
+
+########################################
+# SECTION 3
+
+# Refresh Data: removes any uploaded simulation data from elasticsearch
+function refresh(){
+    echo "> refreshing database, removing previous simulation data"
+    DATA_MANAGER_VERSION=$(get_recent_data_manager_version) $DATA_MANAGER_CMD refresh
+}
+
+# Clean: clean up everything, build artifacts, containers, volumes, etc.
+function clean(){
+    echo "> cleaning up"
+    echo "> WARNING: very destructive! Will remove any docker artifact with the name 'dashboard-manager'"
+    ###########################################
+    echo "> docker compose remove containers"
+    $DOCKER_COMPOSE_CMD --profile infrastructure --profile runner down
+    $DOCKER_COMPOSE_CMD --profile infrastructure --profile runner rm --force --stop -v
+    ###########################################
+    echo "> docker remove containers"
+    for CONTAINER in $(docker container ls -a | awk '/dashboard-manager/ {print $1}')
+    do
+        docker container rm $CONTAINER
+    done
+    ###########################################
+    echo "> docker remove images"
+    
+    docker rmi $DATA_MANAGER_IMAGE_NAME
+
+    for IMAGE in $(docker image ls -a | awk '/dashboard-manager/ {print $3}')
+    do
+        docker image rm $IMAGE -f
+    done
+    ###########################################
+    echo "> docker remove volumes"
+    for VOLUME in $(docker volume ls -q | awk '/dashboard-manager/')
+    do
+        docker volume rm $VOLUME
+    done
+    ###########################################
+    echo "> docker remove network"
+    for NETWORK in $(docker network ls | awk '/weto-sceptre/ {print $1}')
+    do
+        docker network rm $NETWORK
+    done
+    ###########################################
+    [ -f ./setup.bak ] && rm ./setup.bak
+    echo "> done"
+}
+
+########################################
+# SECTION 4: Data Generation & Cleaning
+
+function remove_datafile_spaces(){
+    cd grafana/dashboards && for f in *\ *; do mv "$f" "${f// /_}"; done && cd -
+}
+
+# prepare all data files by removing spaces in filenames
+function list_datasource_variables(){
+    grep '"uid": "\${.*}"' grafana/dashboards/* | sort | uniq
+}
+
+# 
+function convert_datasource_variables(){
+    variable_mappings=$(cat ./manager/index_datasource_cleaning.csv | tail -n +2)
+    for variable in $variable_mappings;
+    do
+        split=(${variable//,/ })
+        echo ${split[0]} "-->>" ${split[1]}
+        given=${split[0]}
+        new=${split[1]}
+        sed -i 's,'"$given"','"$new"',g' ./grafana/dashboards/*
+    done
+}
+
+#
+function find_duplicate_dashboard_uids(){
+    # cd grafana/dashboards
+    # for i in $(find ./ -type f); do echo $i -- $(tail $i | grep '"uid":' | cut -f2 -d':'); done
+    for i in $(find ./grafana/dashboards -type f); do tail $i; done|grep '"uid": '|cut -f2 -d':'|sort|uniq -c|grep -v ' 1 '
+    for i in $(find ./grafana/dashboards -type f); do echo $i,$(tail $i | grep '"uid":' | cut -f2 -d':' | sed "s/[\",]//g"); done | sort -t, -k2
+    # cd ../../
+}
+#credit: @manfred-ackermann https://github.com/grafana/grafana/issues/43530
+
+#
+function deduplicate_dashboard_uids(){
+    # cd grafana/dashboards
+    RANDOM=$$
+    # for i in $(find ./ -type f); do echo $i -- $(tail $i | grep '"uid":' | cut -f2 -d':'); done
+    #sorry how gross this is
+    duplicate_uids=$(for i in $(find ./grafana/dashboards/* -type f); do tail $i; done | grep '"uid": ' | cut -f2 -d':' | sort | uniq -c | grep -v ' 1 ' | sed 's/[\",]//g' | awk '{print $2}')
+    file_paths=$(for i in $(find ./grafana/dashboards/* -type f); do echo $i,$(tail $i | grep '"uid":' | cut -f2 -d':' | sed "s/[\",]//g"); done | sort -t, -k2 | sed "s/\s//g")
+    echo "> original file_paths"
+    echo $file_paths
+    # IFS='\n' read -r -a file_paths2 <<< "$file_paths"
+    IFS=$'\n' read -rd '' -a file_paths2 <<<"$file_paths"
+    echo "> duplicates $duplicate_uids"
+    echo "> file_paths2"
+    echo $file_paths2
+    echo "-----------------------"
+    for dupd in $duplicate_uids;
+    do
+        # for file in "$file_paths2";
+        for file in ${file_paths2[@]};
+        do
+            echo "> this file: $file"
+            echo "> testing: $dupd  ->>> $(echo $file | cut -f2 -d',')"
+            if [ "$dupd" == "$(echo $file | cut -f2 -d',')" ]; then
+                new_uid="$dupd$RANDOM"
+                echo "> changing dashboard UID[$dupd] to UID[$new_uid] in file $(echo $file | cut -f1 -d',')"
+                sed -i 's,'"$dupd"','"$new_uid"',g' "$(echo $file | cut -f1 -d',')"
+            fi
+            
+        done
+        echo "==============="
+    done
+    
+    # cd ../../
+}
+
+########################################
+# SECTION 5
+# Documentation Generation
+
+# Docker Visualization: generate a graphical view of the docker setup, used in the readme file
+function dockerviz(){
+    echo "> generating docker visualization"
+    docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz render -m image --output-file=docs/imgs/docker-structure-viz.png --force docker-compose.yml
+    echo "> done"
+}
+
+# run syft and grype analysis on a container
+function _run_syft_grype(){
+    #$1 container name for reports
+    #$2 container image name
+    DOCKER_SOCK_VOLUME="-v /var/run/docker.sock:/var/run/docker.sock"
+    SUPPORT_FOLDER_MOUNT="--mount type=bind,source="$(pwd)"/docs,target=/app"
+    DOCKER_SYFT_COMMAND="docker run --rm -it --name dcsyft $DOCKER_SOCK_VOLUME $SUPPORT_FOLDER_MOUNT anchore/syft"
+    DOCKER_GRYPE_COMMAND="docker run --rm -it --name dcgrype $DOCKER_SOCK_VOLUME $SUPPORT_FOLDER_MOUNT anchore/grype"
+    SYFT_TEMPLATE_DOCKER="/app/support/syft-markdown.tmpl"
+    SET_SYFT_TEMPLATE_OUTPUT="-o template -t $SYFT_TEMPLATE_DOCKER --file /app/sbom"
+    GRYPE_TEMPLATE_DOCKER="/app/support/grype-markdown.tmpl"
+    SET_GRYPE_TEMPLATE_OUTPUT="-o template -t $GRYPE_TEMPLATE_DOCKER --file /app/vuln"
+
+    rm -f docs/sbom-$1.md && rm -f docs/vuln-$1.md
+    DOCKER_IMAGE="docker:$2"
+    echo ">> run syft $1"
+    $DOCKER_SYFT_COMMAND $SET_SYFT_TEMPLATE_OUTPUT-$1.md $DOCKER_IMAGE
+    echo ">> run grype $1"
+    $DOCKER_GRYPE_COMMAND $SET_GRYPE_TEMPLATE_OUTPUT-$1.md $DOCKER_IMAGE
+}
+
+# Docker Security: generate SBOM and vulnerability report for containers
+function dockersecurity(){
+    #most of these variables are set in the .env file fyi
+    echo "> generating software bill of materials and security audit of docker containers used"
+    echo "> to be used after images have been built (./setup start)"
+
+    #analyze grafana container
+    _run_syft_grype "grafana" "$GRAFANA_IMAGE_NAME:$GRAFANA_VERSION"
+
+    #analyze elasticsearch container
+    _run_syft_grype "elasticsearch" "$ELASTICSEARCH_IMAGE_NAME:$ELASTICSEARCH_VERSION"
+
+    #analyze python data manager
+    _run_syft_grype "datamanager" "$DATA_MANAGER_IMAGE_NAME"
+
+    _run_syft_grype "docker-compose:V1.29" "docker/compose:1.29.2"
+    echo "> done"
+}
+
+# Document: run all documentation generation functions
+function document(){
+    echo "> running all documentation generation functions"
+    dockerviz
+    dockersecurity
+    echo "> done"
+}
+
+########################################
+########################################
+# ARG PARSING
+$@ #use function name as input param??
+
+########################################
+########################################
+## OTHER MISC NOTES:

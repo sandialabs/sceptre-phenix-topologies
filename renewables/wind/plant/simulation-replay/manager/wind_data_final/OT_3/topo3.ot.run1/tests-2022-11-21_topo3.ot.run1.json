@@ -1,0 +1,71 @@
+{
+  "took" : 0,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "pMrFm4QBwytzc61DbSME",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:58:37+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "_MrFm4QBwytzc61DfSY8",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:58:41+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "4MrFm4QBwytzc61Dkit7",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:58:47+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      },
+      {
+        "_index" : "tests-2022-11-21",
+        "_type" : "_doc",
+        "_id" : "AcrFm4QBwytzc61Dpi89",
+        "_score" : 1.0,
+        "_source" : {
+          "@timestamp" : "2022-11-21T19:58:52+00:00",
+          "attack" : true,
+          "name" : "",
+          "stage" : "result",
+          "output" : "TEST PASS"
+        }
+      }
+    ]
+  }
+}
