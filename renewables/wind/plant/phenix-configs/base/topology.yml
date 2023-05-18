@@ -242,6 +242,39 @@ spec:
         vlan: ot
     type: VirtualMachine
   - general:
+      hostname: grafana
+    hardware:
+      drives:
+      - image: grafana.qc2
+      memory: 4096
+      os_type: linux
+      vcpus: 2
+    injections:
+    - src: /phenix/injects/wind-plant/grafana/elasticsearch.yml
+      dst: /etc/elasticsearch/elasticsearch.yml
+    - src: /phenix/injects/wind-plant/grafana/grafana.ini
+      dst: /etc/grafana/grafana.ini
+    - src: /phenix/injects/wind-plant/grafana/loki.yml
+      dst: /etc/loki/config.yml
+    - src: /phenix/injects/wind-plant/grafana/loki-data-source.yml
+      dst: /etc/grafana/provisioning/datasources/loki.yml
+    - src: /phenix/injects/wind-plant/grafana/elastic-data-source.yml
+      dst: /etc/grafana/provisioning/datasources/elastic.yml
+    - src: /phenix/injects/wind-plant/grafana/dashboards.yml
+      dst: /etc/grafana/provisioning/dashboards/file.yml
+    - src: /phenix/injects/wind-plant/grafana/turbine-dashboard.json
+      dst: /var/lib/grafana/dashboards/turbine-dashboard.json
+    network:
+      interfaces:
+      - address: 192.168.100.101
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+    type: VirtualMachine
+  - general:
       hostname: kali-ot
     hardware:
       drives:
@@ -270,10 +303,100 @@ spec:
         vlan: MGMT
     type: VirtualMachine
   - general:
-      hostname: wtg-01
+      hostname: wtg-1-yaw-controller
     hardware:
       drives:
-      - image: protonuke.qc2
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.11
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-1
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-signal-converter
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.21
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-1
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-blade-1
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.31
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-1
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-blade-2
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.32
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-1
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-blade-3
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.33
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-1
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-main-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
       os_type: linux
     network:
       interfaces:
@@ -284,6 +407,12 @@ spec:
         proto: static
         type: ethernet
         vlan: ot
+      - address: 10.135.1.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: wtg-1
       - address: 172.16.100.1
         mask: 16
         name: mgmt
@@ -292,10 +421,100 @@ spec:
         vlan: MGMT
     type: VirtualMachine
   - general:
-      hostname: wtg-02
+      hostname: wtg-2-yaw-controller
     hardware:
       drives:
-      - image: protonuke.qc2
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.11
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-2
+    type: VirtualMachine
+  - general:
+      hostname: wtg-2-signal-converter
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.21
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-2
+    type: VirtualMachine
+  - general:
+      hostname: wtg-2-blade-1
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.31
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-2
+    type: VirtualMachine
+  - general:
+      hostname: wtg-2-blade-2
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.32
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-2
+    type: VirtualMachine
+  - general:
+      hostname: wtg-2-blade-3
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.33
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-2
+    type: VirtualMachine
+  - general:
+      hostname: wtg-2-main-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
       os_type: linux
     network:
       interfaces:
@@ -306,6 +525,12 @@ spec:
         proto: static
         type: ethernet
         vlan: ot
+      - address: 10.135.1.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: wtg-2
       - address: 172.16.100.2
         mask: 16
         name: mgmt
@@ -314,10 +539,100 @@ spec:
         vlan: MGMT
     type: VirtualMachine
   - general:
-      hostname: wtg-03
+      hostname: wtg-3-yaw-controller
     hardware:
       drives:
-      - image: protonuke.qc2
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.11
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-3
+    type: VirtualMachine
+  - general:
+      hostname: wtg-3-signal-converter
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.21
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-3
+    type: VirtualMachine
+  - general:
+      hostname: wtg-3-blade-1
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.31
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-3
+    type: VirtualMachine
+  - general:
+      hostname: wtg-3-blade-2
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.32
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-3
+    type: VirtualMachine
+  - general:
+      hostname: wtg-3-blade-3
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.33
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-3
+    type: VirtualMachine
+  - general:
+      hostname: wtg-3-main-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
       os_type: linux
     network:
       interfaces:
@@ -328,6 +643,12 @@ spec:
         proto: static
         type: ethernet
         vlan: ot
+      - address: 10.135.1.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: wtg-3
       - address: 172.16.100.3
         mask: 16
         name: mgmt
@@ -336,10 +657,100 @@ spec:
         vlan: MGMT
     type: VirtualMachine
   - general:
-      hostname: wtg-04
+      hostname: wtg-4-yaw-controller
     hardware:
       drives:
-      - image: protonuke.qc2
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.11
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-4
+    type: VirtualMachine
+  - general:
+      hostname: wtg-4-signal-converter
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.21
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-4
+    type: VirtualMachine
+  - general:
+      hostname: wtg-4-blade-1
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.31
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-4
+    type: VirtualMachine
+  - general:
+      hostname: wtg-4-blade-2
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.32
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-4
+    type: VirtualMachine
+  - general:
+      hostname: wtg-4-blade-3
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.33
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-4
+    type: VirtualMachine
+  - general:
+      hostname: wtg-4-main-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
       os_type: linux
     network:
       interfaces:
@@ -350,6 +761,12 @@ spec:
         proto: static
         type: ethernet
         vlan: ot
+      - address: 10.135.1.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: wtg-4
       - address: 172.16.100.4
         mask: 16
         name: mgmt
@@ -358,10 +775,100 @@ spec:
         vlan: MGMT
     type: VirtualMachine
   - general:
-      hostname: wtg-05
+      hostname: wtg-5-yaw-controller
     hardware:
       drives:
-      - image: protonuke.qc2
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.11
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-5
+    type: VirtualMachine
+  - general:
+      hostname: wtg-5-signal-converter
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.21
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-5
+    type: VirtualMachine
+  - general:
+      hostname: wtg-5-blade-1
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.31
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-5
+    type: VirtualMachine
+  - general:
+      hostname: wtg-5-blade-2
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.32
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-5
+    type: VirtualMachine
+  - general:
+      hostname: wtg-5-blade-3
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      memory: 1024
+      os_type: linux
+      vcpus: 2
+    network:
+      interfaces:
+      - address: 10.135.1.33
+        gateway: 10.135.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: wtg-5
+    type: VirtualMachine
+  - general:
+      hostname: wtg-5-main-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
       os_type: linux
     network:
       interfaces:
@@ -372,6 +879,12 @@ spec:
         proto: static
         type: ethernet
         vlan: ot
+      - address: 10.135.1.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: wtg-5
       - address: 172.16.100.5
         mask: 16
         name: mgmt
