@@ -1,0 +1,90 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Image
+metadata:
+  name: grafana
+spec:
+  deb_append: ' --components=main,restricted,universe,multiverse'
+  format: qcow2
+  mirror: http://us.archive.ubuntu.com/ubuntu/
+  packages:
+  - curl
+  - dbus
+  - ifupdown
+  - init
+  - initramfs-tools
+  - iputils-ping
+  - isc-dhcp-client
+  - less
+  - linux-headers-generic
+  - linux-image-generic
+  - net-tools
+  - netbase
+  - vim
+  release: focal
+  script_order:
+  - POSTBUILD_NO_ROOT_PASSWD
+  - POSTBUILD_PHENIX_HOSTNAME
+  - POSTBUILD_PHENIX_BASE
+  - INSTALL_GRAFANA
+  - POSTBUILD_APT_CLEANUP
+  scripts:
+    POSTBUILD_APT_CLEANUP: |
+      apt clean || apt-get clean || echo "unable to clean apt cache"
+    POSTBUILD_NO_ROOT_PASSWD: |
+      sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
+      sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+      sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+      sed -i 's/PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+      passwd -d root
+    POSTBUILD_PHENIX_HOSTNAME: |
+      echo "phenix" > /etc/hostname
+      sed -i 's/127.0.1.1 .*/127.0.1.1 phenix/' /etc/hosts
+      cat > /etc/motd <<EOF
+
+      ██████╗ ██╗  ██╗███████╗███╗  ██╗██╗██╗  ██╗
+      ██╔══██╗██║  ██║██╔════╝████╗ ██║██║╚██╗██╔╝
+      ██████╔╝███████║█████╗  ██╔██╗██║██║ ╚███╔╝
+      ██╔═══╝ ██╔══██║██╔══╝  ██║╚████║██║ ██╔██╗
+      ██║     ██║  ██║███████╗██║ ╚███║██║██╔╝╚██╗
+      ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚══╝╚═╝╚═╝  ╚═╝
+
+      EOF
+      echo "\nBuilt with phenix image on $(date)\n\n" >> /etc/motd
+    POSTBUILD_PHENIX_BASE: |
+      cat > /etc/systemd/system/phenix.service <<EOF
+      [Unit]
+      Description=phenix startup service
+      After=network.target systemd-hostnamed.service
+      [Service]
+      Environment=LD_LIBRARY_PATH=/usr/local/lib
+      ExecStart=/usr/local/bin/phenix-start.sh
+      RemainAfterExit=true
+      StandardOutput=journal
+      Type=oneshot
+      [Install]
+      WantedBy=multi-user.target
+      EOF
+      mkdir -p /etc/systemd/system/multi-user.target.wants
+      ln -s /etc/systemd/system/phenix.service /etc/systemd/system/multi-user.target.wants/phenix.service
+      mkdir -p /usr/local/bin
+      cat > /usr/local/bin/phenix-start.sh <<EOF
+      #!/bin/bash
+      for file in /etc/phenix/startup/*; do
+        echo \$file
+        bash \$file
+      done
+      EOF
+      chmod +x /usr/local/bin/phenix-start.sh
+      mkdir -p /etc/phenix/startup
+    INSTALL_GRAFANA: |
+      echo "Acquire { https::Verify-Peer false }" | tee /etc/apt/apt.conf.d/99-verify-peer.conf
+      apt update && apt install -y apt-transport-https
+      echo "deb [trusted=yes] https://apt.grafana.com stable main" | tee /etc/apt/sources.list.d/grafana.list
+      echo "deb [trusted=yes] https://artifacts.elastic.co/packages/8.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-8.x.list
+      apt update && apt install -y grafana loki elasticsearch
+      ln -s /lib/systemd/system/grafana-server.service /etc/systemd/system/multi-user.target.wants/grafana-server.service
+      ln -s /lib/systemd/system/elasticsearch.service /etc/systemd/system/multi-user.target.wants/elasticsearch.service
+  size: 50G
+  variant: minbase
+

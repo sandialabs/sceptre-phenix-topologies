@@ -1,0 +1,138 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Topology
+metadata:
+  name: wind-turbine
+spec:
+  nodes:
+  - general:
+      hostname: grafana
+    hardware:
+      drives:
+      - image: grafana.qc2
+      memory: 4096
+      os_type: linux
+      vcpus: 2
+    injections:
+    - src: /phenix/injects/wind-turbine/grafana/elasticsearch.yml
+      dst: /etc/elasticsearch/elasticsearch.yml
+    - src: /phenix/injects/wind-turbine/grafana/grafana.ini
+      dst: /etc/grafana/grafana.ini
+    - src: /phenix/injects/wind-turbine/grafana/elastic-data-source.yml
+      dst: /etc/grafana/provisioning/datasources/elastic.yml
+    - src: /phenix/injects/wind-turbine/grafana/dashboards.yml
+      dst: /etc/grafana/provisioning/dashboards/dashboards.yml
+    - src: /phenix/injects/wind-turbine/grafana/turbine-dashboard.json
+      dst: /var/lib/grafana/dashboards/turbine-dashboard.json
+    network:
+      interfaces:
+      - address: 192.168.100.250
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-main-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.100.1
+        gateway: 192.168.100.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: ot
+      - address: 1.1.1.254
+        mask: 24
+        name: IF1
+        proto: static
+        type: ethernet
+        vlan: turbine
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-yaw-controller
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 1.1.1.11
+        gateway: 1.1.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: turbine
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-signal-converter
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 1.1.1.21
+        gateway: 1.1.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: turbine
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-blade-1
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 1.1.1.31
+        gateway: 1.1.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: turbine
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-blade-2
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 1.1.1.32
+        gateway: 1.1.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: turbine
+    type: VirtualMachine
+  - general:
+      hostname: wtg-1-blade-3
+    hardware:
+      drives:
+      - image: ot-sim.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 1.1.1.33
+        gateway: 1.1.1.254
+        mask: 24
+        name: IF0
+        proto: static
+        type: ethernet
+        vlan: turbine
+    type: VirtualMachine
+
