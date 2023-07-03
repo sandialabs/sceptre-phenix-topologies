@@ -1,0 +1,38 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Topology
+metadata:
+  name: helloworld
+  created: ""
+  updated: ""
+spec:
+  nodes:
+  - general:
+      hostname: test1
+    hardware:
+      drives:
+      - image: ubuntu.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.1.1
+        mask: 24
+        name: if0
+        proto: static
+        type: ethernet
+        vlan: SW1
+    type: VirtualMachine
+  - general:
+      hostname: test2
+    hardware:
+      drives:
+      - image: ubuntu.qc2
+      os_type: linux
+    network:
+      interfaces:
+      - address: 192.168.1.2
+        mask: 24
+        name: if0
+        proto: static
+        type: ethernet
+        vlan: SW1
+    type: VirtualMachine

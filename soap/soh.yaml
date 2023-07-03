@@ -1,0 +1,65 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: soap-soh
+  created: ""
+  updated: ""
+  annotations:
+    topology: soap
+spec:
+  apps:
+    - name: soh
+      metadata:
+        c2Timeout: 2m
+        hostListeners:
+          provider:
+          - :5555
+          rtu-1:
+          - :20000
+          rtu-2:
+          - :20000
+          rtu-3:
+          - :20000
+          rtu-4:
+          - :20000
+        hostProcesses:
+          provider:
+          - miniccc
+          - pybennu-power-solver
+          rtu-1:
+          - miniccc
+          - bennu-watcherd
+          - bennu-field-deviced
+          rtu-2:
+          - miniccc
+          - bennu-watcherd
+          - bennu-field-deviced
+          rtu-3:
+          - miniccc
+          - bennu-watcherd
+          - bennu-field-deviced
+          rtu-4:
+          - miniccc
+          - bennu-watcherd
+          - bennu-field-deviced
+        packetCapture:
+          elasticImage: elasticsearch.qc2
+          packetBeatImage: packetbeat.qc2
+          elasticServer:
+            hostname: soh-elasticsearch-server
+            ipAddress: 10.117.4.200/24
+            vlan: EXP
+          captureHosts:
+            ignition:
+            - exp
+            rtu-1:
+            - exp
+            rtu-2:
+            - exp
+            rtu-3:
+            - exp
+            rtu-4:
+            - exp
+            controlthings_elk:
+            - exp
+        testReachability: full # can be off, sample, or full
