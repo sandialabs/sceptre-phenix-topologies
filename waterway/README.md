@@ -3,7 +3,7 @@ The waterway topology models a notional SCADA system for a waterway lock system.
 ![waterway_network](waterway_network.png)
 
 The model consists of the following configurations: 
-- waterway-topology.yaml` - This defines the network topology for the waterway model.
+- `waterway-topology.yaml` - This defines the network topology for the waterway model.
 - `waterway-scenario.yaml` - This defines the scenario configuration including the sceptre app.
 
 The model uses the following backing images:
@@ -28,4 +28,5 @@ To run the model use the following commands
 phenix config create <path_to_topos>/waterway-topology.yaml
 phenix config create <path_to_topos>/waterway-scenario.yaml
 phenix exp create waterway -t waterway -s waterway
+phenix exp start waterway
 ```
