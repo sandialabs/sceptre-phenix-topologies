@@ -1,0 +1,26 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: soap
+  created: ""
+  updated: ""
+  annotations:
+    topology: soap
+spec:
+  apps:
+    - name: mirror
+      metadata:
+        directGRE:
+          enabled: true
+          mirrorBridge: phenix
+          mirrorVLAN: MIRROR
+      hosts:
+      - hostname: controlthings_elk
+        metadata:
+          interface: mirror
+          vlans:
+          - EXP
+    - name: sceptre
+      fromScenario: soap-sceptre
+    - name: soh
+      fromScenario: soap-soh

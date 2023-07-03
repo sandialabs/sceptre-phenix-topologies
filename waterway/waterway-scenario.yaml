@@ -1,0 +1,85 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: waterway 
+  created: ""
+  updated: ""
+  annotations:
+    topology: waterway
+spec:
+  apps:
+    - name: sceptre
+      assetDir: /phenix/topologies/waterway
+      hosts:
+      - hostname: historian
+        metadata:
+          type: historian
+      - hostname: hmi
+        metadata:
+          type: hmi           
+      - hostname: simulink-provider
+        metadata:
+          gt: /phenix/topologies/waterway/injects/simulinkgt
+          gt_template: /phenix/topologies/waterway/injects/main.tmpl
+          labels:
+          - elk
+          publish_endpoint: udp://*;239.0.0.1:40000
+          publish_points: /phenix/topologies/waterway/injects/publishPoints.txt
+          simulator: Simulink
+          solver: /phenix/topologies/waterway/injects/simulinksolver
+          type: provider
+      - hostname: opc
+        metadata:
+          connected_rtus:
+          - rtu-1
+          - rtu-2
+          type: opc
+      - hostname: scada-server
+        metadata:
+          automation: /phenix/topologies/waterway/injects/myscada.exe
+          labels:
+          - elk
+          project: /phenix/topologies/waterway/injects/waterway.mep
+          type: scada-server
+      - hostname: rtu-1
+        metadata:
+          modbus:
+          - name: lowerwater 
+            type: water
+          - name: lock
+            type: water
+          - name: lowergate
+            type: gate
+          - name: lowervalve
+            type: valve
+          - name: lowersensor
+            type: boat-sensor
+          - name: locksensor
+            type: boat-sensor
+          infrastructure: waterway 
+          labels:
+          - elk
+          logic: lowergate.open = 1*((lowersensor.direction == 1) && (lowersensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 0*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 1*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 0*((lowersensor.direction == -1) && (lowersensor.active == 1)); lowervalve.open = 1*((lowersensor.direction == 1) && (lowersensor.active == 1) && (lock.height > lowerwater.height)) + 0*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= lowerwater.height)) + 1*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height > lowerwater.height)) + 0*((lowersensor.direction == -1) && (lowersensor.active == 1))
+          provider: simulink-provider
+          type: fd-server    
+      - hostname: rtu-2
+        metadata:
+          modbus:
+          - name: upperwater 
+            type: water
+          - name: lock
+            type: water
+          - name: uppergate
+            type: gate
+          - name: uppervalve
+            type: valve
+          - name: uppersensor
+            type: boat-sensor
+          - name: locksensor
+            type: boat-sensor
+          infrastructure: waterway 
+          labels:
+          - elk
+          logic: uppergate.open = 1*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)) + 0*((uppersensor.direction == 1) && (uppersensor.active == 1)) + 1*((uppersensor.direction == -1) && (uppersensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)) + 0*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)); uppervalve.open = 1*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height < upperwater.height)) + 0*((uppersensor.direction == 1) && (uppersensor.active == 1)) + 1*((uppersensor.direction == -1) && (uppersensor.active == 1) && (lock.height < upperwater.height)) + 0*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1))
+          provider: simulink-provider
+          type: fd-server
