@@ -1,0 +1,83 @@
+#!/bin/sh
+
+NAME=soap-hil
+
+PHENIX='docker exec -it phenix phenix'
+MM='docker exec -it minimega mm'
+
+TAP_HOST_IP=10.117.4.211
+TAP_NAME=exp-tap
+
+OVS='docker exec minimega ovs-vsctl'
+
+# Adjust `HIL_IF` to the name of the physical interface the PLC is connected to
+HIL_IF=eno4
+HIL_NET_NAME=phenix
+# Adjust this to the `EXP` vlan number
+HIL_VLAN=102
+
+stop() {
+  ${PHENIX} exp stop "$NAME" 1> /dev/null
+}
+
+delete() {
+  ${PHENIX} config delete topology/"$NAME" 1> /dev/null
+  ${PHENIX} config delete scenario/"$NAME" 1> /dev/null
+  ${PHENIX} exp delete "$NAME" 1> /dev/null
+}
+
+start () {
+  ${PHENIX} config create "$PWD"/topology.yaml
+  ${PHENIX} config create "$PWD"/scenario.yaml
+
+  ${PHENIX} exp create -t "$NAME" -s "$NAME" "$NAME"
+  ${PHENIX} exp start "$NAME"
+}
+
+hil_network () {
+  $OVS --may-exist add-br "$HIL_NET_NAME"
+  $OVS --may-exist add-port "$HIL_NET_NAME" "$HIL_IF" tag="$HIL_VLAN"
+}
+
+tap () {
+  # create a tap to the host on the experiment network
+  ${MM} namespace "$NAME" tap create EXP bridge phenix ip "$TAP_HOST_IP" "$TAP_NAME"
+}
+
+deltap () { 
+  ${MM} namespace "$NAME" tap delete "$TAP_NAME" 2>&1 1> /dev/null
+}
+
+usage() {
+  printf "%s <start | stop | delete | tap | hil-network>\n" "$0"
+  exit 1
+}
+
+case $1 in 
+  start)
+    set -x
+    stop
+    delete
+    start
+  ;;
+  stop)
+    set -x
+    stop
+  ;;
+  delete)
+    set -x
+    delete
+    deltap
+  ;;
+  tap)
+    set -x
+    tap
+  ;;
+  hil-network)
+    set -x
+    hil_network
+  ;;
+  *)
+    usage
+  ;;
+esac

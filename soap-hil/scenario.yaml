@@ -1,0 +1,95 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: soap-hil
+  created: ""
+  updated: ""
+  annotations:
+    topology: soap-hil
+spec:
+  apps:
+    - name: mirror
+      metadata:
+        directGRE:
+          enabled: true
+          mirrorBridge: phenix
+          mirrorVLAN: MIRROR
+      hosts:
+      - hostname: net-monitor
+        metadata:
+          interface: mirror
+          vlans:
+          - EXP
+    - name: sceptre
+      assetDir: /phenix/topologies/soap-hil
+      hosts:
+        - hostname: ignition
+          metadata:
+            labels:
+              - ignition
+        - hostname: power-provider
+          metadata:
+            case: /phenix/topologies/soap-hil/injects/case300.py
+            labels:
+              - elk
+            publish_endpoint: udp://*;239.0.0.1:40000
+            simulator: PyPower
+            type: provider
+          # note: RTU configs below are overridden by configs in injects/override
+          # this is done to keep DNP3 addresses static to match with Ignition project
+        - hostname: rtu-1
+          metadata:
+            dnp3:
+              - name: bus-242
+                type: bus
+              - name: generator-1_bus-242
+                type: generator
+              - name: bus-alert
+                type: bus
+            infrastructure: power-transmission
+            labels:
+              - elk
+            provider: power-provider
+            type: fd-server
+        - hostname: rtu-2
+          metadata:
+            dnp3:
+              - name: bus-243
+                type: bus
+              - name: load-1_bus-243
+                type: load
+              - name: generator-1_bus-243
+                type: generator
+            infrastructure: power-transmission
+            labels:
+              - elk
+            provider: power-provider
+            type: fd-server
+        - hostname: rtu-3
+          metadata:
+            dnp3:
+              - name: bus-244
+                type: bus
+              - name: branch-1_243-244
+                type: branch
+            infrastructure: power-transmission
+            labels:
+              - elk
+            provider: power-provider
+            type: fd-server
+        - hostname: rtu-4
+          metadata:
+            dnp3:
+              - name: bus-245
+                type: bus
+              - name: load-1_bus-245
+                type: load
+              - name: branch-1_242-245
+                type: branch
+              - name: branch-1_243-245
+                type: branch
+            infrastructure: power-transmission
+            labels:
+              - elk
+            provider: power-provider
+            type: fd-server

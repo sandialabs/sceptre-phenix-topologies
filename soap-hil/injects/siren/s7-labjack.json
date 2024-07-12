@@ -1,0 +1,25 @@
+{
+    "digital_input_1": "FIO6",
+    "digital_output_1": "FIO4",
+    "analog_input_1": {
+        "pin": "AIN0",
+        "min_data": 0.0,
+        "max_data": 100.0,
+        "min_volt": 0,
+        "max_volt": 5
+    },
+    "analog_output_1": {
+        "pin": "DAC0",
+        "min_data": 0.0,
+        "max_data": 100.0,
+        "min_volt": 0,
+        "max_volt": 5
+    },
+    "analog_output_2": {
+        "pin": "DAC1",
+        "min_data": 0.0,
+        "max_data": 100.0,
+        "min_volt": 0,
+        "max_volt": 5
+    }
+}

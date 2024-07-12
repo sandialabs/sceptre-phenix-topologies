@@ -1,0 +1,112 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Image
+metadata:
+    name: kali-python
+    created: "2022-08-16T13:47:20-05:00"
+    updated: "2024-02-06T16:07:27-06:00"
+spec:
+    compress: true
+    deb_append: ' --components=main,contrib,non-free'
+    format: qcow2
+    include_miniccc: false
+    include_protonuke: false
+    mirror: http://http.kali.org/kali
+    overlays: null
+    packages:
+        - initramfs-tools
+        - net-tools
+        - isc-dhcp-client
+        - openssh-server
+        - init
+        - iputils-ping
+        - vim
+        - less
+        - netbase
+        - python3
+        - python3-pip
+        - python3-setuptools
+        - curl
+        - ifupdown
+        - dbus
+        - linux-image-amd64
+        - linux-headers-amd64
+        - default-jre
+        - kali-linux-core
+        - python3-cffi-backend
+    ramdisk: false
+    release: kali
+    script_order:
+        - POSTBUILD_APT_KALI
+        - POSTBUILD_APT_CLEANUP
+        - POSTBUILD_PHENIX_HOSTNAME
+        - POSTBUILD_PHENIX_BASE
+        - POSTBUILD_APT_CLEANUP
+        - POSTBUILD_PIP_SNAP7
+        - POSTBUILD_NO_ROOT_PASSWD
+    scripts:
+        POSTBUILD_APT_CLEANUP: |
+            apt clean || apt-get clean || echo "unable to clean apt cache"
+        POSTBUILD_APT_KALI: |
+            export DEBIAN_FRONTEND=noninteractive
+            apt -y install kali-linux-core kali-desktop-xfce kali-tools-top10
+        POSTBUILD_NO_ROOT_PASSWD: |
+            sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
+            sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+            sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            sed -i 's/PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+            passwd -d root
+        POSTBUILD_PHENIX_BASE: |
+            cat > /etc/systemd/system/miniccc.service <<EOF
+            [Unit]
+            Description=miniccc
+            [Service]
+            ExecStart=/opt/minimega/bin/miniccc -v=false -serial /dev/virtio-ports/cc -logfile /var/log/miniccc.log
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+            cat > /etc/systemd/system/phenix.service <<EOF
+            [Unit]
+            Description=phenix startup service
+            After=network.target systemd-hostnamed.service
+            [Service]
+            Environment=LD_LIBRARY_PATH=/usr/local/lib
+            ExecStart=/usr/local/bin/phenix-start.sh
+            RemainAfterExit=true
+            StandardOutput=journal
+            Type=oneshot
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+            mkdir -p /etc/systemd/system/multi-user.target.wants
+            ln -s /etc/systemd/system/miniccc.service /etc/systemd/system/multi-user.target.wants/miniccc.service
+            ln -s /etc/systemd/system/phenix.service /etc/systemd/system/multi-user.target.wants/phenix.service
+            mkdir -p /usr/local/bin
+            cat > /usr/local/bin/phenix-start.sh <<EOF
+            #!/bin/bash
+            for file in /etc/phenix/startup/*; do
+            	echo \$file
+            	bash \$file
+            done
+            EOF
+            chmod +x /usr/local/bin/phenix-start.sh
+            mkdir -p /etc/phenix/startup
+        POSTBUILD_PHENIX_HOSTNAME: |
+            echo "phenix" > /etc/hostname
+            sed -i 's/127.0.1.1 .*/127.0.1.1 phenix/' /etc/hosts
+            cat > /etc/motd <<EOF
+
+            ██████╗ ██╗  ██╗███████╗███╗  ██╗██╗██╗  ██╗
+            ██╔══██╗██║  ██║██╔════╝████╗ ██║██║╚██╗██╔╝
+            ██████╔╝███████║█████╗  ██╔██╗██║██║ ╚███╔╝
+            ██╔═══╝ ██╔══██║██╔══╝  ██║╚████║██║ ██╔██╗
+            ██║     ██║  ██║███████╗██║ ╚███║██║██╔╝╚██╗
+            ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚══╝╚═╝╚═╝  ╚═╝
+
+            EOF
+            echo "\nBuilt with phenix image on $(date)\n\n" >> /etc/motd
+        POSTBUILD_PIP_SNAP7: |
+            pip3 install python-snap7 --break-system-packages
+    size: 50G
+    skip_default_packages: false
+    variant: minbase
