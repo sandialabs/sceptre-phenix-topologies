@@ -1,0 +1,20 @@
+{
+    "s7-labjack": {
+        "level_name": "debug",
+        "device_polling_time": 0.5,
+        "device_type": "labjack_t4",
+        "device_id": "440013826",
+        "device_config_file": "./s7-labjack.json",
+        "server-endpoint": "tcp://172.16.1.2:5555",
+        "publish-endpoint": "udp://172.16.1.10;239.0.0.1:40000",
+        "filter": "/",
+        "to_endpoint": {
+            "branch-1_243-244.active": "digital_input_1",
+            "generator-1_bus-243.mw": "analog_input_1"
+        },
+        "to_device": {
+            "branch-1_243-244.active": "digital_output_1",
+            "generator-1_bus-243.mw": "analog_output_1"
+        }
+    }
+}
