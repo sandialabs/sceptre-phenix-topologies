@@ -81,15 +81,16 @@ cp -a phenix-injects/* /phenix/injects/wind-plant
 ```
 
 The phēnix topology configs in this repository include VM disk references to
-`powerworld.qc2`, `wireguard.qc2`, `windows-7.qc2`, and `zeek.qc2`, as well as
-more common images like `vyos.qc2`, `miniccc.qc2`, `protonuke.qc2`, and
-`kali.qc2`. phēnix image configs for `wireguard` and `zeek` are included in this
-repository in the `phenix-images` directory and can be built with the `phenix
-image build` command. A Packer configuration is also included in the
-`phenix-images` directory and can be be built with ... wait for it ... Packer.
-phēnix comes with image configs for `miniccc`, `protonuke`, and `kali` by
-default and thus they can also be built with the `phenix image build` command.
-To build a VyOS image, clone the phēnix repo and build from these
+`powerworld.qc2`, `wireguard.qc2`, `windows-7.qc2`, `zeek.qc2`, `ot-sim.qc2`,
+and `grafana.qc2`, as well as more common images like `vyos.qc2`, `miniccc.qc2`,
+`protonuke.qc2`, and `kali.qc2`. phēnix image configs for `wireguard`, `zeek`,
+`ot-sim`, and `grafana` are included in this repository in the `phenix-images`
+directory and can be built with the `phenix image build` command. A Packer
+configuration is also included in the `phenix-images` directory and can be be
+built with ... wait for it ... Packer. phēnix comes with image configs for
+`miniccc`, `protonuke`, and `kali` by default and thus they can also be built
+with the `phenix image build` command. To build a VyOS image, clone the phēnix
+repo and build from these
 [instructions](https://github.com/sandia-minimega/phenix/tree/main/hack/vyos).
 
 > **NOTE:** the `hids`, `nids`, and `soar` experiments described above include
@@ -103,9 +104,11 @@ scenario for the given network above.
 
 Once you start the experiment, you can verify it is operating as expected by
 checking the workstations on each network (e.g., `ws-ot`). They should all be
-able to access the WTGs on the `192.168.100.0/24` network. You can also check
-for `protonuke` logs on the WTGs to see that clients are connecting to them
-(browse `/var/log/protonuke.log` via the VNC connection per VM).
+able to access the WTG main controllers on the `192.168.100.0/24` network. They
+should also be able to browse to the Grafana dashboard at
+http://192.168.100.101:3000. You can also check for `ot-sim` logs on the WTG
+main controllers to confirm the other WTG controllers are connecting to them
+(run `journalctl -u ot-sim` via the VNC connection per VM).
 
 - The username and password for any Linux VM is `root` with no password.
 - The default username and password for a VyOS VM is `vyos` and `vyos`. However,
