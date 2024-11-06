@@ -179,52 +179,63 @@ spec:
         # you can get these by running `lsusb -v` on the host
         qemu-append: "-device qemu-xhci -device usb-host,vendorid=0x0cd5,productid=0x0004"
     - general:
-        hostname: net-monitor
+        hostname: netmonitor
       hardware:
         drives:
-        - image: kali-python.qc2
+          - image: ubuntu-soaptools.qc2
         memory: 4096
         os_type: linux
         vcpus: 2
       network:
         interfaces:
-        - address: 172.16.1.8
-          mask: 16
-          name: mgmt
-          proto: static
-          type: ethernet
-          vlan: MGMT
-        - address: 0.0.0.0 # 10.248.171.254/24
-          mask: 0
-          name: mirror
-          proto: static
-          type: ethernet
-          vlan: MIRROR
+          - address: 172.16.1.8
+            gateway: 172.16.0.1
+            mask: 16
+            name: mgmt
+            proto: static
+            type: ethernet
+            vlan: MGMT
+          - address: 0.0.0.0 # 10.248.171.254/24
+            mask: 0
+            name: mirror
+            proto: static
+            type: ethernet
+            vlan: MIRROR
+      commands:
+        - exec bash -c "systemctl start filebeat"
+      injections:
+        - src: /phenix/topologies/soap-hil/injects/netmonitor/filebeat_zeek_module.yml
+          dst: /etc/filebeat/modules.d/zeek.yml
+        - src: /phenix/topologies/soap-hil/injects/netmonitor/filebeat.yml
+          dst: /etc/filebeat/filebeat.yml
+        - src: /phenix/topologies/soap-hil/injects/netmonitor/zeek_node.cfg
+          dst: /opt/zeek/etc/node.cfg
+
       type: VirtualMachine
     - general:
-        hostname: kali
+        hostname: attacker
       hardware:
         drives:
-        - image: kali-python.qc2
+          - image: ubuntu-soaptools.qc2
         memory: 4096
         os_type: linux
         vcpus: 2
       injections:
-      - src: /phenix/topologies/soap-hil/injects/kali/plc-attack.py
-        dst: /phenix/plc-attack.py
+        - src: /phenix/topologies/soap-hil/injects/attack/
+          dst: /phenix/attack/
       network:
         interfaces:
-        - address: 10.117.4.169
-          gateway: 10.117.4.169
-          mask: 24
-          name: exp
-          proto: static
-          type: ethernet
-          vlan: EXP
-        - address: 172.16.1.9
-          mask: 16
-          name: mgmt
-          proto: static
-          type: ethernet
-          vlan: MGMT
+          - address: 10.117.4.169
+            mask: 24
+            name: exp
+            proto: static
+            type: ethernet
+            vlan: EXP
+          - address: 172.16.1.9
+            gateway: 172.16.0.1
+            mask: 16
+            name: mgmt
+            proto: static
+            type: ethernet
+            vlan: MGMT
       type: VirtualMachine

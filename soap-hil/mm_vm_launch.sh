@@ -2,9 +2,13 @@
 
 NAMESPACE=minimega
 NAME=test
-SNAPSHOT=false # used in order to do base image setup
+# used in order to do base image setup
+# this makes changes persistent in the .qc2 image
+SNAPSHOT=false
 DISK=/phenix/images/ignition.qc2
-MM="docker exec -it minimega minimega -e namespace $NAMESPACE"
+
+# execute minimega commands inside the minimega container
+MM="docker exec -it minimega mm -e namespace $NAMESPACE"
 
 
 set -e
