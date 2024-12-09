@@ -8,6 +8,14 @@ metadata:
     topology: soap-hil
 spec:
   apps:
+    - name: tap
+      metadata:
+        taps:
+          - bridge: phenix
+            vlan: MGMT
+            ip: 172.16.0.1/16
+            externalAccess:
+              enabled: true
     - name: mirror
       metadata:
         directGRE:
@@ -15,11 +23,11 @@ spec:
           mirrorBridge: phenix
           mirrorVLAN: MIRROR
       hosts:
-      - hostname: net-monitor
-        metadata:
-          interface: mirror
-          vlans:
-          - EXP
+        - hostname: netmonitor
+          metadata:
+            interface: mirror
+            vlans:
+              - EXP
     - name: sceptre
       assetDir: /phenix/topologies/soap-hil
       hosts:
@@ -37,6 +45,7 @@ spec:
             type: provider
           # note: RTU configs below are overridden by configs in injects/override
           # this is done to keep DNP3 addresses static to match with Ignition project
+          # the configs below are here for demonstration only
         - hostname: rtu-1
           metadata:
             dnp3:
@@ -93,3 +102,121 @@ spec:
               - elk
             provider: power-provider
             type: fd-server
+    - name: scorch
+      metadata:
+        components:
+          # vmstats tracks the vm ram and cpu usage during an experiment
+          - name: vmstats
+            type: vmstats
+            metadata:
+              filebeat.inputs:
+                # can input to filebeat if enabled
+                - enabled: false
+                  type: log
+                  json.add_error_key: true
+                  paths:
+                    - vm_stats.jsonl
+                  processors:
+                    - copy_fields:
+                      fields:
+                        - from: json
+                          to: scorch.vmstats
+                    - drop_fields:
+                        fields:
+                          - json
+                    - timestamp:
+                        field: scorch.vmstats.UTC
+                        layouts:
+                          - "2006-01-02 15:04:05"
+          - name: hoststats
+            # Hoststats tracks the cpu and ram usage of the minimega host
+            type: hoststats
+            background: true
+            metadata:
+              filebeat.inputs:
+                - enabled: false
+                  type: log
+                  json.add_error_key: true
+                  paths:
+                    - host_stats.jsonl
+                  processors:
+                    - copy_fields:
+                      fields:
+                        - from: json
+                          to: scorch.hoststats
+                    - drop_fields:
+                        fields:
+                          - json
+                    - timestamp:
+                        field: scorch.hoststats.timestamp
+                        layouts:
+                          - UNIX_MS
+          - name: packetcap
+            # Creates a packet capture on the netmonitor host
+            # Uses interface 1 to capture and save all packets to the phenix docker container
+            type: mm
+            metadata:
+              vms:
+                - hostname: netmonitor
+                  configure:
+                    - type: connect
+                      connect:
+                        interface: 1
+                        vlan: MIRROR
+                        bridge: phenix
+                  start:
+                    - type: start_capture
+                      capture:
+                        interface: 1
+                        filename: capture.pcap
+                        snaplen: null
+                  stop:
+                    - type: stop_capture
+                      capture:
+                        convert: true
+                  cleanup:
+                    - type: disconnect
+                      disconnect:
+                        interface: 1
+          - name: packet-pause
+            type: pause
+            metadata:
+              duration: 30s
+          - name: exp-break
+            type: break
+          - name: zeekctl
+            type: cc
+            metadata:
+              vms:
+                - hostname: netmonitor
+                  configure:
+                    - type: exec
+                      args: bash -c "/opt/zeek/bin/zeekctl deploy"
+                      once: true
+                  cleanup:
+                    - type: exec
+                      args: bash -c "/opt/zeek/bin/zeekctl stop"
+                      once: true
+        runs:
+          - configure:
+              - packetcap
+              - zeekctl
+            start:
+              - vmstats
+              - packetcap
+              - hoststats
+              - exp-break
+            stop:
+              - packetcap
+              - hoststats
+            cleanup:
+              - packetcap
+              - zeekctl
+        filebeat:
+          enabled: true
+          config:
+            output.elasticsearch:
+              hosts:
+                - localhost:9200
+            setup.dashboards.enabled: true
+            setup.kibana.host: http://localhost:5601

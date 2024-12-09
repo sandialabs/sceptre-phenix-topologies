@@ -2,8 +2,6 @@ apiVersion: phenix.sandia.gov/v1
 kind: Image
 metadata:
     name: ignition
-    created: "2024-01-05T10:12:55-06:00"
-    updated: "2024-02-08T12:25:55-06:00"
 spec:
     compress: true
     deb_append: ' --components=main,restricted,universe,multiverse'
@@ -40,8 +38,7 @@ spec:
         - python3-pycparser
         - python3-cffi
         - python3-cffi-backend
-        - falkon
-        - xubuntu-core
+        - xfce4
         - xserver-xorg
         - xserver-xorg-input-all
         - xserver-xorg-video-qxl
@@ -66,7 +63,7 @@ spec:
             deb http://us.archive.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
             EOF
             apt-get update
-            DEBIAN_FRONTEND=noninteractive apt-get install -y xubuntu-core epiphany-browser
+            DEBIAN_FRONTEND=noninteractive apt-get install -y --install-recommends xubuntu-core epiphany-browser
         POSTBUILD_NO_ROOT_PASSWD: |
             sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
             sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config

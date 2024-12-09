@@ -1,16 +1,14 @@
 apiVersion: phenix.sandia.gov/v1
 kind: Image
 metadata:
-    name: kali-python
-    created: "2022-08-16T13:47:20-05:00"
-    updated: "2024-02-06T16:07:27-06:00"
+    name: ubuntu-soaptools
 spec:
     compress: true
-    deb_append: ' --components=main,contrib,non-free'
+    deb_append: " --components=main,restricted,universe,multiverse"
     format: qcow2
     include_miniccc: false
     include_protonuke: false
-    mirror: http://http.kali.org/kali
+    mirror: http://us.archive.ubuntu.com/ubuntu/
     overlays: null
     packages:
         - initramfs-tools
@@ -22,33 +20,54 @@ spec:
         - vim
         - less
         - netbase
-        - python3
-        - python3-pip
-        - python3-setuptools
         - curl
         - ifupdown
         - dbus
-        - linux-image-amd64
-        - linux-headers-amd64
-        - default-jre
-        - kali-linux-core
+        - linux-image-generic
+        - linux-headers-generic
+        - xorg
+        - xinit
+        - dbus-x11
+        - libpython3-stdlib
+        - libexpat1
+        - zlib1g
+        - libc6
+        - python3-minimal
+        - python3
+        - python3-ply
+        - python3-pycparser
+        - python3-cffi
         - python3-cffi-backend
+        - xfce4
+        - xserver-xorg
+        - xserver-xorg-input-all
+        - xserver-xorg-video-qxl
+        - xserver-xorg-video-vesa
+        - qemu-guest-agent
+
     ramdisk: false
-    release: kali
+    release: jammy
     script_order:
-        - POSTBUILD_APT_KALI
+        - POSTBUILD_GUI_AND_TOOLS
+        - POSTBUILD_FILEBEAT_INSTALL
+        - POSTBUILD_ZEEK_INSTALL
+        - POSTBUILD_MSFCONSOLE
         - POSTBUILD_APT_CLEANUP
+        - POSTBUILD_PIP
+        - POSTBUILD_NO_ROOT_PASSWD
         - POSTBUILD_PHENIX_HOSTNAME
         - POSTBUILD_PHENIX_BASE
-        - POSTBUILD_APT_CLEANUP
-        - POSTBUILD_PIP_SNAP7
-        - POSTBUILD_NO_ROOT_PASSWD
     scripts:
         POSTBUILD_APT_CLEANUP: |
             apt clean || apt-get clean || echo "unable to clean apt cache"
-        POSTBUILD_APT_KALI: |
-            export DEBIAN_FRONTEND=noninteractive
-            apt -y install kali-linux-core kali-desktop-xfce kali-tools-top10
+        POSTBUILD_GUI_AND_TOOLS: |
+            cat > /etc/apt/sources.list.d/updates.list <<EOF
+            deb http://us.archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+            deb http://us.archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse
+            deb http://us.archive.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
+            EOF
+            apt-get update
+            DEBIAN_FRONTEND=noninteractive apt-get install -y --install-recommends xubuntu-core epiphany-browser wireshark-gtk python3-pip python-is-python3 micro
         POSTBUILD_NO_ROOT_PASSWD: |
             sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
             sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -105,8 +124,21 @@ spec:
 
             EOF
             echo "\nBuilt with phenix image on $(date)\n\n" >> /etc/motd
-        POSTBUILD_PIP_SNAP7: |
-            pip3 install python-snap7 --break-system-packages
+        POSTBUILD_PIP: |
+            set -e
+            pip3 install python-snap7==1.3 dnp3-python==0.2.3b3
+        POSTBUILD_FILEBEAT_INSTALL: |
+            set -e
+            wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.17.21-amd64.deb
+            dpkg -i filebeat-7.17.21-amd64.deb
+        POSTBUILD_ZEEK_INSTALL: |
+            set -e
+            echo 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_22.04/ /' | tee /etc/apt/sources.list.d/security:zeek.list
+            curl -fsSL https://download.opensuse.org/repositories/security:zeek/xUbuntu_22.04/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/security_zeek.gpg > /dev/null
+            apt update
+            DEBIAN_FRONTEND=noninteractive apt install zeek-6.0 -y
+        POSTBUILD_MSFCONSOLE: |
+            curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb | bash
+
     size: 50G
-    skip_default_packages: false
     variant: minbase
