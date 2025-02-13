@@ -15,7 +15,7 @@ The pins on the right side are are named R0,R1,R2, from top to bottom.
 A $1~k\Omega$ resistor is placed between GND and FIO6 on the LabJack as a pull-down resistor
 
 * T4 <-> T4
-    * FIO6 <- $1~k\Omega$ -> FIO6
+    * GND <- $1~k\Omega$ -> FIO6
 
 * T4 <-> S7
     * FIO6 <-> DQb.0
