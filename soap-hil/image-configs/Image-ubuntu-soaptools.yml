@@ -4,7 +4,11 @@ metadata:
     name: ubuntu-soaptools
 spec:
     compress: true
-    deb_append: " --components=main,restricted,universe,multiverse"
+    components:
+        - main
+        - restricted
+        - universe
+        - multiverse
     format: qcow2
     include_miniccc: false
     include_protonuke: false
@@ -129,16 +133,27 @@ spec:
             pip3 install python-snap7==1.3 dnp3-python==0.2.3b3
         POSTBUILD_FILEBEAT_INSTALL: |
             set -e
-            wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.17.21-amd64.deb
+            # if you are behind a proxy and get certificate errors, change `curl` to `curl --insecure`
+            curl -LO https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.17.21-amd64.deb
             dpkg -i filebeat-7.17.21-amd64.deb
         POSTBUILD_ZEEK_INSTALL: |
             set -e
+
+            ## uncomment the lines below if your are behind a proxy and get certificate errors with apt
+            # sudo tee /etc/apt/apt.conf.d/99-no-verify  <<EOF
+            # Acquire::https::Verify-Peer "false";
+            # Acquire::https::Verify-Host "false";
+            # EOF
+
             echo 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_22.04/ /' | tee /etc/apt/sources.list.d/security:zeek.list
+
+            # if you are behind a proxy and get certificate errors, change `curl` to `curl --insecure`
             curl -fsSL https://download.opensuse.org/repositories/security:zeek/xUbuntu_22.04/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/security_zeek.gpg > /dev/null
             apt update
             DEBIAN_FRONTEND=noninteractive apt install zeek-6.0 -y
         POSTBUILD_MSFCONSOLE: |
-            curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb | bash
+            # if you are behind a proxy and get certificate errors, change `curl` to `curl --insecure`
+            curl -L https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb | bash
 
     size: 50G
     variant: minbase
