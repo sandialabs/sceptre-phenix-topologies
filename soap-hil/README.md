@@ -57,6 +57,8 @@ phenix image build ignition -c -x -o /phenix/images
 
 Install the miniccc binary and service in the image
 ```bash
+# first, get the miniccc binary from the local minimega docker container
+docker cp minimega:/opt/minimega/bin/miniccc /phenix/miniccc
 phenix image inject-miniexe /phenix/miniccc /phenix/images/ignition.qc2
 ```
 
@@ -97,12 +99,13 @@ $MM vm launch kvm $NAME
 $MM vm start $NAME
 ```
 
-Run the ignitions installer in the VM in the `/root` directory, making sure to add the ignition install folder (typically `/usr/local/bin`) to `$PATH` for all users.
+Run the ignition installer in the VM in the `/root` directory, making sure to add the ignition install folder (typically `/usr/local/bin`) to `$PATH` for all users.
 Additionally, open a web browser (in the virtual machine), navigate to localhost:8088 and download and install the Designer Launcher.
 
 ### Bennu
 [Bennu](https://github.com/sandialabs/sceptre-bennu) is a modeling and simulation application for ICS/SCADA devices.
 The instructions at [https://github.com/sandialabs/sceptre-phenix-images] are sufficient to build a vm image containing bennu.
+That repository also has downloads available for pre-built bennu.qc2 images.
 This image should be placed at `/phenix/images/bennu.qc2`
 
 ### Soaptools
@@ -115,13 +118,21 @@ The soaptools VM image is an ubuntu base image with additional tools installed:
 First, load the image config from this repo with the following command
 
 ```bash
-phenix config create /phenix/topologies/soap-hil/image-configs/Image-ignition.yml
+phenix config create /phenix/topologies/soap-hil/image-configs/Image-ubuntu-soaptools.yml
 ```
 
-And build the updated image
+And build the image with
 ```bash
 phenix image build ubuntu-soaptools -c -x -o /phenix/images
 ```
+If you are behind a proxy and get ssl certificate verification errors while building, see the comments 
+in the build scripts at `soap-hil/image-configs/Image-ubuntu-soaptools.yml` and update the scripts accordingly. 
+If you need to make modifications, you can update the image specification with the commands below:
+```bash
+phenix image delete ubuntu-soaptools
+phenix config create /phenix/topologies/soap-hil/image-configs/Image-ubuntu-soaptools.yml
+```
+
 Install the miniccc binary and service in the image
 ```bash
 phenix image inject-miniexe /phenix/miniccc /phenix/images/ubuntu-soaptools.qc2
