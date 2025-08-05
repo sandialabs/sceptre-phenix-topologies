@@ -4,7 +4,11 @@ metadata:
     name: ignition
 spec:
     compress: true
-    deb_append: ' --components=main,restricted,universe,multiverse'
+    components:
+        - main
+        - restricted
+        - universe
+        - multiverse
     format: qcow2
     include_miniccc: false
     include_protonuke: false
