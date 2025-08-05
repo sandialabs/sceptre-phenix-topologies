@@ -4,10 +4,13 @@ metadata:
     name: ubuntu-soaptools
 spec:
     compress: true
-    deb_append: " --components=main,restricted,universe,multiverse"
+    components:
+        - main
+        - restricted
+        - universe
+        - multiverse
+    no_virtuals: true
     format: qcow2
-    include_miniccc: false
-    include_protonuke: false
     mirror: http://us.archive.ubuntu.com/ubuntu/
     overlays: null
     packages:
