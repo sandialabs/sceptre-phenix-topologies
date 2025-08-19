@@ -414,7 +414,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.10.2
@@ -450,7 +452,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.10.1
@@ -487,7 +491,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.20.2
@@ -523,7 +529,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.20.1
@@ -560,7 +568,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.30.2
@@ -596,7 +606,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.30.1
@@ -633,7 +645,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.40.2
@@ -691,7 +705,9 @@ spec:
     hardware:
       drives:
       - image: vyos.qc2
-      os_type: linux
+        inject_partition: 3
+      memory: 2048
+      os_type: vyos
     network:
       interfaces:
       - address: 10.0.40.1

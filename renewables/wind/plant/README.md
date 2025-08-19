@@ -9,7 +9,7 @@ is located
 
 ## Wind Turbine Plant Network
 
-There are four topologies found in `phenix-configs`: 
+There are four topologies found in `phenix-configs`:
 * `base` - baseline, unsecured wind site topology.
 * `hids` - wind site with Host-based Intrusion Detection System (HIDS); Wazuh.
 * `nids` - wind site with Network-based Intrusion Detection System (NIDS); Zeek.
@@ -89,8 +89,8 @@ image build` command. A Packer configuration is also included in the
 `phenix-images` directory and can be be built with ... wait for it ... Packer.
 phēnix comes with image configs for `miniccc`, `protonuke`, and `kali` by
 default and thus they can also be built with the `phenix image build` command.
-To build a VyOS image, clone the phēnix repo and build from these
-[instructions](https://github.com/sandia-minimega/phenix/tree/main/hack/vyos).
+To build a VyOS image, clone the phēnix images repo and build from these
+[instructions](https://github.com/sandialabs/sceptre-phenix-images/blob/main/scripts/vyos/README.md).
 
 > **NOTE:** the `hids`, `nids`, and `soar` experiments described above include
 > VM disk references to `wazuh-manager.qc2`, but we currently do not include a
