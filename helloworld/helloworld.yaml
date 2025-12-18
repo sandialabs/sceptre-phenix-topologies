@@ -2,8 +2,6 @@ apiVersion: phenix.sandia.gov/v1
 kind: Topology
 metadata:
   name: helloworld
-  created: ""
-  updated: ""
 spec:
   nodes:
   - general:
