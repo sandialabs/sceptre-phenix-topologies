@@ -2,8 +2,6 @@ apiVersion: phenix.sandia.gov/v1
 kind: Topology
 metadata:
   name: soap-hil
-  created: ""
-  updated: ""
 spec:
   nodes:
     - general:
