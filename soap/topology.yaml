@@ -1,7 +1,7 @@
 apiVersion: phenix.sandia.gov/v1
 kind: Topology
 metadata:
-  name: soap-hil
+  name: soap
 spec:
   nodes:
     - general:
@@ -48,7 +48,7 @@ spec:
       commands:
         - exec bash -c "/usr/local/bin/ignition/gwcmd --restore /phenix/ignition.gwbk -y >> /var/log/gwcmd-restore.log 2>&1; /usr/local/bin/ignition/gwcmd -r >> /var/log/gwcmd-restore.log 2>&1"
       injections:
-        - src: /phenix/topologies/soap-hil/injects/ignition/soap-hil_20240612.gwbk
+        - src: /phenix/topologies/soap/injects/ignition/soap-hil_20240612.gwbk
           dst: /phenix/ignition.gwbk
       type: VirtualMachine
     - general:
@@ -164,11 +164,11 @@ spec:
             type: ethernet
             vlan: MGMT
       injections:
-        - src: /phenix/topologies/soap-hil/injects/siren/s7-labjack.json
+        - src: /phenix/topologies/soap/injects/siren/s7-labjack.json
           dst: /siren/s7-labjack.json
-        - src: /phenix/topologies/soap-hil/injects/siren/siren.json
+        - src: /phenix/topologies/soap/injects/siren/siren.json
           dst: /siren/siren.json
-        - src: /phenix/topologies/soap-hil/injects/siren/siren-start.sh
+        - src: /phenix/topologies/soap/injects/siren/siren-start.sh
           dst: /etc/phenix/startup/99_siren-start.sh
       type: VirtualMachine
       advanced:
@@ -202,11 +202,11 @@ spec:
       commands:
         - exec bash -c "systemctl start filebeat"
       injections:
-        - src: /phenix/topologies/soap-hil/injects/netmonitor/filebeat_zeek_module.yml
+        - src: /phenix/topologies/soap/injects/netmonitor/filebeat_zeek_module.yml
           dst: /etc/filebeat/modules.d/zeek.yml
-        - src: /phenix/topologies/soap-hil/injects/netmonitor/filebeat.yml
+        - src: /phenix/topologies/soap/injects/netmonitor/filebeat.yml
           dst: /etc/filebeat/filebeat.yml
-        - src: /phenix/topologies/soap-hil/injects/netmonitor/zeek_node.cfg
+        - src: /phenix/topologies/soap/injects/netmonitor/zeek_node.cfg
           dst: /opt/zeek/etc/node.cfg
 
       type: VirtualMachine
@@ -219,7 +219,7 @@ spec:
         os_type: linux
         vcpus: 2
       injections:
-        - src: /phenix/topologies/soap-hil/injects/attack/
+        - src: /phenix/topologies/soap/injects/attack/
           dst: /phenix/attack/
       network:
         interfaces:
