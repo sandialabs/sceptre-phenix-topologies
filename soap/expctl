@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NAME=soap-hil
+NAME=soap
 
 PHENIX='docker exec -it phenix phenix'
 MM='docker exec -it minimega mm'

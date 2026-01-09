@@ -1,9 +1,9 @@
 apiVersion: phenix.sandia.gov/v2
 kind: Scenario
 metadata:
-  name: soap-hil
+  name: soap
   annotations:
-    topology: soap-hil
+    topology: soap
 spec:
   apps:
     - name: tap
@@ -27,7 +27,7 @@ spec:
             vlans:
               - EXP
     - name: sceptre
-      assetDir: /phenix/topologies/soap-hil
+      assetDir: /phenix/topologies/soap
       hosts:
         - hostname: ignition
           metadata:
@@ -35,7 +35,7 @@ spec:
               - ignition
         - hostname: power-provider
           metadata:
-            case: /phenix/topologies/soap-hil/injects/case300.py
+            case: /phenix/topologies/soap/injects/case300.py
             labels:
               - elk
             publish_endpoint: udp://*;239.0.0.1:40000
