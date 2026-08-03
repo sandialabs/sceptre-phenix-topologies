@@ -1,8 +1,9 @@
-Contributing to SCEPTRE Phenix Topologies
+# Contributing to SCEPTRE Phenix Topologies
 
 Thank you for your interest in contributing to SCEPTRE Phenix Topologies! We welcome contributions from everyone and appreciate your efforts to improve our project. This guide will help you understand how to contribute effectively.
 
-> Note: A failure to follow this guide will result in delay of PRs until there is compliance. 
+> [!NOTE]
+> A failure to follow this guide will result in delay of PRs until there is compliance.
 
 ## Table of Contents
 
@@ -11,6 +12,8 @@ Thank you for your interest in contributing to SCEPTRE Phenix Topologies! We wel
   - [Reporting Issues](#reporting-issues)
   - [Suggesting Enhancements](#suggesting-enhancements)
   - [Submitting Code](#submitting-code)
+- [Code Quality](#code-quality)
+- [Updating Actions](#updating-actions)
 - [License](#license)
 
 ## Getting Started
@@ -54,13 +57,13 @@ If you encounter a bug or have a feature request, please open an issue in the [I
 
 ### Suggesting Enhancements
 
-We welcome suggestions for improvements! Please open an issue to discuss your ideas before implementing them. 
+We welcome suggestions for improvements! Please open an issue to discuss your ideas before implementing them.
 
 ### Submitting Code
 
 1. **Create a Branch**: Create a new branch (on your fork of the repository) for your feature or bug fix using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) notation. The branch name should follow this format:
     ```bash
-    type/description
+    type-description
     ```
     Where `type` can be one of the following:
     - `feat`: A new feature
@@ -73,7 +76,7 @@ We welcome suggestions for improvements! Please open an issue to discuss your id
 
     Example:
     ```bash
-    git checkout -b feat/add-user-authentication
+    git checkout -b feat-add-user-authentication
     ```
 
 2. **Make Your Changes**: Implement your changes.
@@ -100,7 +103,7 @@ We welcome suggestions for improvements! Please open an issue to discuss your id
     ```bash
     git commit -m "feat(auth): add user authentication feature"
     ```
-    If you need to write a longer commit message, you can do so by running `git commit`. This will open your default text editor where you can write a detailed commit message. The first line should be a brief summary conforming to the format above, followed by a blank line, and then a more detailed explanation. 
+    If you need to write a longer commit message, you can do so by running `git commit`. This will open your default text editor where you can write a detailed commit message. The first line should be a brief summary conforming to the format above, followed by a blank line, and then a more detailed explanation.
 
     Example:
     ```bash
@@ -108,7 +111,6 @@ We welcome suggestions for improvements! Please open an issue to discuss your id
 
     This commit introduces a new authentication system that allows users to log in using their email and password. It also includes validation for user input and error handling.
     ```
-
 
 4. **Rebase Your Branch**: Before opening a pull request, ensure your branch is up to date with the main branch.
     * Fetch the latest changes from the upstream repository.
@@ -126,14 +128,43 @@ We welcome suggestions for improvements! Please open an issue to discuss your id
     In the interactive rebase interface, change the word `pick` to `squash` (or `s`) for all commits you want to combine into the first commit. After saving and closing the editor, you will be prompted to create a new commit message. Write a single, comprehensive commit message that summarizes all the changes.
 
 5. **Push to Your Fork**: If you had to rebase, you may need to force push your changes to your forked repository.
-    
+
     Example:
     ```bash
-    git push origin feat/add-user-authentication --force
+    git push origin feat-add-user-authentication --force
     ```
-    
+
 6. **Open a Pull Request**: Go to the original repository and open a [pull request](https://github.com/sandialabs/sceptre-phenix-topologies/pulls). Provide a clear description of your changes and reference any related issues.
 
-## License
-By contributing to this project, you agree that your contributions will be licensed under the [GNU](https://github.com/sandialabs/sceptre-phenix-topologies/blob/main/LICENSE) License.
+## Code Quality
 
+This project uses [prek](https://prek.j178.dev/) (a Rust drop-in alternative to `pre-commit`) to enforce repository-wide checks (shell linting, YAML linting, spell-checking, conventional commit validation, general hygiene, and GitHub Actions security linting with [zizmor](https://docs.zizmor.sh/)). The same checks run in CI via the [Lint workflow](workflows/lint.yml).
+
+Install the dev tooling and register git pre-commit hooks once:
+
+```bash
+make install-dev
+```
+
+Run every hook against every file manually:
+
+```bash
+make lint
+# or, equivalently
+prek run --all-files
+```
+
+## Updating Actions
+
+To update the pinned versions of Actions in the GitHub Workflows:
+
+1. Change the version comment, e.g. `# v4` to `# v7` to update an action from v4 to v7.
+1. Update the pinned hash:
+
+    ```bash
+    make update-actions
+    ```
+
+## License
+
+By contributing to this project, you agree that your contributions will be licensed under the [GNU](https://github.com/sandialabs/sceptre-phenix-topologies/blob/main/LICENSE) License.

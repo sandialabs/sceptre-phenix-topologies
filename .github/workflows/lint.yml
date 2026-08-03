@@ -1,0 +1,31 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prek:
+    name: prek
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install prek
+        run: pip install 'prek>=0.4.3'
+      - name: Validate prek config
+        run: prek validate-config prek.toml
+      - name: Run prek
+        # The branch check protects local protected branches, but must not fail
+        # after code lands on the upstream main branch.
+        env:
+          PREK_SKIP: ${{ (github.ref == 'refs/heads/main') && 'no-commit-to-branch' || '' }}
+        run: prek run --all-files --show-diff-on-failure
