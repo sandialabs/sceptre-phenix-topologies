@@ -44,8 +44,8 @@ tap () {
   ${MM} namespace "$NAME" tap create EXP bridge phenix ip "$TAP_HOST_IP" "$TAP_NAME"
 }
 
-deltap () { 
-  ${MM} namespace "$NAME" tap delete "$TAP_NAME" 2>&1 1> /dev/null
+deltap () {
+  ${MM} namespace "$NAME" tap delete "$TAP_NAME" > /dev/null 2>&1
 }
 
 usage() {
@@ -53,7 +53,7 @@ usage() {
   exit 1
 }
 
-case $1 in 
+case $1 in
   start)
     set -x
     stop

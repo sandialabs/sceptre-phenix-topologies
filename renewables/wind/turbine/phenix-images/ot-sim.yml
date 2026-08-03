@@ -126,4 +126,3 @@ spec:
             echo "\nBuilt with love using phenix image on $(date)\n\n" >> /etc/motd
     size: 10G
     variant: minbase
-

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAMESPACE=minimega
-NAME=test
+NAME="test"
 # used in order to do base image setup
 # this makes changes persistent in the .qc2 image
 SNAPSHOT=false
@@ -24,4 +24,3 @@ $MM vm config disk $DISK
 $MM vm config qemu-append -vga qxl
 $MM vm launch kvm $NAME
 $MM vm start $NAME
-

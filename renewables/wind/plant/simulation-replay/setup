@@ -16,7 +16,7 @@
 # `./setup refresh`                         remove all data currently stored in the elasticsearch container [Section 3]
 # `./setup clean`                           clean up build artifacts [Section 3]
 # `./setup remove_datafile_spaces`          prepare all data files by removing spaces in filenames [Section 4]
-# `./setup list_datasource_variables`       print all occurences of datasource variables in the provided dashboards [Section 4]
+# `./setup list_datasource_variables`       print all occurrences of datasource variables in the provided dashboards [Section 4]
 # `./setup convert_datasource_variables`    convert datasource variables in dashboards to mapping defined in csv [Section 4]
 # `./setup find_duplicate_dashboard_uids`   list any dashboards that may have duplicate UIDs [Section 4]
 # `./setup deduplicate_dashboard_uids`      attempt to deduplicate the dashboard UIDs with random numbers [Section 4]
@@ -143,7 +143,7 @@ function clean(){
     done
     ###########################################
     echo "> docker remove images"
-    
+
     docker rmi $DATA_MANAGER_IMAGE_NAME
 
     for IMAGE in $(docker image ls -a | awk '/dashboard-manager/ {print $3}')
@@ -179,7 +179,7 @@ function list_datasource_variables(){
     grep '"uid": "\${.*}"' grafana/dashboards/* | sort | uniq
 }
 
-# 
+#
 function convert_datasource_variables(){
     variable_mappings=$(cat ./manager/index_datasource_cleaning.csv | tail -n +2)
     for variable in $variable_mappings;
@@ -230,11 +230,11 @@ function deduplicate_dashboard_uids(){
                 echo "> changing dashboard UID[$dupd] to UID[$new_uid] in file $(echo $file | cut -f1 -d',')"
                 sed -i 's,'"$dupd"','"$new_uid"',g' "$(echo $file | cut -f1 -d',')"
             fi
-            
+
         done
         echo "==============="
     done
-    
+
     # cd ../../
 }
 

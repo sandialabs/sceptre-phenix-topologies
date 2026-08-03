@@ -1,12 +1,12 @@
 # HIL Topology HIL Wiring
-This document contains instructions for wiring up the hardware-in-the-loop of the Hardware-In-the-Loop Topology 
+This document contains instructions for wiring up the hardware-in-the-loop of the Hardware-In-the-Loop Topology
 
 
 T4 is a LabJack T4: ![](img/LabJackT4.jpg)
-S7 is a Siemens S7-1214 PLC with an Analog module attachement: ![](img/PLC-1.jpg)
+S7 is a Siemens S7-1214 PLC with an Analog module attachment: ![](img/PLC-1.jpg)
 RLY is a relay: ![The relay RLY](img/Relay.jpg)
 
-The relay does not have pin numbers/names, so the following convention is used: 
+The relay does not have pin numbers/names, so the following convention is used:
 The top of the relay is the top long side when held such that the lettering appears 'normal'.
 Then the pins on the left side are named L0,L1,L2, from bottom to top.
 The pins on the right side are are named R0,R1,R2, from top to bottom.

@@ -116,7 +116,7 @@ datasources:
 #     basicAuthUser:
 #     # <bool> Enables credential headers.
 #     withCredentials:
-#     # <bool> Toggles whether the data source is pre-selected
+#     # <bool> Toggles whether the data source is preselected
 #     # for new panels. You can set only one default
 #     # data source per organization.
 #     isDefault:

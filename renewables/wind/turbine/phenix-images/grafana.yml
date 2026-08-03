@@ -87,4 +87,3 @@ spec:
       ln -s /lib/systemd/system/elasticsearch.service /etc/systemd/system/multi-user.target.wants/elasticsearch.service
   size: 50G
   variant: minbase
-

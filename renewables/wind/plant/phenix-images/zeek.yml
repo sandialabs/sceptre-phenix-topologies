@@ -348,4 +348,3 @@ spec:
             echo "\nBuilt with phenix image on $(date)\n\n" >> /etc/motd
     size: 20G
     variant: minbase
-

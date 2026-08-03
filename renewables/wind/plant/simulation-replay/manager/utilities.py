@@ -111,7 +111,7 @@ def get_file_date_range(filepath:str) -> tuple[datetime,datetime]:
     """
     min_time = datetime.now().timestamp()
     max_time = datetime(1990,1,1).timestamp()
-    
+
     try:
         with open(filepath, 'r') as f:
             data = json.load(f)
@@ -121,7 +121,7 @@ def get_file_date_range(filepath:str) -> tuple[datetime,datetime]:
             except KeyError as error:
                 print('>>> ERROR: utilities.get_file_date_range:datafile does not contain usable data')
                 print(f'>>> current simulation: {filepath}')
-                return min_time,max_time #wont hurt returning these values since the comparisons in calling function use these default values as well
+                return min_time,max_time #won't hurt returning these values since the comparisons in calling function use these default values as well
 
             #loop each found data point in the datafile
             for datapoint in data['hits']['hits']:
@@ -147,8 +147,8 @@ def determine_date_range(datafiles:list[str]) -> tuple[datetime,datetime]:
     max_time = datetime(1990,1,1).timestamp()
 
     #loop through all files, look at the timestamp of each record in each file
-    #if timestamp>max_time, then thats our new max timestamp
-    #if timestamp<min_tim, then thats our new min timestamp
+    #if timestamp>max_time, then that's our new max timestamp
+    #if timestamp<min_tim, then that's our new min timestamp
     if USE_MULTIPROCESSING:
         with Pool(processes=MAX_MULTIPROCESSING_WORKERS) as pool:
             for file_min, file_max in pool.imap(get_file_date_range, datafiles):

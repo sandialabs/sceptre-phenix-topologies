@@ -65,7 +65,7 @@ oras pull ghcr.io/sandialabs/sceptre-phenix-images/bennu.qc2:latest
 
 
 ## [Optional] Hardware
-The Siemens PLC can be purchased in a kit from [PLCCable.com](https://plccable.com/). 
+The Siemens PLC can be purchased in a kit from [PLCCable.com](https://plccable.com/).
 [This kit](https://www.plccable.com/siemens-s7-1200-deluxe-plc-trainer-analog-no-software-ethernet-1215/) has the appropriate PLC and analog output modules. Please note that these instructions were made with the S7-1214 and the latest version of the kit uses an S7-1215, which may require some tweaking.  
 You can also purchase the Siemens TIA software for programming the PLC [here](https://www.plccable.com/siemens-6es7822-0aa08-0ya5-tia-portal-s7-v18-basic-plc-programming-software/)
 
@@ -91,7 +91,7 @@ The following steps will setup the hardware correctly:
 > _This step is not needed if your are running in virtual-only mode._
 
 After completing all other steps, enter the topology directory and run `./expctl hil-network`.
-This will setup minimega and the host so that the hardware can connect to the experiment.   
+This will setup minimega and the host so that the hardware can connect to the experiment.
 _Note that you will need to update the interface name in this script to match the interface on your physical host where the PLC is connected._
 
 ### Netmonitor VM with Zeek
@@ -101,7 +101,7 @@ To configure, edit the netmonitor configs to meet your environment:
 - `/phenix/topologies/soap/injects/netmonitor/zeek_node.cfg` may require that you edit the interface that zeek is listening on, this should be the interface that is the monitoring destination in the `monitor` app in the scenario (typically `eth1` in the VM)
 - `/phenix/topologies/soap/injects/netmonitor/filebeat.yml` will require elasticsearch and kibana node configuration for ingestion. Update the elastic and kibana IPs in this config file to point to your server. Due to the tap interface configured in the scenario file, the VMs should be able to reach elastic and kibana running outside of the experiment network, such as an instance running on the host machine  
 
-Note: The ```filebeat -e setup``` command sometimes stalls in the scorch run (below). If this is the case, cancel the scorch run and run it manually on the VM. 
+Note: The ```filebeat -e setup``` command sometimes stalls in the scorch run (below). If this is the case, cancel the scorch run and run it manually on the VM.
 
 ### `expctl`
 The `expctl` script provides helper functions for starting and stopping the experiment, as well as refreshing when modified and adding a network tap to the host.
@@ -191,6 +191,6 @@ Below is a diagram of the machines in the experiment:
 
 
 
-> This material is based upon work supported by the Department of Energy National Nuclear Security Administration (NNSA) Minority Serving Institution Partnership Program ([MSIPP](https://www.energy.gov/nnsa/nnsa-minority-serving-institution-partnership-program-msipp)) under award number 225221. 
- 
+> This material is based upon work supported by the Department of Energy National Nuclear Security Administration (NNSA) Minority Serving Institution Partnership Program ([MSIPP](https://www.energy.gov/nnsa/nnsa-minority-serving-institution-partnership-program-msipp)) under award number 225221.
+
 > This material was prepared as an account of work sponsored by an agency of the United States Government. Neither the United States Government nor any agency thereof, nor any of their employees, makes any warranty, express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately owned rights. Reference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States Government or any agency thereof. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States Government or any agency thereof."

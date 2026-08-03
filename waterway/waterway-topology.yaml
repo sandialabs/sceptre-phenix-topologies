@@ -1,7 +1,7 @@
 apiVersion: phenix.sandia.gov/v1
 kind: Topology
 metadata:
-  name: waterway 
+  name: waterway
   created: ""
   updated: ""
 spec:

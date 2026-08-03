@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /siren
+cd /siren || exit 1
 
 pkill pybennu-siren
 

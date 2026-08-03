@@ -1,10 +1,10 @@
 The helloworld topology models a simple 2 VM topology as an introductory example.  
 
-The model consists of the following configurations: 
+The model consists of the following configurations:
 - `helloworld.yaml` - This defines the network topology for the helloworld model.
 
 The model uses the following backing images:
-- `ubuntu.qc2` - available from [sceptre-phenix-images](https://github.com/sandialabs/sceptre-phenix-images) 
+- `ubuntu.qc2` - available from [sceptre-phenix-images](https://github.com/sandialabs/sceptre-phenix-images)
 
 To download `ubuntu.qc2`, install [ORAS](https://oras.land/docs/installation/), then run:
 

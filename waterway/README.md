@@ -2,7 +2,7 @@ The waterway topology models a notional SCADA system for a waterway lock system.
 
 ![waterway_network](waterway_network.png)
 
-The model consists of the following configurations: 
+The model consists of the following configurations:
 - `waterway-topology.yaml` - This defines the network topology for the waterway model.
 - `waterway-scenario.yaml` - This defines the scenario configuration including the sceptre app.
 

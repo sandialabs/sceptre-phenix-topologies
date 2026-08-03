@@ -85,4 +85,3 @@ spec:
           elastic:
             labels:
               turbine: "$1"
-

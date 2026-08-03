@@ -1,7 +1,7 @@
 apiVersion: phenix.sandia.gov/v2
 kind: Scenario
 metadata:
-  name: waterway 
+  name: waterway
   created: ""
   updated: ""
   annotations:
@@ -16,7 +16,7 @@ spec:
           type: historian
       - hostname: hmi
         metadata:
-          type: hmi           
+          type: hmi
       - hostname: simulink-provider
         metadata:
           gt: /phenix/topologies/waterway/injects/simulinkgt
@@ -44,7 +44,7 @@ spec:
       - hostname: rtu-1
         metadata:
           modbus:
-          - name: lowerwater 
+          - name: lowerwater
             type: water
           - name: lock
             type: water
@@ -56,16 +56,16 @@ spec:
             type: boat-sensor
           - name: locksensor
             type: boat-sensor
-          infrastructure: waterway 
+          infrastructure: waterway
           labels:
           - elk
           logic: lowergate.open = 1*((lowersensor.direction == 1) && (lowersensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 0*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 1*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 0*((lowersensor.direction == -1) && (lowersensor.active == 1)); lowervalve.open = 1*((lowersensor.direction == 1) && (lowersensor.active == 1) && (lock.height > lowerwater.height)) + 0*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= lowerwater.height)) + 1*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height > lowerwater.height)) + 0*((lowersensor.direction == -1) && (lowersensor.active == 1))
           provider: simulink-provider
-          type: fd-server    
+          type: fd-server
       - hostname: rtu-2
         metadata:
           modbus:
-          - name: upperwater 
+          - name: upperwater
             type: water
           - name: lock
             type: water
@@ -77,7 +77,7 @@ spec:
             type: boat-sensor
           - name: locksensor
             type: boat-sensor
-          infrastructure: waterway 
+          infrastructure: waterway
           labels:
           - elk
           logic: uppergate.open = 1*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)) + 0*((uppersensor.direction == 1) && (uppersensor.active == 1)) + 1*((uppersensor.direction == -1) && (uppersensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)) + 0*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)); uppervalve.open = 1*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height < upperwater.height)) + 0*((uppersensor.direction == 1) && (uppersensor.active == 1)) + 1*((uppersensor.direction == -1) && (uppersensor.active == 1) && (lock.height < upperwater.height)) + 0*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1))

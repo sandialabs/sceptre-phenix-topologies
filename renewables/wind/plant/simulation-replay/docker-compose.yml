@@ -64,14 +64,14 @@ services:
       - runner
     env_file:
       - ./.env
-      - ./.env_data_manager_version #seperate file created by ./setup to track our build versioning during dev, so our cleanup script will catch the intermediary builds
+      - ./.env_data_manager_version #separate file created by ./setup to track our build versioning during dev, so our cleanup script will catch the intermediary builds
     environment:
       - "ELASTICSEARCH_CONTAINER_NAME=${ELASTICSEARCH_CONTAINER_NAME:?err}"
       # - "WAIT_COMMAND=[ $(curl --write-out %{http_code} --silent --output /dev/null http://$INNER_ENV_ELASTICSEARCH_CONTAINER_NAME:9200/_cat/health?h=st) = 200 ]"
       # - "WAIT_COMMAND=[ $(curl --write-out %{http_code} --silent --output /dev/null http://${ELASTICSEARCH_CONTAINER_NAME:?err}:9200/_cat/health?h=st) = 200 ]"
       - "WAIT_START_CMD=python /opt/app/data_manager.py init"
       - "WAIT_SLEEP=2"
-      - "WAIT_LOOPS=60" #hopefully it won't take longer than 2*60 seconds, 
+      - "WAIT_LOOPS=60" #hopefully it won't take longer than 2*60 seconds,
     # command: python data_manager.py
 volumes:
   grafana-storage:

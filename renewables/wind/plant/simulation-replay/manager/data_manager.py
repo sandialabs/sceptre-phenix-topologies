@@ -8,7 +8,7 @@ Usage:
     data_manager.py [options] (-h | --help)
     data_manager.py [options] --version
 
-Options:             
+Options:
     -v, --verbose   Show more information like env vars and parsed arguments
 
 Details:
@@ -105,7 +105,7 @@ def datafile_replay(input_data:tuple[str,datetime], es:Elasticsearch=None) -> tu
     return filepath,0
 
 def data_replay(simulations:list[str]) -> None:
-    """Get data files for provided simulations and, depending on env variables, read data from file to elasticsearch either sequentially or using multiproc 
+    """Get data files for provided simulations and, depending on env variables, read data from file to elasticsearch either sequentially or using multiproc
 
     Args:
         simulations (list[str]): names of simulations, corresponding to the folder name containing the simulation data. passed from docopt args
@@ -118,7 +118,7 @@ def data_replay(simulations:list[str]) -> None:
     #get date ranges
     min_time, max_time = utilities.determine_date_range(simulation_datafiles)
     current_timestamp = datetime.now()
-    time_diff = current_timestamp - max_time #replays data with last datapoint occuring at now
+    time_diff = current_timestamp - max_time #replays data with last datapoint occurring at now
     print(f">> calculated time difference: {time_diff}")
 
     #build zipped list of tuples for sending to worker function

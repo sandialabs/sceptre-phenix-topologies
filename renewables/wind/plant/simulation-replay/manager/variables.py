@@ -5,7 +5,7 @@
 import os
 
 #NOTE: this datetime format follows the `date_time_no_millis` format from elasticsearch defined as:
-#   A formatter that combines a full date and time without millis, separated by a T: yyyy-MM-dd'T'HH:mm:ssZ. 
+#   A formatter that combines a full date and time without millis, separated by a T: yyyy-MM-dd'T'HH:mm:ssZ.
 # pay attention to the single quotes around the T separator but not the Z terminator
 MASTER_OUTPUT_DATETIME_FORMAT_STRING = "%Y-%m-%d'T'%H:%M:%SZ"
 # MASTER_OUTPUT_ELASTICSEARCH_DATE_FORMAT_STRING = "date_time_no_millis"
