@@ -1,0 +1,24 @@
+# Generated from GitHub commit history by directory (July 2026)
+
+# Default owners
+* @cmulk @mgaliar @GhostofGoes 
+
+# Repository files
+.editorconfig           @GhostofGoes
+.yamllint.yml           @GhostofGoes
+CODEOWNERS              @GhostofGoes
+LICENSE                 @cmulk @mgaliar
+Makefile                @GhostofGoes
+README.md               @cmulk @GhostofGoes @mgaliar
+prek.toml               @GhostofGoes
+
+# Repository configuration
+/.github/               @mgaliar @GhostofGoes
+/.github/workflows/     @GhostofGoes
+
+# Topologies
+/helloworld/            @mgaliar @GhostofGoes
+/renewables/            @activeshadow @glattercj
+/soap-legacy/           @cmulk
+/soap/                  @cmulk
+/waterway/              @mgaliar
