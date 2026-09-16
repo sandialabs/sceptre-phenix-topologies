@@ -74,7 +74,7 @@ spec:
         proto: static
         type: ethernet
         vlan: MGMT
-    type: Server
+    type: VirtualMachine
   - general:
       description: Human machine interface
       hostname: hmi
