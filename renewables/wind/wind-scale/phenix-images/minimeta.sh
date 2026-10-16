@@ -2,6 +2,9 @@
 set -eu
 
 test -x /usr/local/bin/minimega
+mkdir -p /usr/local/share
+dpkg-query -W > /usr/local/share/wind-scale-packages.txt
+sha256sum /usr/local/bin/minimega > /usr/local/share/wind-scale-minimega.sha256
 cat > /usr/local/bin/mm <<'EOF'
 #!/bin/sh
 exec /usr/local/bin/minimega -e "$@"

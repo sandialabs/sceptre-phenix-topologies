@@ -1,0 +1,34 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Topology
+metadata:
+  name: wind-scale
+spec:
+  nodes:
+    - type: VirtualMachine
+      general:
+        hostname: grafana
+      hardware:
+        os_type: linux
+        vcpus: 2
+        memory: 4096
+        drives:
+          - image: wind-scale-grafana.qc2
+      network:
+        interfaces:
+          - name: IF0
+            type: ethernet
+            proto: static
+            vlan: ot
+            address: 192.168.100.250
+            mask: 24
+      injections:
+        - src: /phenix/injects/wind-scale/grafana/elasticsearch.yml
+          dst: /etc/elasticsearch/elasticsearch.yml
+        - src: /phenix/injects/wind-scale/grafana/grafana.ini
+          dst: /etc/grafana/grafana.ini
+        - src: /phenix/injects/wind-scale/grafana/elastic-data-source.yml
+          dst: /etc/grafana/provisioning/datasources/elastic.yml
+        - src: /phenix/injects/wind-scale/grafana/dashboards.yml
+          dst: /etc/grafana/provisioning/dashboards/dashboards.yml
+        - src: /phenix/injects/wind-scale/grafana/turbine-dashboard.json
+          dst: /var/lib/grafana/dashboards/turbine-dashboard.json

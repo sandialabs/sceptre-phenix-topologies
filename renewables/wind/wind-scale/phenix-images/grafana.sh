@@ -14,7 +14,10 @@ echo 'deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stab
 echo 'deb [signed-by=/etc/apt/keyrings/elastic.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main' \
     > /etc/apt/sources.list.d/elastic.list
 apt-get update
-apt-get install -y grafana elasticsearch
+apt-get install -y grafana=12.3.0 elasticsearch=8.19.5
+apt-mark hold grafana elasticsearch
+mkdir -p /usr/local/share
+dpkg-query -W > /usr/local/share/wind-scale-packages.txt
 
 mkdir -p /etc/elasticsearch/jvm.options.d /etc/sysctl.d
 printf '%s\n' '-Xms1g' '-Xmx1g' > /etc/elasticsearch/jvm.options.d/heap.options

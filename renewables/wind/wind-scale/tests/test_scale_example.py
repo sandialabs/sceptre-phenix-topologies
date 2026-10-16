@@ -40,7 +40,7 @@ def test_example_generates_real_artifacts(tmp_path, monkeypatch, turbines, densi
     experiment = {
         "metadata": {"annotations": {"retained": "yes"}},
         "spec": {
-            "experimentName": "wind-turbine-scale",
+            "experimentName": "wind-scale",
             "baseDir": str(tmp_path / "experiment"),
             "scenario": scenario["spec"],
             "topology": topology["spec"],
@@ -88,7 +88,7 @@ def test_example_generates_real_artifacts(tmp_path, monkeypatch, turbines, densi
         assert sum(name.endswith("/node-red.json") for name in names) == turbines
     for node in nodes:
         injections = {item.dst: item.src for item in node.injections}
-        assert injections["/scale/shared/otsimfs.tgz"] == str(rootfs)
+        assert injections["/scale/rootfs/otsimfs.tgz"] == str(rootfs)
         assert injections["/scale/shared/weather.csv"] == str(weather)
         assert "/wind-configs.tgz" in injections
 
@@ -105,9 +105,10 @@ def test_example_generates_real_artifacts(tmp_path, monkeypatch, turbines, densi
     )
     for script in scripts:
         assert "namespace wind" in script
-        assert "vm config filesystem tar:/scale/shared/otsimfs.tgz" in script
+        assert "vm config filesystem tar:/scale/rootfs/otsimfs.tgz" in script
         assert "vm config volume /shared/ /scale/shared/" in script
-        assert "vm config net wind-turbine-scale,200 wtg-" in script
+        assert "/scale/shared/otsimfs.tgz" not in script
+        assert "vm config net wind-scale,200 wtg-" in script
         assert "vm config volume /etc/ot-sim/ /scale/wtg-" in script
     joined = "\n".join(scripts)
     for i in range(1, turbines + 1):
@@ -126,7 +127,7 @@ def test_example_generates_real_artifacts(tmp_path, monkeypatch, turbines, densi
 def test_example_provisioning_and_paths():
     topology = yaml.safe_load((EXAMPLE / "phenix-configs/topology.yml").read_text())
     for inject in topology["spec"]["nodes"][0]["injections"]:
-        source = inject["src"].removeprefix("/phenix/injects/wind-turbine/")
+        source = inject["src"].removeprefix("/phenix/injects/wind-scale/")
         assert (EXAMPLE / "phenix-injects" / source).is_file()
     grafana = EXAMPLE / "phenix-injects/grafana"
     datasource = yaml.safe_load((grafana / "elastic-data-source.yml").read_text())
@@ -142,6 +143,31 @@ def test_example_provisioning_and_paths():
     for node in flow:
         for targets in node.get("wires", []):
             assert set(targets) <= ids
+
+
+def test_legacy_example_is_separate():
+    legacy = EXAMPLE.parent / "turbine"
+    legacy_scenario = yaml.safe_load(
+        (legacy / "phenix-configs/scenario.yml").read_text()
+    )
+    scenario = yaml.safe_load((EXAMPLE / "phenix-configs/scenario.yml").read_text())
+    topology = yaml.safe_load((EXAMPLE / "phenix-configs/topology.yml").read_text())
+    assert legacy_scenario["spec"]["apps"][0]["name"] == "wind-turbine"
+    assert scenario["metadata"]["name"] == "wind-scale"
+    assert topology["metadata"]["name"] == "wind-scale"
+    assert scenario["spec"]["apps"][0]["name"] == "scale"
+    profile = scenario["spec"]["apps"][0]["metadata"]["profiles"][0]
+    assert profile["node_template"]["image"] == "wind-scale-minimeta.qc2"
+    assert profile["container_template"]["rootfs_source"] == (
+        "/phenix/images/wind-scale-otsimfs.tgz"
+    )
+    assert topology["spec"]["nodes"][0]["hardware"]["drives"][0]["image"] == (
+        "wind-scale-grafana.qc2"
+    )
+    assert all(
+        inject["src"].startswith("/phenix/injects/wind-scale/")
+        for inject in topology["spec"]["nodes"][0]["injections"]
+    )
 
 
 @pytest.fixture

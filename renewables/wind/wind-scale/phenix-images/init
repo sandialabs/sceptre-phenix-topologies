@@ -14,4 +14,5 @@ if [ -d /sys/class/net/veth1 ]; then
 fi
 
 /miniccc -family unix -parent /cc -logfile /miniccc.log &
+python3 /usr/local/lib/wind-scale/readiness.py /etc/ot-sim/config.xml --timeout 300
 exec ot-sim-cpu-module /etc/ot-sim/config.xml
