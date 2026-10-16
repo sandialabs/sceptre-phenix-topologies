@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+ip link set lo up
+for interface in /sys/class/net/veth*; do
+    [ -e "$interface" ] || continue
+    ip link set "${interface##*/}" up
+done
+
+# Only the main controller has an external and a private interface.
+if [ -d /sys/class/net/veth1 ]; then
+    sysctl -w net.ipv4.ip_forward=1
+    iptables -t nat -A POSTROUTING -o veth0 -j MASQUERADE
+fi
+
+/miniccc -family unix -parent /cc -logfile /miniccc.log &
+exec ot-sim-cpu-module /etc/ot-sim/config.xml
