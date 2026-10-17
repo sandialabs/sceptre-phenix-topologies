@@ -1,0 +1,54 @@
+{
+  "uid": "wind-turbine",
+  "title": "Wind turbine",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": false,
+  "timezone": "browser",
+  "refresh": "5s",
+  "time": {"from": "now-15m", "to": "now"},
+  "panels": [
+    {
+      "id": 1,
+      "title": "Power output (MW)",
+      "type": "timeseries",
+      "datasource": {"type": "elasticsearch", "uid": "wind-turbine"},
+      "gridPos": {"h": 10, "w": 24, "x": 0, "y": 0},
+      "fieldConfig": {"defaults": {"unit": "suffix: MW"}, "overrides": []},
+      "targets": [
+        {
+          "refId": "A",
+          "query": "field:\"turbine.mw-output\"",
+          "timeField": "@timestamp",
+          "metrics": [{"id": "1", "type": "avg", "field": "value"}],
+          "bucketAggs": [
+            {"id": "2", "type": "terms", "field": "labels.turbine", "settings": {"size": "10", "order": "asc", "orderBy": "_key", "min_doc_count": "1"}},
+            {"id": "3", "type": "date_histogram", "field": "@timestamp", "settings": {"interval": "auto", "min_doc_count": 0}}
+          ]
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}}
+    },
+    {
+      "id": 2,
+      "title": "Wind speed at 58.2 m (m/s)",
+      "type": "timeseries",
+      "datasource": {"type": "elasticsearch", "uid": "wind-turbine"},
+      "gridPos": {"h": 10, "w": 24, "x": 0, "y": 10},
+      "fieldConfig": {"defaults": {"unit": "velocityms"}, "overrides": []},
+      "targets": [
+        {
+          "refId": "A",
+          "query": "field:\"speed.high\" AND source:*-main-controller",
+          "timeField": "@timestamp",
+          "metrics": [{"id": "1", "type": "avg", "field": "value"}],
+          "bucketAggs": [
+            {"id": "2", "type": "terms", "field": "labels.turbine", "settings": {"size": "10", "order": "asc", "orderBy": "_key", "min_doc_count": "1"}},
+            {"id": "3", "type": "date_histogram", "field": "@timestamp", "settings": {"interval": "auto", "min_doc_count": 0}}
+          ]
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}}
+    }
+  ]
+}

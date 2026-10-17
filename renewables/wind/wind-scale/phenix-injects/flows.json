@@ -1,0 +1,48 @@
+[
+  {
+    "id": "wind-health",
+    "type": "tab",
+    "label": "Wind turbine health",
+    "disabled": false,
+    "info": "Optional HTTP health endpoint; turbine physics and control run in OT-sim, not Node-RED."
+  },
+  {
+    "id": "health-request",
+    "z": "wind-health",
+    "type": "http in",
+    "name": "GET /health",
+    "url": "/health",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 140,
+    "y": 100,
+    "wires": [["health-body"]]
+  },
+  {
+    "id": "health-body",
+    "z": "wind-health",
+    "type": "template",
+    "name": "Node-RED status",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "json",
+    "syntax": "plain",
+    "template": "{\"service\":\"wind-turbine-node-red\",\"status\":\"ok\"}",
+    "output": "json",
+    "x": 350,
+    "y": 100,
+    "wires": [["health-response"]]
+  },
+  {
+    "id": "health-response",
+    "z": "wind-health",
+    "type": "http response",
+    "name": "",
+    "statusCode": "200",
+    "headers": {"content-type": "application/json"},
+    "x": 570,
+    "y": 100,
+    "wires": []
+  }
+]

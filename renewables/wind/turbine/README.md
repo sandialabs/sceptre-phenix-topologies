@@ -1,5 +1,9 @@
 # Wind Turbine
 
+> Legacy reference: this example uses the deprecated standalone `wind-turbine`
+> app. Its topology and assets are preserved. For the maintained Scale-based
+> example, see [wind-scale](../wind-scale/README.md).
+
 ## Background
 
 This wind turbine model was created as part of the Department of Energy (DOE)
