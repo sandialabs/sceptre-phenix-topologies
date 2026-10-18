@@ -1,16 +1,20 @@
-# Generated from GitHub commit history by directory (July 2026)
+# Owners from git history, blame, and merges (October 2026).
+# The last matching pattern wins and replaces every earlier owner of a path.
+# Owners are listed primary first.
 
 # Default owners
-* @cmulk @mgaliar @GhostofGoes 
+*                       @cmulk @mgaliar @GhostofGoes
 
 # Repository files
-.editorconfig           @GhostofGoes
-.yamllint.yml           @GhostofGoes
-CODEOWNERS              @GhostofGoes
-LICENSE                 @cmulk @mgaliar
-Makefile                @GhostofGoes
-README.md               @cmulk @GhostofGoes @mgaliar
-prek.toml               @GhostofGoes
+/.editorconfig          @GhostofGoes
+# Git LFS rules for the renewables drivers and replay data.
+/.gitattributes         @activeshadow @GhostofGoes
+/.gitignore             @GhostofGoes
+/.yamllint.yml          @GhostofGoes
+/CODEOWNERS             @GhostofGoes
+/Makefile               @GhostofGoes
+/README.md              @GhostofGoes @cmulk @mgaliar
+/prek.toml              @GhostofGoes
 
 # Repository configuration
 /.github/               @mgaliar @GhostofGoes
@@ -19,6 +23,10 @@ prek.toml               @GhostofGoes
 # Topologies
 /helloworld/            @mgaliar @GhostofGoes
 /renewables/            @activeshadow @glattercj
-/soap-legacy/           @cmulk
+/soap-legacy/           @mgaliar @cmulk
 /soap/                  @cmulk
 /waterway/              @mgaliar
+
+# Sandia staff who approve license changes own every LICENSE file.
+# Unanchored and last on purpose, so it wins at any depth.
+LICENSE*                @cmulk @mgaliar @adamsrnmsu
