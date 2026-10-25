@@ -1,0 +1,73 @@
+{{ define "tableData" }}
+    {{ range . }}
+    <tr>
+       <td>{{ .Tag }}</td>
+       <td>{{ .Value }}</td>
+    </tr>
+    {{ end }}
+{{ end }}
+
+{{ define "main" }}
+<html>
+    <head>
+        <title>GROUND TRUTH</title>
+        <script>
+          function refresh() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("table").innerHTML = xhr.responseText;
+              }
+            }
+            xhr.open("GET", "/ajax", true);
+            xhr.send();
+          }
+          setInterval(refresh, 2000);
+        </script>
+    </head>
+    <body>
+        <section class="page">
+        <h1>GROUND TRUTH</h1>
+        <table id="table">
+            <tr>
+                <th>Tag</th>
+                <th>Value</th>
+            </tr>
+            {{ template "tableData" }}
+        </table>
+        </section>
+        <style>
+            body {
+                font-family: helvetica, arial;
+            }
+            h1 {
+                text-align:center;
+                position:relative;
+            }
+            .page {
+                width: 80%;
+                max-width: 500px;
+                margin: 40px auto;
+                padding: 80px;
+                background: #FFFCF6;
+                border: 1px solid #eee;
+                box-shadow: 0 10px 6px -6px #777;
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    </body>
+</html>
+{{ end }}
