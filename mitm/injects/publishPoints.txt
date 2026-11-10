@@ -1,0 +1,15 @@
+lowerwater.height
+lock.height
+upperwater.height
+lowergate.open
+lowervalve.open
+uppergate.open
+uppervalve.open
+boat.direction
+lowersensor.direction
+locksensor.direction
+uppersensor.direction
+boat.location
+lowersensor.active
+locksensor.active
+uppersensor.active
