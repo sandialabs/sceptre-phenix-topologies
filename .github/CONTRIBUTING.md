@@ -13,6 +13,7 @@ Thank you for your interest in contributing to SCEPTRE Phenix Topologies! We wel
   - [Suggesting Enhancements](#suggesting-enhancements)
   - [Submitting Code](#submitting-code)
 - [Code Quality](#code-quality)
+  - [Dev container](#dev-container)
 - [Updating Actions](#updating-actions)
 - [License](#license)
 
@@ -153,6 +154,21 @@ make lint
 # or, equivalently
 prek run --all-files
 ```
+
+### Dev container
+
+CI runs the hooks in the Linux dev container in [`.devcontainer/`](../.devcontainer/).
+Use the same container when a hook needs a tool that your machine does not have.
+Docker must be installed.
+
+```bash
+make container-lint                                  # all hooks, as CI runs them
+make container-run CMD='prek run --files <file>'     # hooks on some files
+make container-shell                                 # a shell in the container
+```
+
+The image comes from GHCR, so you do not have to build it. For Windows, VS Code,
+and the Dev Containers CLI, see [AGENTS.md](../AGENTS.md).
 
 ## Updating Actions
 
