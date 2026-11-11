@@ -13,6 +13,7 @@ Thank you for your interest in contributing to SCEPTRE Phenix Topologies! We wel
   - [Suggesting Enhancements](#suggesting-enhancements)
   - [Submitting Code](#submitting-code)
 - [Code Quality](#code-quality)
+  - [Dev container](#dev-container)
 - [Updating Actions](#updating-actions)
 - [License](#license)
 
@@ -140,7 +141,7 @@ We welcome suggestions for improvements! Please open an issue to discuss your id
 
 This project uses [prek](https://prek.j178.dev/) (a Rust drop-in alternative to `pre-commit`) to enforce repository-wide checks (shell linting, YAML linting, spell-checking, conventional commit validation, general hygiene, and GitHub Actions security linting with [zizmor](https://docs.zizmor.sh/)). The same checks run in CI via the [Lint workflow](workflows/lint.yml).
 
-Install the dev tooling and register git pre-commit hooks once:
+Register the git pre-commit hook once:
 
 ```bash
 make install-dev
@@ -150,9 +151,23 @@ Run every hook against every file manually:
 
 ```bash
 make lint
-# or, equivalently
-prek run --all-files
 ```
+
+### Dev container
+
+The hooks run in the Linux dev container in [`.devcontainer/`](../.devcontainer/),
+on your machine and in CI. You do not need prek on your machine, but Docker must
+be installed.
+
+```bash
+make container-run CMD='prek run --files <file>'     # hooks on some files
+make container-shell                                 # a shell in the container
+```
+
+The image comes from GHCR, so you do not have to build it.
+
+In VS Code, the Dev Containers extension also opens the repository in the
+container (command "Dev Containers: Reopen in Container").
 
 ## Updating Actions
 
