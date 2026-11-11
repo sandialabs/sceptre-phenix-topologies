@@ -6,3 +6,5 @@
 *.pwd filter=lfs diff=lfs merge=lfs -text
 
 weather.csv filter=lfs diff=lfs merge=lfs -text
+
+.devcontainer/** text eol=lf
