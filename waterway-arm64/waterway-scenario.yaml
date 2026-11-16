@@ -1,0 +1,58 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: waterway-arm64
+  annotations:
+    topology: waterway-arm64
+spec:
+  apps:
+  - name: sceptre
+    assetDir: /phenix/topologies/waterway-arm64
+    hosts:
+    - hostname: waterway-provider
+      metadata:
+        type: provider
+        simulator: Simulink
+        publish_endpoint: udp://*;239.0.0.1:40000
+        publish_points: /phenix/topologies/waterway-arm64/injects/publishPoints.txt
+        solver: /phenix/topologies/waterway-arm64/injects/ferrofire-simulinksolver
+    - hostname: rtu-1
+      metadata:
+        modbus:
+        - name: lowerwater
+          type: water
+        - name: lock
+          type: water
+        - name: lowergate
+          type: gate
+        - name: lowervalve
+          type: valve
+        - name: lowersensor
+          type: boat-sensor
+        - name: locksensor
+          type: boat-sensor
+        - name: boat
+          type: boat
+        infrastructure: waterway
+        logic: lowergate.open = 1*((lowersensor.direction == 1) && (lowersensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 0*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 1*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= lowerwater.height - 0.1) && (lock.height <= lowerwater.height + 0.1)) + 0*((lowersensor.direction == -1) && (lowersensor.active == 1)); lowervalve.open = 1*((lowersensor.direction == 1) && (lowersensor.active == 1) && (lock.height > lowerwater.height)) + 0*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= lowerwater.height)) + 1*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height > lowerwater.height)) + 0*((lowersensor.direction == -1) && (lowersensor.active == 1))
+        provider: waterway-provider
+        type: fd-server
+    - hostname: rtu-2
+      metadata:
+        modbus:
+        - name: upperwater
+          type: water
+        - name: lock
+          type: water
+        - name: uppergate
+          type: gate
+        - name: uppervalve
+          type: valve
+        - name: uppersensor
+          type: boat-sensor
+        - name: locksensor
+          type: boat-sensor
+        infrastructure: waterway
+        logic: uppergate.open = 1*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)) + 0*((uppersensor.direction == 1) && (uppersensor.active == 1)) + 1*((uppersensor.direction == -1) && (uppersensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)) + 0*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1)); uppervalve.open = 1*((locksensor.direction == 1) && (locksensor.active == 1) && (lock.height < upperwater.height)) + 0*((uppersensor.direction == 1) && (uppersensor.active == 1)) + 1*((uppersensor.direction == -1) && (uppersensor.active == 1) && (lock.height < upperwater.height)) + 0*((locksensor.direction == -1) && (locksensor.active == 1) && (lock.height >= upperwater.height - 0.1) && (lock.height <= upperwater.height + 0.1))
+        provider: waterway-provider
+        type: fd-server

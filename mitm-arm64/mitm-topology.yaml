@@ -1,0 +1,247 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Topology
+metadata:
+  name: mitm-arm64
+spec:
+  nodes:
+  - general:
+      hostname: simulink-provider
+      description: SCEPTRE Simulink provider driving ferrofire (Rust, not MATLAB/Simulink)
+    hardware:
+      cpu: host
+      memory: 2048
+      vcpus: 2
+      os_type: linux
+      drives:
+      - image: bennu-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: mgmt
+        address: 172.16.1.2
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+        gateway: 172.16.1.1
+    type: VirtualMachine
+  - general:
+      hostname: opc
+      description: OPC UA gateway
+    hardware:
+      cpu: host
+      memory: 1024
+      vcpus: 2
+      os_type: linux
+      drives:
+      - image: opc-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: IF0
+        address: 10.1.2.50
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: SCADA
+        gateway: 10.1.2.1
+      - name: mgmt
+        address: 172.16.2.50
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+    injections:
+    - src: /phenix/topologies/mitm-arm64/injects/opc_gateway.json
+      dst: /etc/sceptre/opc_gateway.json
+      description: opc_gateway.json
+      permissions: '0644'
+  - general:
+      hostname: rtu-1
+      description: SCEPTRE RTU
+    hardware:
+      cpu: host
+      memory: 1024
+      vcpus: 2
+      os_type: linux
+      drives:
+      - image: bennu-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: IF0
+        address: 10.1.1.101
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: ICS
+        gateway: 10.1.1.1
+      - name: mgmt
+        address: 172.16.1.101
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: rtu-2
+      description: SCEPTRE RTU
+    hardware:
+      cpu: host
+      memory: 1024
+      vcpus: 2
+      os_type: linux
+      drives:
+      - image: bennu-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: IF0
+        address: 10.1.1.102
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: ICS
+        gateway: 10.1.1.1
+      - name: mgmt
+        address: 172.16.1.102
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: router
+      description: Router
+    hardware:
+      cpu: host
+      memory: 1024
+      vcpus: 2
+      os_type: minirouter
+      drives:
+      - image: minirouter-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: IF0
+        address: 10.1.2.1
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: SCADA
+      - name: IF1
+        address: 10.1.1.1
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: ICS
+      - name: mgmt
+        address: 172.16.1.1
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: Router
+  - general:
+      hostname: kali
+      description: Kali attacker (ettercap MITM)
+    hardware:
+      cpu: host
+      memory: 4096
+      vcpus: 2
+      os_type: linux
+      drives:
+      - image: kali-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: IF0
+        address: 10.1.1.200
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: ICS
+        gateway: 10.1.1.1
+      - name: mgmt
+        address: 172.16.1.200
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+    type: VirtualMachine
+  - general:
+      hostname: blue
+      description: 'Blue team: Kali Purple + Malcolm (eth0 mgmt, eth1 capture NIC fed by OVS mirror)'
+    hardware:
+      cpu: host
+      memory: 24576
+      vcpus: 8
+      os_type: linux
+      drives:
+      - image: kali-purple-arm64.qc2
+        interface: virtio
+        inject_partition: 2
+    advanced:
+      machine: virt
+      vga: virtio
+      qemu-append: -bios /usr/share/AAVMF/AAVMF_CODE.fd -device virtio-gpu-pci -device usb-kbd,bus=xhci.0
+    overrides:
+      bus=usb-bus.0: bus=xhci.0
+    network:
+      interfaces:
+      - name: mgmt
+        address: 172.16.1.250
+        mask: 16
+        proto: static
+        type: ethernet
+        vlan: MGMT
+      - name: capture
+        address: 192.0.2.250
+        mask: 24
+        proto: static
+        type: ethernet
+        vlan: MIRROR
+    type: VirtualMachine
