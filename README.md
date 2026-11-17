@@ -35,3 +35,5 @@ phenix experiment start hello-world
 - [soap](./soap) - Complete example topology demonstrating the Hardware-In-the-Loop (HIL) capabilities of SCEPTRE.
 - [soap-legacy](./soap-legacy) - The SOAP topology models a notional SCADA system for a 300 bus microgrid system.
 - [waterway](./waterway) - The waterway topology models a notional SCADA system for a waterway lock system.
+- [waterway-arm64](./waterway-arm64) - `waterway` for arm64 hosts, with Linux replacements for the Windows SCADA software.
+- [mitm-arm64](./mitm-arm64) - arm64 counterpart of the ARP man-in-the-middle topology (`mitm`).

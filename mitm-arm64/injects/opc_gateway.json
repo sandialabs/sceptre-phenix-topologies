@@ -1,0 +1,182 @@
+{
+  "opc_endpoint": "opc.tcp://0.0.0.0:4840",
+  "poll_interval": 1.0,
+  "scale": [
+    0,
+    1000
+  ],
+  "rtus": [
+    {
+      "name": "rtu-1",
+      "host": "10.1.1.101",
+      "port": 502,
+      "unit": 1,
+      "points": [
+        {
+          "node": "rtu-1.boat.direction",
+          "read": {
+            "type": "input-register",
+            "address": 30009
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.boat.location",
+          "read": {
+            "type": "input-register",
+            "address": 30008
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.lock.height",
+          "read": {
+            "type": "input-register",
+            "address": 30001
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.locksensor.active",
+          "read": {
+            "type": "input-register",
+            "address": 30006
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.locksensor.direction",
+          "read": {
+            "type": "input-register",
+            "address": 30007
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.lowergate.open",
+          "read": {
+            "type": "input-register",
+            "address": 30002
+          },
+          "write": {
+            "type": "holding-register",
+            "address": 40000
+          }
+        },
+        {
+          "node": "rtu-1.lowersensor.active",
+          "read": {
+            "type": "input-register",
+            "address": 30004
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.lowersensor.direction",
+          "read": {
+            "type": "input-register",
+            "address": 30005
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-1.lowervalve.open",
+          "read": {
+            "type": "input-register",
+            "address": 30003
+          },
+          "write": {
+            "type": "holding-register",
+            "address": 40001
+          }
+        },
+        {
+          "node": "rtu-1.lowerwater.height",
+          "read": {
+            "type": "input-register",
+            "address": 30000
+          },
+          "write": null
+        }
+      ]
+    },
+    {
+      "name": "rtu-2",
+      "host": "10.1.1.102",
+      "port": 502,
+      "unit": 1,
+      "points": [
+        {
+          "node": "rtu-2.lock.height",
+          "read": {
+            "type": "input-register",
+            "address": 30001
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-2.locksensor.active",
+          "read": {
+            "type": "input-register",
+            "address": 30006
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-2.locksensor.direction",
+          "read": {
+            "type": "input-register",
+            "address": 30007
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-2.uppergate.open",
+          "read": {
+            "type": "input-register",
+            "address": 30002
+          },
+          "write": {
+            "type": "holding-register",
+            "address": 40000
+          }
+        },
+        {
+          "node": "rtu-2.uppersensor.active",
+          "read": {
+            "type": "input-register",
+            "address": 30004
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-2.uppersensor.direction",
+          "read": {
+            "type": "input-register",
+            "address": 30005
+          },
+          "write": null
+        },
+        {
+          "node": "rtu-2.uppervalve.open",
+          "read": {
+            "type": "input-register",
+            "address": 30003
+          },
+          "write": {
+            "type": "holding-register",
+            "address": 40001
+          }
+        },
+        {
+          "node": "rtu-2.upperwater.height",
+          "read": {
+            "type": "input-register",
+            "address": 30000
+          },
+          "write": null
+        }
+      ]
+    }
+  ]
+}
