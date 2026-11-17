@@ -1,0 +1,10 @@
+#!/bin/sh
+# Git pre-commit hook that runs the prek hooks in the dev container.
+# `make install-dev` copies this file into the git hooks directory.
+
+# In a linked worktree, git sets GIT_DIR, and then git cannot find the work tree.
+unset GIT_DIR
+run="$(git rev-parse --show-toplevel)/.devcontainer/run.sh"
+# A branch without the dev container has no hooks to run.
+[ -x "$run" ] || exit 0
+exec "$run" prek run
