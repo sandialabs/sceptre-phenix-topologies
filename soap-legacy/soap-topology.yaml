@@ -137,7 +137,7 @@ spec:
         vlan: MGMT
     type: VirtualMachine
   - general:
-      hostname: controlthings_elk
+      hostname: controlthings-elk
     hardware:
       drives:
       - image: controlthingsplatform.qc2

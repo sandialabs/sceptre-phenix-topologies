@@ -58,6 +58,6 @@ spec:
             - exp
             rtu-4:
             - exp
-            controlthings_elk:
+            controlthings-elk:
             - exp
         testReachability: full # can be off, sample, or full
