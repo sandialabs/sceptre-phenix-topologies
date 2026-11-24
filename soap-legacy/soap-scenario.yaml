@@ -13,7 +13,7 @@ spec:
           mirrorBridge: phenix
           mirrorVLAN: MIRROR
       hosts:
-      - hostname: controlthings_elk
+      - hostname: controlthings-elk
         metadata:
           interface: mirror
           vlans:
